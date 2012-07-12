@@ -15,4 +15,4 @@ module ActionView
   end
 end
 
-ActionView::Template.register_template_handler :xlsx, ActionView::Template::Handlers::AxlsxBuilder
+ActionView::Template.register_template_handler :axlsx, ActionView::Template::Handlers::AxlsxBuilder
