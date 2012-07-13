@@ -7,9 +7,15 @@ module ActionView
       end
       
       def self.call(template)
-        "axlsx_package = Axlsx::Package.new;\n" + 
+        "axlsx_package = Axlsx::Package.new(:author => #{axlsx_author.inspect});\n" + 
           template.source +
           ";\naxlsx_package.to_stream.string;"
+      end
+
+      private
+
+      def self.axlsx_author
+        Rails.application.config.respond_to?(:axlsx_author) ? Rails.application.config.axlsx_author : nil
       end
     end
   end
