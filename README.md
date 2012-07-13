@@ -3,7 +3,8 @@ Axlsx-Rails &mdash; Axlsx templates for Rails views
 
 ##Installation
 --------------
-Not yet published. But you can download it and install it.
+Until published:
+	gem 'axlsx_rails', :git => "https://github.com/straydogstudio/axlsx_rails.git"
 
 ##Requirements
 --------------
