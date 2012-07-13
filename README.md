@@ -1,4 +1,5 @@
-= Axlsx-Rails &mdash; Axlsx templates for Rails views
+Axlsx-Rails &mdash; Axlsx templates for Rails views
+==============================================
 
 # Installation
 ---------
