@@ -7,9 +7,9 @@ module ActionView
       end
       
       def self.call(template)
-        "axlsx_package = Axlsx::Package.new(:author => #{axlsx_author.inspect});\n" + 
+        "xlsx_package = Axlsx::Package.new(:author => #{axlsx_author.inspect});\n" + 
           template.source +
-          ";\naxlsx_package.to_stream.string;"
+          ";\nxlsx_package.to_stream.string;"
       end
 
       private

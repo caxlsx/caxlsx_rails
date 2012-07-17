@@ -7,7 +7,7 @@ describe 'Axlsx template handler' do
   let( :handler ) { AB.new }
 
   let( :template ) do
-    VT.new("wb = axlsx_package.workbook;\nwb.add_worksheet(name: 'Test') do |sheet|\n\tsheet.add_row ['one', 'two', 'three']\n\tsheet.add_row ['a', 'b', 'c']\nend\n")
+    VT.new("wb = xlsx_package.workbook;\nwb.add_worksheet(name: 'Test') do |sheet|\n\tsheet.add_row ['one', 'two', 'three']\n\tsheet.add_row ['a', 'b', 'c']\nend\n")
   end
 
   context "Rails #{Rails.version}" do
@@ -21,9 +21,9 @@ describe 'Axlsx template handler' do
     end
 
     it "compiles to an excel spreadsheet" do
-      axlsx_package, wb = nil
+      xlsx_package, wb = nil
       eval( AB.call template )
-      axlsx_package.serialize('/tmp/axlsx_temp.xlsx')
+      xlsx_package.serialize('/tmp/axlsx_temp.xlsx')
       expect{ wb = Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
       wb.cell(2,3).should == 'c'
     end

@@ -29,9 +29,9 @@ or call render directly:
 
 ###Template
 
-Use the .xlsx.axlsx extension (sorry if your lysdexic!) In the template, use axlsx_package variable, which is set with Axlsx::Package.new:
+Use the .xlsx.axlsx extension (sorry if your lysdexic!) In the template, use xlsx_package variable, which is set with Axlsx::Package.new:
 
-	wb = axlsx_package.workbook
+	wb = xlsx_package.workbook
 	style_shout = wb.styles.add_style sz: 16, b: true, alignment: { horizontal: :center }
 	wb.add_worksheet(name: "Foobar") do |sheet|
 	  sheet.add_row ['Bad', 'spellers', 'of', 'the', 'world', '...']
@@ -39,6 +39,10 @@ Use the .xlsx.axlsx extension (sorry if your lysdexic!) In the template, use axl
 	  sheet.merge_cells("B1:B6")
 	  sheet["B1"].style = style_shout
 	end
+
+If you use [acts_as_xlsx](https://github.com/randym/acts_as_xlsx), configure the active record normally, but specify the package in the template:
+
+	User.to_xlsx package: xlsx_package, (other options)
 
 To set the author attribute upon Axlsx::Package.new, insert the following in application.rb:
 
