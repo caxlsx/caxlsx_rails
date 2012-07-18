@@ -2,16 +2,15 @@ Axlsx-Rails &mdash; Axlsx templates for Rails views
 ===================================================
 
 ##Installation
---------------
-Until published:
-	gem 'axlsx_rails', :git => "https://github.com/straydogstudio/axlsx_rails.git"
+
+In your Gemfile:
+	gem 'axlsx_rails'
 
 ##Requirements
---------------
+
 * Rails 3.1, but it has only been tested on 3.2.6
 
 ##Usage
--------
 
 Axlsx-Rails provides a renderer and a template handler. It adds the :xlsx format and parses .xlsx.axslx templates.
 
@@ -54,15 +53,15 @@ To set the author attribute upon Axlsx::Package.new, insert the following in app
 Partials are currently untested.
 
 ##Dependencies
---------------
+
 - [Axlsx](https://github.com/randym/axlsx)
 
 ##Authors
----------
+
 * [Noel Peden](https://github.com/straydogstudio)
 
 ##Change log
-------------
+
 - **July 12, 2012**: 0.0.1 release
 * Initial posting.
 * It works, but there are no tests! Bad programmer!
