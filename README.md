@@ -25,7 +25,7 @@ You can either use the typical format:
 
 or call render directly:
 
-	render "foobar", filename: "the_latest_foobar", disposition: 'inline'
+	render xlsx: "foobar", filename: "the_latest_foobar", disposition: 'inline'
 
 ###Template
 
