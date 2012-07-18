@@ -4,6 +4,7 @@ Axlsx-Rails &mdash; Axlsx templates for Rails views
 ##Installation
 
 In your Gemfile:
+
 	gem 'axlsx_rails'
 
 ##Requirements
@@ -61,6 +62,10 @@ Partials are currently untested.
 * [Noel Peden](https://github.com/straydogstudio)
 
 ##Change log
+
+- **July 17, 2012**: 0.1.0 release
+* Tests completed
+* Acts_as_xlsx tested, example in docs
 
 - **July 12, 2012**: 0.0.1 release
 * Initial posting.
