@@ -1,6 +1,8 @@
 Axlsx-Rails &mdash; Axlsx templates for Rails views
 ===================================================
 
+[![Build Status](https://secure.travis-ci.org/straydogstudio/axlsx_rails.png?branch=master)](http://travis-ci.org/randym/axlsx_rails)
+
 ##Installation
 
 In your Gemfile:
