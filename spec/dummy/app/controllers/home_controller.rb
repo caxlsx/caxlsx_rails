@@ -8,7 +8,7 @@
 #---
 class HomeController < ApplicationController
   def another
-    render "index", :filename => "filename_test.xlsx"
+    render :xlsx => "index", :filename => "filename_test.xlsx"
   end
 
   def index

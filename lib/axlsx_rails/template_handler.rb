@@ -5,9 +5,9 @@ module ActionView
       def default_format
         Mime::XLSX
       end
-      
+
       def self.call(template)
-        "xlsx_package = Axlsx::Package.new(:author => #{axlsx_author.inspect});\n" + 
+        "xlsx_package = Axlsx::Package.new(:author => #{axlsx_author.inspect});\n" +
           template.source +
           ";\nxlsx_package.to_stream.string;"
       end
