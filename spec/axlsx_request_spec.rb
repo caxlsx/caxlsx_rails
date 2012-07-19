@@ -8,7 +8,7 @@ describe 'Axlsx request', :type => :request do
 
   it "downloads an excel file from default respond_to" do
     visit '/home.xlsx'
-    page.response_headers['Content-Type'].should == Mime::XLSX
+    page.response_headers['Content-Type'].should == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; charset=utf-8"
     File.open('/tmp/axlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
     wb = nil
     expect{ wb = Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
