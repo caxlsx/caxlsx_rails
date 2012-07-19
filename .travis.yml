@@ -5,6 +5,7 @@ notifications:
   email:
     recipients:
       - digital.ipseity@gmail.com
+      - noel@peden.biz
     on_success: always
 env:
   - DB=sqlite

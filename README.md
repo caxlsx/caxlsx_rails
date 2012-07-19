@@ -1,7 +1,7 @@
 Axlsx-Rails &mdash; Axlsx templates for Rails views
 ===================================================
 
-[![Build Status](https://secure.travis-ci.org/straydogstudio/axlsx_rails.png?branch=master)](http://travis-ci.org/randym/axlsx_rails)
+[![Build Status](https://secure.travis-ci.org/straydogstudio/axlsx_rails.png?branch=master)](http://travis-ci.org/straydogstudio/axlsx_rails)
 
 ##Installation
 
@@ -65,10 +65,14 @@ Partials are currently untested.
 
 ##Change log
 
+- **July 19, 2012**: 0.1.1 release
+	- Travis-ci added (thanks randym)
+	- render statements and filename tests fixes (thanks engwan)
+
 - **July 17, 2012**: 0.1.0 release
-* Tests completed
-* Acts_as_xlsx tested, example in docs
+	- Tests completed
+	- Acts_as_xlsx tested, example in docs
 
 - **July 12, 2012**: 0.0.1 release
-* Initial posting.
-* It works, but there are no tests! Bad programmer!
+	- Initial posting.
+	- It works, but there are no tests! Bad programmer!
