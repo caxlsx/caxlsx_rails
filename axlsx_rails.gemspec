@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email       = ["noel@peden.biz"]
   s.homepage    = "https://github.com/straydogstudio/axlsx_rails"
   s.summary     = "A simple rails plugin to provide an xlsx renderer using the axlsx gem."
-  s.description = "This plugin provides a Rails 3 renderer and template handler for xlsx using the axlsx gem."
+  s.description = "This plugin provides a Rails 3 renderer and template handler for xlsx using the axlsx gem. Take all that code out of the controller, and organize it into view files, including partials!"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + Dir['[A-Z]*'] - ['Guardfile']
   s.test_files = Dir["spec/**/*"] + ['Guardfile']
