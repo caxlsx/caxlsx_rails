@@ -27,4 +27,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "acts_as_xlsx"
   s.add_development_dependency "roo"
   s.add_development_dependency "sqlite3"
+  s.add_development_dependency "growl"
 end

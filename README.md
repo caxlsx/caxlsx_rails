@@ -53,7 +53,20 @@ To set the author attribute upon Axlsx::Package.new, insert the following in app
 > NOTE: We really ought to allow the author to be set in each call
 
 ####Partials
-Partials are currently untested.
+
+Partials work as expected:
+
+	wb = xlsx_package.workbook
+	render :partial => 'cover_sheet', :locals => {:wb => wb}
+	wb.add_worksheet(name: "Content") do |sheet|
+	  sheet.add_row ['Content']
+	end
+
+With the partial simply using the passed variables:
+
+	wb.add_worksheet(name: "Cover Sheet") do |sheet|
+		sheet.add_row ['Cover', 'Sheet']
+	end
 
 ##Dependencies
 
@@ -64,6 +77,9 @@ Partials are currently untested.
 * [Noel Peden](https://github.com/straydogstudio)
 
 ##Change log
+
+- **July 25, 2012**: 0.1.2 release
+	- Partials tested
 
 - **July 19, 2012**: 0.1.1 release
 	- Travis-ci added (thanks [randym](https://github.com/randym))

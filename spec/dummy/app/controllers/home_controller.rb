@@ -7,14 +7,17 @@
 # Visit http://www.pragmaticprogrammer.com/titles/jvrails for more book information.
 #---
 class HomeController < ApplicationController
-  def another
-    render :xlsx => "index", :filename => "filename_test.xlsx"
-  end
-
   def index
     respond_to do |format|
       format.html
       format.xlsx
     end
+  end
+
+  def another
+    render :xlsx => "index", :filename => "filename_test.xlsx"
+  end
+
+  def withpartial
   end
 end

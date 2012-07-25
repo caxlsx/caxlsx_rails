@@ -38,4 +38,14 @@ describe 'Axlsx request', :type => :request do
     wb.cell(3,2).should == 'Bugs'
   end
 
+  it "downloads an excel file with partial" do
+    visit '/withpartial.xlsx'
+    page.response_headers['Content-Type'].should == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; charset=utf-8"
+    File.open('/tmp/axlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
+    wb = nil
+    expect{ wb = Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
+    wb.cell(1,1,wb.sheets[0]).should == 'Cover'
+    wb.cell(2,1,wb.sheets[1]).should == "Untie!"
+  end
+
 end

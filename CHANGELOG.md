@@ -1,5 +1,8 @@
 # Change log
 
+- **July 25, 2012**: 0.1.2 release
+	- Partials tested
+
 - **July 19, 2012**: 0.1.1 release
 	- Travis-ci added (thanks [randym](https://github.com/randym))
 	- render statements and filename tests fixes (thanks [engwan](https://github.com/engwan))
