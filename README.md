@@ -7,7 +7,9 @@ Axlsx-Rails &mdash; Axlsx templates for Rails views
 
 In your Gemfile:
 
-	gem 'axlsx_rails'
+```ruby
+gem 'axlsx_rails'
+```
 
 ##Requirements
 
@@ -21,34 +23,44 @@ Axlsx-Rails provides a renderer and a template handler. It adds the :xlsx format
 
 You can either use the typical format:
 
-	respond_to do |format|
-		format.xlsx
-	end
+```ruby
+respond_to do |format|
+  format.xlsx
+end
+```
 
 or call render directly:
 
-	render xlsx: "foobar", filename: "the_latest_foobar", disposition: 'inline'
+```ruby
+render xlsx: "foobar", filename: "the_latest_foobar", disposition: 'inline'
+```
 
 ###Template
 
 Use the .xlsx.axlsx extension (sorry if your lysdexic!) In the template, use xlsx_package variable, which is set with Axlsx::Package.new:
 
-	wb = xlsx_package.workbook
-	style_shout = wb.styles.add_style sz: 16, b: true, alignment: { horizontal: :center }
-	wb.add_worksheet(name: "Foobar") do |sheet|
-	  sheet.add_row ['Bad', 'spellers', 'of', 'the', 'world', '...']
-	  sheet.add_row ['Untie!']
-	  sheet.merge_cells("B1:B6")
-	  sheet["B1"].style = style_shout
-	end
+```ruby
+wb = xlsx_package.workbook
+style_shout = wb.styles.add_style sz: 16, b: true, alignment: { horizontal: :center }
+wb.add_worksheet(name: "Foobar") do |sheet|
+  sheet.add_row ['Bad', 'spellers', 'of', 'the', 'world', '...']
+  sheet.add_row ['Untie!']
+  sheet.merge_cells("B1:B6")
+  sheet["B1"].style = style_shout
+end
+```
 
 If you use [acts_as_xlsx](https://github.com/randym/acts_as_xlsx), configure the active record normally, but specify the package in the template:
 
-	User.to_xlsx package: xlsx_package, (other options)
+```ruby
+User.to_xlsx package: xlsx_package, (other options)
+```
 
 To set the author attribute upon Axlsx::Package.new, insert the following in application.rb:
 
-	config.axlsx_author = "Elmer Fudd"
+```ruby
+config.axlsx_author = "Elmer Fudd"
+```
 
 > NOTE: We really ought to allow the author to be set in each call
 
@@ -56,17 +68,21 @@ To set the author attribute upon Axlsx::Package.new, insert the following in app
 
 Partials work as expected:
 
-	wb = xlsx_package.workbook
-	render :partial => 'cover_sheet', :locals => {:wb => wb}
-	wb.add_worksheet(name: "Content") do |sheet|
-	  sheet.add_row ['Content']
-	end
+```ruby
+wb = xlsx_package.workbook
+render :partial => 'cover_sheet', :locals => {:wb => wb}
+wb.add_worksheet(name: "Content") do |sheet|
+  sheet.add_row ['Content']
+end
+```
 
 With the partial simply using the passed variables:
 
-	wb.add_worksheet(name: "Cover Sheet") do |sheet|
-		sheet.add_row ['Cover', 'Sheet']
-	end
+```ruby
+wb.add_worksheet(name: "Cover Sheet") do |sheet|
+  sheet.add_row ['Cover', 'Sheet']
+end
+```
 
 ##Dependencies
 
