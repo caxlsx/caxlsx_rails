@@ -4,7 +4,7 @@ unless defined? Mime::XLSX
 end
 
 ActionController::Renderers.add :xlsx do |filename, options|
-  options[:template] = filename
+  options[:template] ||= filename
 
   disposition   = options.delete(:disposition) || 'attachment'
   download_name = options.delete(:filename) || "#{filename}.xlsx"
