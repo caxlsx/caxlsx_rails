@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email       = ["noel@peden.biz"]
   s.homepage    = "https://github.com/straydogstudio/axlsx_rails"
   s.summary     = "A simple rails plugin to provide an xlsx renderer using the axlsx gem."
-  s.description = "Axlsx_Rails provides an Axlsx renderer so you can move all your spreadsheet code from your controller into view files. Partials are supported so you can organize any code into reusable chunks (e.g. cover sheets, common styling, etc.) Use acts_as_xlsx? Place the to_xlsx call in a view and add ':package => xlsx_package' to the parameter list. Now you can keep your controllers thin!"
+  s.description = "Axlsx_Rails provides an Axlsx renderer so you can move all your spreadsheet code from your controller into view files. Partials are supported so you can organize any code into reusable chunks (e.g. cover sheets, common styling, etc.) You can use it with acts_as_xls_xlsx, placing the to_xlsx call in a view and adding ':package => xlsx_package' to the parameter list. Now you can keep your controllers thin!"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + Dir['[A-Z]*'] - ['Guardfile']
   s.test_files = Dir["spec/**/*"] + ['Guardfile']

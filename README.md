@@ -2,6 +2,7 @@ Axlsx-Rails &mdash; Axlsx templates for Rails views
 ===================================================
 
 [![Build Status](https://secure.travis-ci.org/straydogstudio/axlsx_rails.png?branch=master)](http://travis-ci.org/straydogstudio/axlsx_rails)
+[![Dependency Status](https://gemnasium.com/straydogstudio/axlsx_rails.png?branch=master)](https://gemnasium.com/straydogstudio/axlsx_rails)
 
 ##Installation
 
@@ -34,6 +35,24 @@ or call render directly:
 ```ruby
 render xlsx: "foobar", filename: "the_latest_foobar", disposition: 'inline'
 ```
+
+If you merely want to specify a file name, you can do it one of two ways:
+
+```ruby
+format.xlsx {
+	response.headers['Content-Disposition'] = 'attachment; filename="my_new_filename.xlsx"'
+}
+```
+Or:
+
+```ruby
+format.xlsx {
+  render xlsx: "action_or_template", disposition: "attachment", filename: "my_new_filename.xlsx"
+}
+```
+
+> NOTE: Someday it would be nice to merely say something like:
+	render :filename 'blah.xlsx"
 
 ###Template
 
