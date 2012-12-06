@@ -40,6 +40,7 @@ describe 'Axlsx request', :type => :request do
   end
 
   it "downloads an excel file from acts_as_xlsx model" do
+    User.destroy_all
     @user1 = User.create name: 'Elmer', last_name: 'Fudd', address: '1234 Somewhere, Over NY 11111', email: 'elmer@fudd.com'
     @user2 = User.create name: 'Bugs', last_name: 'Bunny', address: '1234 Left Turn, Albuquerque NM 22222', email: 'bugs@bunny.com'
     visit '/users.xlsx'
@@ -61,6 +62,7 @@ describe 'Axlsx request', :type => :request do
   end
 
   it "handles nested resources" do
+    User.destroy_all
     @user = User.create name: 'Bugs', last_name: 'Bunny', address: '1234 Left Turn, Albuquerque NM 22222', email: 'bugs@bunny.com'
     @user.likes.create(:name => 'Carrots')
     @user.likes.create(:name => 'Celery')
@@ -75,6 +77,7 @@ describe 'Axlsx request', :type => :request do
   end
 
   it "handles reference to absolute paths" do
+    User.destroy_all
     @user = User.create name: 'Bugs', last_name: 'Bunny', address: '1234 Left Turn, Albuquerque NM 22222', email: 'bugs@bunny.com'
     visit "/users/#{@user.id}/render_elsewhere.xlsx"
     page.response_headers['Content-Type'].should == Mime::XLSX.to_s
@@ -82,9 +85,9 @@ describe 'Axlsx request', :type => :request do
     page.response_headers['Content-Type'].should == Mime::XLSX.to_s
     visit "/render_elsewhere.xlsx"
     page.response_headers['Content-Type'].should == Mime::XLSX.to_s
-    File.open('/tmp/axlsx_temp_abs1.xlsx', 'w') {|f| f.write(page.source) }
+    File.open('/tmp/axlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
     wb = nil
-    expect{ wb = Excelx.new('/tmp/axlsx_temp_abs1.xlsx') }.to_not raise_error
-    wb.cell(3,2).should == 'Bugs'
+    expect{ wb = Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
+    wb.cell(2,2).should == 'Bugs'
   end
 end
