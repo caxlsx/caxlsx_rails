@@ -18,6 +18,10 @@ class HomeController < ApplicationController
     render :xlsx => "index", :filename => "filename_test.xlsx"
   end
 
+  def render_elsewhere
+    render :xlsx => "/users/index"
+  end
+
   def withpartial
   end
 

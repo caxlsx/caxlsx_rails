@@ -60,4 +60,31 @@ describe 'Axlsx request', :type => :request do
     wb.cell(2,1,wb.sheets[1]).should == "Untie!"
   end
 
+  it "handles nested resources" do
+    @user = User.create name: 'Bugs', last_name: 'Bunny', address: '1234 Left Turn, Albuquerque NM 22222', email: 'bugs@bunny.com'
+    @user.likes.create(:name => 'Carrots')
+    @user.likes.create(:name => 'Celery')
+    visit "/users/#{@user.id}/likes.xlsx"
+    page.response_headers['Content-Type'].should == Mime::XLSX.to_s + "; charset=utf-8"
+    File.open('/tmp/axlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
+    wb = nil
+    expect{ wb = Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
+    wb.cell(1,1).should == 'Bugs'
+    wb.cell(2,1).should == 'Carrots'
+    wb.cell(3,1).should == 'Celery'
+  end
+
+  it "handles reference to absolute paths" do
+    @user = User.create name: 'Bugs', last_name: 'Bunny', address: '1234 Left Turn, Albuquerque NM 22222', email: 'bugs@bunny.com'
+    visit "/users/#{@user.id}/render_elsewhere.xlsx"
+    page.response_headers['Content-Type'].should == Mime::XLSX.to_s
+    visit "/home/render_elsewhere.xlsx"
+    page.response_headers['Content-Type'].should == Mime::XLSX.to_s
+    visit "/render_elsewhere.xlsx"
+    page.response_headers['Content-Type'].should == Mime::XLSX.to_s
+    File.open('/tmp/axlsx_temp_abs1.xlsx', 'w') {|f| f.write(page.source) }
+    wb = nil
+    expect{ wb = Excelx.new('/tmp/axlsx_temp_abs1.xlsx') }.to_not raise_error
+    wb.cell(3,2).should == 'Bugs'
+  end
 end

@@ -1,5 +1,8 @@
 # Change log
 
+- **December 6, 2012**: 0.1.3 release
+  - Fix for absolute template paths
+
 - **July 25, 2012**: 0.1.2 release
 	- Partials tested
 

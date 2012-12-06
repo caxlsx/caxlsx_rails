@@ -4,6 +4,10 @@ unless defined? Mime::XLSX
 end
 
 ActionController::Renderers.add :xlsx do |filename, options|
+  if filename =~ /^\/([^\/]+)\/(.+)$/
+    options[:prefixes][0] = $1
+    filename = $2
+  end
   options[:template] = filename
 
   disposition   = options.delete(:disposition) || 'attachment'
