@@ -1,5 +1,9 @@
 # Change log
 
+- **January 18, 2013**: 0.1.4 release
+  - Now supports Rails 4 (thanks [Envek](https://github.com/Envek))
+  - If you call render :xlsx on a request without :xlsx format, it should force the :xlsx format. Works on Rails 3.2+.
+
 - **December 6, 2012**: 0.1.3 release
   - Fix for absolute template paths
 
