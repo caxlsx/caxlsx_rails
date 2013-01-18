@@ -13,7 +13,6 @@ class LikesController < ApplicationController
 
   def render_elsewhere
     @user = User.find(params[:user_id])
-    @likes = @user.likes
     render :xlsx => "/users/index"
   end
 end

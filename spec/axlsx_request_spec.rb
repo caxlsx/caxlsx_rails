@@ -90,4 +90,18 @@ describe 'Axlsx request', :type => :request do
     expect{ wb = Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
     wb.cell(2,2).should == 'Bugs'
   end
+
+  unless Rails.version < '3.2'
+    it "handles missing format with render :xlsx" do
+      visit '/another'
+
+      page.response_headers['Content-Type'].should == Mime::XLSX
+      page.response_headers['Content-Disposition'].should include("filename=\"filename_test.xlsx\"")
+
+      File.open('/tmp/axlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
+      wb = nil
+      expect{ wb = Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
+      wb.cell(2,1).should == 'Untie!'
+    end
+  end
 end

@@ -14,7 +14,7 @@ gem 'axlsx_rails'
 
 ##Requirements
 
-* Rails 3.1, but it has only been tested on 3.2.6
+* Rails 3.1, but it has only been tested on 3.2.6+
 
 ##Usage
 

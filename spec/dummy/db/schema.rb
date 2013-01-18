@@ -15,9 +15,9 @@ ActiveRecord::Schema.define(:version => 20121206210955) do
 
   create_table "likes", :force => true do |t|
     t.string   "name"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|

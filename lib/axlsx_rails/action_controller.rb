@@ -4,6 +4,10 @@ unless defined? Mime::XLSX
 end
 
 ActionController::Renderers.add :xlsx do |filename, options|
+  unless formats.include?(:xlsx) || Rails.version < '3.2'
+    formats[0] = :xlsx
+  end
+
   if filename =~ /^\/([^\/]+)\/(.+)$/
     options[:prefixes][0] = $1
     filename = $2
