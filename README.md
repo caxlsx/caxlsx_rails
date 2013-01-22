@@ -18,7 +18,7 @@ gem 'axlsx_rails'
 
 ##Usage
 
-Axlsx-Rails provides a renderer and a template handler. It adds the :xlsx format and parses .xlsx.axslx templates.
+Axlsx-Rails provides a renderer and a template handler. It adds the :xlsx format and parses .xlsx.axlsx templates.
 
 ###Controller
 
