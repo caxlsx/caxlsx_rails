@@ -28,8 +28,11 @@ class HomeController < ApplicationController
   def useheader
     respond_to do |format|
       format.xlsx {
-        render xlsx: "useheader", disposition: "attachment", filename: "filename_test.xlsx"
-        # response.headers['Content-Disposition'] = "attachment; filename=\"filename_test.xlsx\""
+        if params[:set_direct]
+          response.headers['Content-Disposition'] = "attachment; filename=\"filename_test.xlsx\""
+        else
+          render xlsx: "useheader", disposition: "attachment", filename: "filename_test.xlsx"
+        end
       }
     end
   end

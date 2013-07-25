@@ -27,6 +27,18 @@ describe 'Axlsx request', :type => :request do
     wb.cell(2,1).should == 'Untie!'
   end
 
+  it "downloads an excel file from respond_to while specifying filename in direct format" do
+    visit '/useheader.xlsx?set_direct=true'
+
+    page.response_headers['Content-Type'].should == Mime::XLSX.to_s + "; charset=utf-8"
+    page.response_headers['Content-Disposition'].should include("filename=\"filename_test.xlsx\"")
+
+    File.open('/tmp/axlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
+    wb = nil
+    expect{ wb = Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
+    wb.cell(2,1).should == 'Untie!'
+  end
+
   it "downloads an excel file from render statement with filename" do
     visit '/another.xlsx'
 
