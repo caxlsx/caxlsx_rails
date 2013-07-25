@@ -4,4 +4,8 @@ class User < ActiveRecord::Base
   attr_accessible :address, :email, :last_name, :name
 
   has_many :likes
+
+  def send_instructions
+    Notifier.instructions(self).deliver
+  end
 end

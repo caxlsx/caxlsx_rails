@@ -18,7 +18,7 @@ gem 'axlsx_rails'
 
 ##Usage
 
-Axlsx-Rails provides a renderer and a template handler. It adds the :xlsx format and parses .xlsx.axslx templates.
+Axlsx-Rails provides a renderer and a template handler. It adds the :xlsx format and parses .xlsx.axslx templates. This lets you take all the [Axlsx](https://github.com/randym/axlsx) code out of your controller or model and place it inside the template, where view code belongs! **See [this blog post](http://axlsx.blog.randym.net/2012/08/excel-on-rails-like-pro-with-axlsxrails.html) for a more complete walkthrough.**
 
 ###Controller
 
@@ -43,6 +43,7 @@ format.xlsx {
 	response.headers['Content-Disposition'] = 'attachment; filename="my_new_filename.xlsx"'
 }
 ```
+
 Or:
 
 ```ruby
@@ -56,7 +57,9 @@ format.xlsx {
 
 ###Template
 
-Use the .xlsx.axlsx extension (sorry if your lysdexic!) In the template, use xlsx_package variable, which is set with Axlsx::Package.new:
+This is where you place all your [Axlsx](https://github.com/randym/axlsx) specific markup. Add worksheets, fill content, merge cells, add styles. See the [Axlsx examples](https://github.com/randym/axlsx/tree/master/examples/example.rb) page to see what you can do. 
+
+Use the .xlsx.axlsx extension ([watch out for typos!](#troubleshooting)) In the template, use xlsx_package variable, which is set with Axlsx::Package.new:
 
 ```ruby
 wb = xlsx_package.workbook
@@ -103,6 +106,32 @@ wb.add_worksheet(name: "Cover Sheet") do |sheet|
 end
 ```
 
+####Mailers
+
+To use an xlsx template to render a mail attachment, use the following syntax:
+
+```ruby
+class UserMailer < ActionMailer::Base
+  def export(users)
+    xlsx = render_to_string handlers: [:xlsx], template: "users/export", locals: {users: users}
+    attachments["Users.xlsx"] = {mime_type: Mime::XLSX, content: xlsx}
+    ...
+  end
+end
+```
+
+If the template (`users/export`) can refer to only one file (the xlsx.axlsx template), you do not need to specify `handlers`.
+
+##Troubleshooting
+### Mispellings
+It is easy to get the spelling wrong in the extension name, the format.xlsx statement, or in a render call. If you get the following error in particular: 
+
+```ruby
+  uninitialized constant Mime::XSLX
+```
+
+it means you have used `format.xslx` instead of `format.xlsx`, or something similar.
+
 ##Dependencies
 
 - [Axlsx](https://github.com/randym/axlsx)
@@ -111,22 +140,38 @@ end
 
 * [Noel Peden](https://github.com/straydogstudio)
 
+##Contributors
+
+* [randym](https://github.com/randym)
+* [Envek](https://github.com/Envek)
+* [engwan](https://github.com/engwan)
+
 ##Change log
 
-- **December 6, 2012**: 0.1.3 release
-  - Fix for absolute template paths
+**January 18, 2013**: 0.1.4 release
 
-- **July 25, 2012**: 0.1.2 release
-	- Partials tested
+- Now supports Rails 4 (thanks [Envek](https://github.com/Envek))
+- If you call render :xlsx on a request without :xlsx format, it should force the :xlsx format. Works on Rails 3.2+.
 
-- **July 19, 2012**: 0.1.1 release
-	- Travis-ci added (thanks [randym](https://github.com/randym))
-	- render statements and filename tests fixes (thanks [engwan](https://github.com/engwan))
+**December 6, 2012**: 0.1.3 release
 
-- **July 17, 2012**: 0.1.0 release
-	- Tests completed
-	- Acts_as_xlsx tested, example in docs
+- Fix for absolute template paths
 
-- **July 12, 2012**: 0.0.1 release
-	- Initial posting.
-	- It works, but there are no tests! Bad programmer!
+**July 25, 2012**: 0.1.2 release
+
+- Partials tested
+
+**July 19, 2012**: 0.1.1 release
+
+- Travis-ci added (thanks [randym](https://github.com/randym))
+- render statements and filename tests fixes (thanks [engwan](https://github.com/engwan))
+
+**July 17, 2012**: 0.1.0 release
+
+- Tests completed
+- Acts_as_xlsx tested, example in docs		
+
+**July 12, 2012**: 0.0.1 release
+
+- Initial posting.
+- It works, but there are no tests! Bad programmer!

@@ -11,5 +11,6 @@ guard 'rspec', :version => 2 do
   watch(%r{spec/dummy/app/controllers/.+\.rb$}) { ["spec/axlsx_renderer_spec.rb", "spec/axlsx_builder_spec.rb", "axlsx_request_spec.rb"] }
   watch('lib/axlsx_rails/action_controller.rb') { ["spec/axlsx_renderer_spec.rb", "spec/axlsx_request_spec.rb"] }
   watch('lib/axlsx_rails/template_handler.rb')  { "spec/axlsx_builder_spec.rb" }
+  watch(%r{spec/dummy/app/mailers/.+\.rb$}) { "spec/axlsx_mailer_spec.rb" }
   watch(%r{spec/dummy/app/views/.+\.erb})       { "spec/axlsx_request_spec.rb" }
 end
