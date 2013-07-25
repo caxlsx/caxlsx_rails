@@ -14,7 +14,7 @@ gem 'axlsx_rails'
 
 ##Requirements
 
-* Rails 3.1, but it has only been tested on 3.2.6+
+* Rails 3.1, tested on 3.1, 3.2, and 4.0
 
 ##Usage
 
@@ -147,6 +147,11 @@ it means you have used `format.xslx` instead of `format.xlsx`, or something simi
 * [engwan](https://github.com/engwan)
 
 ##Change log
+
+**July 25, 2013**
+
+- Documentation improved
+- Testing for generating partial in mailer
 
 **January 18, 2013**: 0.1.4 release
 

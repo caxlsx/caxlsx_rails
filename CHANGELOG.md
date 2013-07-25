@@ -1,5 +1,10 @@
 # Change log
 
+**July 25, 2013**
+
+- Documentation improved
+- Testing for generating partial in mailer
+
 **January 18, 2013**: 0.1.4 release
 
 - Now supports Rails 4 (thanks [Envek](https://github.com/Envek))
