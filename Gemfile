@@ -9,8 +9,7 @@ case ENV['RAILS_VERSION']
 when '3.1', '3.2'
   gem 'rails', "~> #{ENV['RAILS_VERSION']}.0"
 when '4.0'
-  # TODO: Use as a gem, when rails 4 will be released
-  gem 'rails', github: 'rails/rails'
+  gem 'rails'
   gem 'arel',  github: 'rails/arel'
   gem 'activerecord-deprecated_finders', github: 'rails/activerecord-deprecated_finders'
   gem 'protected_attributes', github: 'rails/protected_attributes'
@@ -25,4 +24,4 @@ gem "jquery-rails"
 # your gem to rubygems.org.
 
 # To use debugger
-# gem 'debugger'
+# gem 'pry-debugger'
