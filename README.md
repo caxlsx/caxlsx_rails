@@ -113,7 +113,7 @@ To use an xlsx template to render a mail attachment, use the following syntax:
 ```ruby
 class UserMailer < ActionMailer::Base
   def export(users)
-    xlsx = render_to_string handlers: [:xlsx], template: "users/export", locals: {users: users}
+    xlsx = render handlers: [:axlsx], template: "users/export", locals: {users: users}
     attachments["Users.xlsx"] = {mime_type: Mime::XLSX, content: xlsx}
     ...
   end
@@ -143,8 +143,9 @@ it means you have used `format.xslx` instead of `format.xlsx`, or something simi
 ##Contributors
 
 * [randym](https://github.com/randym)
-* [Envek](https://github.com/Envek)
+* [envek](https://github.com/envek)
 * [engwan](https://github.com/engwan)
+* [maxd](https://github.com/maxd)
 
 ##Change log
 
