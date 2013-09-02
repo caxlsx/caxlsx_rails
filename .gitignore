@@ -9,3 +9,5 @@ spec/dummy/tmp/
 spec/dummy/.sass-cache
 oo_*/
 tags
+.DS_Store
+/tmp
