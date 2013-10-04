@@ -10,13 +10,14 @@ when '3.1', '3.2'
   gem 'rails', "~> #{ENV['RAILS_VERSION']}.0"
 when '4.0'
   gem 'rails'
-  gem 'arel',  github: 'rails/arel'
-  gem 'activerecord-deprecated_finders', github: 'rails/activerecord-deprecated_finders'
-  gem 'protected_attributes', github: 'rails/protected_attributes'
+  gem 'arel'
+  gem 'activerecord-deprecated_finders'
+  gem 'protected_attributes'
 end
 
 # jquery-rails is used by the dummy application
 gem "jquery-rails"
+gem "thin"
 
 # Declare any dependencies that are still in development here instead of in
 # your gemspec. These might include edge Rails or gems from your path or

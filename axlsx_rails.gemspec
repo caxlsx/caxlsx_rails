@@ -25,9 +25,10 @@ Gem::Specification.new do |s|
   s.add_development_dependency "guard-rspec"
   s.add_development_dependency "capybara"
   s.add_development_dependency "acts_as_xlsx"
-  s.add_development_dependency "roo", '1.10.1'
-  s.add_development_dependency "rubyzip", '0.9.9' # until axlsx publishes their next gem version with rubyzip 1.0.0
+  s.add_development_dependency "roo"
+  s.add_development_dependency "rubyzip"
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "growl"
   s.add_development_dependency "rb-fsevent"
+  s.add_development_dependency "coveralls"
 end

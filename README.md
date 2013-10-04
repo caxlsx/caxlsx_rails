@@ -1,8 +1,12 @@
 Axlsx-Rails &mdash; Axlsx templates for Rails views
 ===================================================
 
+[![Gem
+Version](https://badge.fury.io/rb/axlsx_rails.png)](http://badge.fury.io/rb/axlsx_rails)
 [![Build Status](https://secure.travis-ci.org/straydogstudio/axlsx_rails.png?branch=master)](http://travis-ci.org/straydogstudio/axlsx_rails)
 [![Dependency Status](https://gemnasium.com/straydogstudio/axlsx_rails.png?branch=master)](https://gemnasium.com/straydogstudio/axlsx_rails)
+[![Coverage
+Status](https://coveralls.io/repos/straydogstudio/axlsx_rails/badge.png)](https://coveralls.io/r/straydogstudio/axlsx_rails)
 
 ##Installation
 
@@ -148,6 +152,11 @@ it means you have used `format.xslx` instead of `format.xlsx`, or something simi
 * [maxd](https://github.com/maxd)
 
 ##Change log
+
+**October 4, 2013**
+
+- Added coveralls
+- Raised testing to axlsx 2.0.1, roo 1.12.2, and rubyzip 1.0.0
 
 **July 25, 2013**
 

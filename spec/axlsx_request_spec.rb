@@ -1,4 +1,4 @@
-require'spec_helper'
+require 'spec_helper'
 describe 'Axlsx request', :type => :request do
 
   it "has a working dummy app" do
@@ -11,7 +11,7 @@ describe 'Axlsx request', :type => :request do
     page.response_headers['Content-Type'].should == Mime::XLSX.to_s + "; charset=utf-8"
     File.open('/tmp/axlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
     wb = nil
-    expect{ wb = Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
+    expect{ wb = Roo::Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
     wb.cell(2,1).should == 'Untie!'
   end
 
@@ -23,7 +23,7 @@ describe 'Axlsx request', :type => :request do
 
     File.open('/tmp/axlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
     wb = nil
-    expect{ wb = Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
+    expect{ wb = Roo::Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
     wb.cell(2,1).should == 'Untie!'
   end
 
@@ -35,7 +35,7 @@ describe 'Axlsx request', :type => :request do
 
     File.open('/tmp/axlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
     wb = nil
-    expect{ wb = Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
+    expect{ wb = Roo::Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
     wb.cell(2,1).should == 'Untie!'
   end
 
@@ -47,7 +47,7 @@ describe 'Axlsx request', :type => :request do
 
     File.open('/tmp/axlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
     wb = nil
-    expect{ wb = Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
+    expect{ wb = Roo::Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
     wb.cell(2,1).should == 'Untie!'
   end
 
@@ -59,7 +59,7 @@ describe 'Axlsx request', :type => :request do
     page.response_headers['Content-Type'].should == Mime::XLSX.to_s + "; charset=utf-8"
     File.open('/tmp/axlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
     wb = nil
-    expect{ wb = Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
+    expect{ wb = Roo::Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
     wb.cell(3,2).should == 'Bugs'
   end
 
@@ -68,7 +68,7 @@ describe 'Axlsx request', :type => :request do
     page.response_headers['Content-Type'].should == Mime::XLSX.to_s + "; charset=utf-8"
     File.open('/tmp/axlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
     wb = nil
-    expect{ wb = Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
+    expect{ wb = Roo::Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
     wb.cell(1,1,wb.sheets[0]).should == 'Cover'
     wb.cell(2,1,wb.sheets[1]).should == "Untie!"
   end
@@ -82,7 +82,7 @@ describe 'Axlsx request', :type => :request do
     page.response_headers['Content-Type'].should == Mime::XLSX.to_s + "; charset=utf-8"
     File.open('/tmp/axlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
     wb = nil
-    expect{ wb = Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
+    expect{ wb = Roo::Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
     wb.cell(1,1).should == 'Bugs'
     wb.cell(2,1).should == 'Carrots'
     wb.cell(3,1).should == 'Celery'
@@ -99,7 +99,7 @@ describe 'Axlsx request', :type => :request do
     page.response_headers['Content-Type'].should == Mime::XLSX.to_s
     File.open('/tmp/axlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
     wb = nil
-    expect{ wb = Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
+    expect{ wb = Roo::Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
     wb.cell(2,2).should == 'Bugs'
   end
 
@@ -112,7 +112,7 @@ describe 'Axlsx request', :type => :request do
 
       File.open('/tmp/axlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
       wb = nil
-      expect{ wb = Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
+      expect{ wb = Roo::Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
       wb.cell(2,1).should == 'Untie!'
     end
   end

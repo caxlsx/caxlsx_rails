@@ -11,3 +11,5 @@ oo_*/
 tags
 .DS_Store
 /tmp
+
+coverage/*

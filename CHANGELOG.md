@@ -1,5 +1,10 @@
 # Change log
 
+**October 4, 2013**
+
+- Added coveralls
+- Raised testing to axlsx 2.0.1, roo 1.12.2, and rubyzip 1.0.0
+
 **July 25, 2013**
 
 - Documentation improved

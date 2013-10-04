@@ -24,7 +24,7 @@ describe 'Axlsx template handler' do
       xlsx_package, wb = nil
       eval( AB.call template )
       xlsx_package.serialize('/tmp/axlsx_temp.xlsx')
-      expect{ wb = Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
+      expect{ wb = Roo::Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
       wb.cell(2,3).should == 'c'
     end
 
