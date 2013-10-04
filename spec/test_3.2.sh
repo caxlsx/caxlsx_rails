@@ -9,7 +9,7 @@ do
     echo Reusing Gemfile.lock.$version
     cp Gemfile.lock.$version Gemfile.lock
   fi
-  rm spec/dummy/db/*.sqlite3
+  rm spec/dummy/db/test.sqlite3
   export RAILS_VERSION=$version
   spec/ci.sh
   cp Gemfile.lock Gemfile.lock.$version
