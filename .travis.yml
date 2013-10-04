@@ -10,8 +10,9 @@ notifications:
 env:
   - RAILS_VERSION=3.1
   - RAILS_VERSION=3.2
-  - RAILS_VERSION=4.0  
+  - RAILS_VERSION=4.0
 rvm:
   - 1.9.3
+  - 2.0.0
 script:
   spec/ci.sh
