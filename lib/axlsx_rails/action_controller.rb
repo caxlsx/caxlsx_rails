@@ -24,6 +24,10 @@ end
 # For respond_to default
 class ActionController::Responder
   def to_xlsx
-    controller.render :xlsx => controller.action_name
+    if @default_response
+      @default_response.call(options)
+    else
+      controller.render({:xlsx => controller.action_name}.merge(options))
+    end
   end
 end
