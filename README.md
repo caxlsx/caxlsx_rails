@@ -153,6 +153,10 @@ it means you have used `format.xslx` instead of `format.xlsx`, or something simi
 
 ##Change log
 
+**October 11, 2013**
+
+- Handle (and test) respond_to override
+
 **October 4, 2013**
 
 - Added coveralls

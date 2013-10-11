@@ -1,9 +1,9 @@
 Dummy::Application.routes.draw do
+  get "/users/:user_id/render_elsewhere(.:format)", :to => "likes#render_elsewhere"
+  get "/users/:user_id/send_instructions", :to => "users#send_instructions"
   resources :users do
     resources :likes
   end
-  get "/users/:user_id/render_elsewhere(.:format)", :to => "likes#render_elsewhere"
-  get "/users/:user_id/send_instructions", :to => "users#send_instructions"
   get "/home(.:format)", :to => "home#index", :as => :home
   get "/another(.:format)", :to => "home#another", :as => :another
   get "/useheader(.:format)", :to => "home#useheader", :as => :useheader

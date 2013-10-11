@@ -1,5 +1,9 @@
 # Change log
 
+**October 11, 2013**
+
+- Handle (and test) respond_to override
+
 **October 4, 2013**
 
 - Added coveralls

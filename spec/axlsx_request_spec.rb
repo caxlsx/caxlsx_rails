@@ -103,6 +103,18 @@ describe 'Axlsx request', :type => :request do
     wb.cell(2,2).should == 'Bugs'
   end
 
+  it "uses respond_with" do
+    User.destroy_all
+    @user = User.create name: 'Responder', last_name: 'Bunny', address: '1234 Right Turn, Albuquerque NM 22222', email: 'bugs@bunny.com'
+    expect {
+      visit "/users/#{@user.id}.xlsx"
+    }.to_not raise_error
+    File.open('/tmp/axlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
+    wb = nil
+    expect{ wb = Roo::Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
+    wb.cell(2,1).should == 'Untie!'
+  end
+
   unless Rails.version < '3.2'
     it "handles missing format with render :xlsx" do
       visit '/another'
