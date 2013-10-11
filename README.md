@@ -147,6 +147,7 @@ it means you have used `format.xslx` instead of `format.xlsx`, or something simi
 ##Contributors
 
 * [randym](https://github.com/randym)
+* [sugi](https://github.com/sugi)
 * [envek](https://github.com/envek)
 * [engwan](https://github.com/engwan)
 * [maxd](https://github.com/maxd)
