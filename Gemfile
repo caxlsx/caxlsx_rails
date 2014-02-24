@@ -24,6 +24,7 @@ gem "thin"
 # Git. Remember to move these dependencies to your gemspec before releasing
 # your gem to rubygems.org.
 gem 'axlsx', '~> 2.0'
+gem 'capybara', '~> 2.1.0'
 
 # To use debugger
 # gem 'pry-debugger'
