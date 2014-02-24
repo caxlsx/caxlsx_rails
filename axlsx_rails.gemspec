@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*"] + Dir['[A-Z]*'] - ['Guardfile']
   s.test_files = Dir["spec/**/*"] + ['Guardfile']
 
-  s.add_dependency "rails", ">= 3.1", ">= 4.0"
+  s.add_dependency "rails", ">= 3.1"
   s.add_dependency "axlsx"
 
   s.add_development_dependency "bundler"
