@@ -8,17 +8,48 @@ ActionController::Renderers.add :xlsx do |filename, options|
     formats[0] = :xlsx
   end
 
-  if filename =~ /^\/([^\/]+)\/(.+)$/
-    options[:prefixes][0] = $1
-    filename = $2
+  #
+  # The following code lets you call a separate view without
+  # specifying a template:  
+  #
+  #  def called_action
+  #    render pdf: 'diff_action'
+  #    # or
+  #    render pdf: 'controller/diff_action'
+  #  end
+  #
+  # You can always specify a template:
+  #
+  #  def called_action
+  #    render pdf: 'filename', template: 'controller/diff_action'
+  #  end
+  # 
+  # And the normal use case works:
+  #
+  #  def called_action
+  #    render 'diff_action'
+  #    # or
+  #    render 'controller/diff_action'
+  #  end
+  #
+  if options[:template] == action_name
+    if filename =~ /^([^\/]+)\/(.+)$/
+      options[:prefixes] ||= []
+      options[:prefixes].unshift $1
+      options[:template] = $2
+    else
+      options[:template] = filename
+    end
   end
-  options[:template] = filename
 
   disposition   = options.delete(:disposition) || 'attachment'
-  download_name = options.delete(:filename) || "#{filename}.xlsx"
-  download_name += ".xlsx" unless download_name =~ /\.xlsx$/
+  if file_name = options.delete(:filename)
+    file_name += ".xlsx" unless file_name =~ /\.xlsx$/
+  else
+    file_name = "#{filename.gsub(/^.*\//,'')}.xlsx"
+  end
 
-  send_data render_to_string(options), :filename => download_name, :type => Mime::XLSX, :disposition => disposition
+  send_data render_to_string(options), :filename => file_name, :type => Mime::XLSX, :disposition => disposition
 end
 
 # For respond_to default

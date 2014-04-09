@@ -19,7 +19,22 @@ class HomeController < ApplicationController
   end
 
   def render_elsewhere
-    render :xlsx => "/users/index"
+    case params[:type]
+    when '1'
+      render :xlsx => "home/index", :template => 'users/index'
+    when '2'
+      render :xlsx => "users/index"
+    when '3'
+      render template: "users/index"
+    when '4'
+      render "users/index"
+    else
+      render :xlsx => "index"
+    end
+  end
+
+  def render_file_path
+    render :xlsx => Rails.root.join('app','views','users','index')
   end
 
   def withpartial
@@ -31,7 +46,7 @@ class HomeController < ApplicationController
         if params[:set_direct]
           response.headers['Content-Disposition'] = "attachment; filename=\"filename_test.xlsx\""
         else
-          render xlsx: "useheader", disposition: "attachment", filename: "filename_test.xlsx"
+          render xlsx: "useheader", filename: "filename_test.xlsx"
         end
       }
     end

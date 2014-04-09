@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir["spec/**/*"] + ['Guardfile']
 
   s.add_dependency "rails", ">= 3.1"
-  s.add_dependency "axlsx"
+  s.add_dependency "axlsx", ">= 2.0.1"
 
   s.add_development_dependency "bundler"
   s.add_development_dependency "rake"
@@ -31,4 +31,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "growl"
   s.add_development_dependency "rb-fsevent"
   s.add_development_dependency "coveralls"
+  s.add_development_dependency "pry"
+  s.add_development_dependency "pry-nav"
 end

@@ -93,14 +93,19 @@ describe 'Axlsx request', :type => :request do
     @user = User.create name: 'Bugs', last_name: 'Bunny', address: '1234 Left Turn, Albuquerque NM 22222', email: 'bugs@bunny.com'
     visit "/users/#{@user.id}/render_elsewhere.xlsx"
     page.response_headers['Content-Type'].should == Mime::XLSX.to_s
-    visit "/home/render_elsewhere.xlsx"
-    page.response_headers['Content-Type'].should == Mime::XLSX.to_s
-    visit "/render_elsewhere.xlsx"
-    page.response_headers['Content-Type'].should == Mime::XLSX.to_s
-    File.open('/tmp/axlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
-    wb = nil
-    expect{ wb = Roo::Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
-    wb.cell(2,2).should == 'Bugs'
+    [[1,false],[2,false],[3,true],[4,true],[5,false]].each do |s|
+      visit "/home/render_elsewhere.xlsx?type=#{s[0]}"
+      page.response_headers['Content-Type'].should == Mime::XLSX.to_s +
+        (s[1] ? "; charset=utf-8" : '')
+      File.open('/tmp/axlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
+      wb = nil
+      expect{ wb = Roo::Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
+      if s[0] == 5
+        wb.cell(1,1).should == 'Bad'
+      else
+        wb.cell(2,2).should == 'Bugs'
+      end
+    end
   end
 
   it "uses respond_with" do

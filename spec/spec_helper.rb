@@ -12,6 +12,7 @@ require 'capybara/rspec'
 require 'axlsx_rails'
 require 'acts_as_xlsx'
 require 'roo'
+require 'pry'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
