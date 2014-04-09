@@ -62,15 +62,15 @@ That's it. Call your action and your spreadsheet will be delivered.
 You can call render in any of the following ways:
 
 ```ruby
-\# rendered, no disposition/filename header
+# rendered, no disposition/filename header
 render 'buttons'
-\# rendered from another controller, no disposition/filename header
+# rendered from another controller, no disposition/filename header
 render 'featured/latest'
-\# template and filename of 'buttons'
+# template and filename of 'buttons'
 render xlsx: 'buttons'
-\# template from featured controller, filename of 'latest'
+# template from featured controller, filename of 'latest'
 render xlsx: 'featured/latest'
-\# template from another controller, filename of 'latest_buttons'
+# template from another controller, filename of 'latest_buttons'
 render xlsx: 'latest_buttons', template: 'featured/latest'
 ```
 
@@ -97,9 +97,9 @@ format.xlsx {
 If you use `render xlsx:` the gem will try to guess the file name: 
 
 ```ruby
-\# filename of 'buttons'
+# filename of 'buttons'
 render xlsx: 'buttons'
-\# filename of 'latest_buttons'
+# filename of 'latest_buttons'
 render xlsx: 'latest_buttons', template: 'featured/latest'
 ```
 
