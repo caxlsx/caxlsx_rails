@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20121206210955) do
   create_table "likes", force: true do |t|
     t.string   "name"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: true do |t|
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 20121206210955) do
     t.string   "last_name"
     t.string   "address"
     t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

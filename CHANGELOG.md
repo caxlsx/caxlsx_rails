@@ -1,5 +1,12 @@
 # Change log
 
+**April 9, 2014**: 0.2.0 release
+
+- Require Axlsx 2.0.1, which requires rubyzip 1.0.0
+- Better render handling and testing, which might break former usage
+- Rails 4.1 testing
+- Mailer example update (**use render_to_string not render**)
+
 **October 11, 2013**
 
 - Handle (and test) respond_to override

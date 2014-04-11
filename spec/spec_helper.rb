@@ -3,7 +3,13 @@ Coveralls.wear!
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] = 'test'
-require File.expand_path("../dummy/config/environment", __FILE__)
+if ENV['RAILS_VERSION'] =~ /^4/
+  puts "Testing Rails 4"
+  require File.expand_path("../dummy_4/config/environment", __FILE__)
+else
+  puts "Testing Rails 3"
+  require File.expand_path("../dummy/config/environment", __FILE__)
+end
 require 'bundler'
 require 'bundler/setup'
 require 'rspec/rails'

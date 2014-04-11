@@ -1,0 +1,3 @@
+wb.add_worksheet(name: "Cover Sheet") do |sheet|
+	sheet.add_row ['Cover', 'Sheet']
+end
