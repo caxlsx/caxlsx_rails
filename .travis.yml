@@ -15,4 +15,13 @@ rvm:
   - 1.9.3
   - 2.0.0
 script:
-  spec/ci.rb
+  - if [[ $RAILS_VERSION == '4.0' ]]; then
+  -   cd spec/dummy_4
+  - else
+  -   cd spec/dummy
+  - fi
+  - bundle install --without debug
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
+  - cd ../../
+  - bundle exec rspec spec
