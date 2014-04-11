@@ -11,6 +11,6 @@ do
   fi
   rm spec/dummy/db/test.sqlite3
   export RAILS_VERSION=$version
-  spec/ci.sh
+  spec/ci.rb
   cp Gemfile.lock Gemfile.lock.$version
 done
