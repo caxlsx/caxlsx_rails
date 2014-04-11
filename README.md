@@ -18,7 +18,7 @@ gem 'axlsx_rails'
 
 ##Requirements
 
-* Rails 3.1, tested on 3.1, 3.2, and 4.0
+* Rails 3.1, tested on 3.1, 3.2, and 4.1
 * **As of 0.2.0 requires Axlsx 2.0.1, which requires rubyzip 1.0.0**
 * As of Rails 4.1 you must use `render_to_string` to render a mail attachment.
 
