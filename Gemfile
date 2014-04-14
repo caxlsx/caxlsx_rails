@@ -21,6 +21,7 @@ gem "thin"
 # Git. Remember to move these dependencies to your gemspec before releasing
 # your gem to rubygems.org.
 gem 'axlsx', '~> 2.0'
+gem 'acts_as_axlsx', git: 'git://github.com/straydogstudio/acts_as_xlsx.git'
 gem 'capybara', '~> 2.1.0'
 
 # To use debugger
