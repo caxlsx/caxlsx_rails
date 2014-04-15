@@ -118,6 +118,8 @@ If you use [acts_as_xlsx](https://github.com/randym/acts_as_xlsx), configure the
 User.to_xlsx package: xlsx_package, (other options)
 ```
 
+**Note:** As of 4/1/2014 Acts As Xlsx is not compatible with Rails 4.1, and generates a warning on 4.0. You may use [my patched fork](https://github.com/straydogstudio/acts_as_xlsx) until it is remedied.
+
 ###Author
 
 To set the author attribute upon Axlsx::Package.new, insert the following in application.rb:
