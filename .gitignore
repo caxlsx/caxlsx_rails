@@ -14,6 +14,6 @@ spec/dummy_4/.sass-cache
 oo_*/
 tags
 .DS_Store
-/tmp
+tmp/
 
 coverage/*
