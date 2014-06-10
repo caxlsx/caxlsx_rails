@@ -157,14 +157,15 @@ To use an xlsx template to render a mail attachment, use the following syntax:
 ```ruby
 class UserMailer < ActionMailer::Base
   def export(users)
-    xlsx = render_to_string handlers: [:axlsx], template: "users/export", locals: {users: users}
+    xlsx = render_to_string handlers: [:axlsx], formats: [:xlsx], template: "users/export", locals: {users: users}
     attachments["Users.xlsx"] = {mime_type: Mime::XLSX, content: xlsx}
     ...
   end
 end
 ```
 
-If the template (`users/export`) can refer to only one file (the xlsx.axlsx template), you do not need to specify `handlers`.
+* If the route specifies or suggests the `:xlsx` format you do not need to specify `formats` or `handlers`. 
+* If the template (`users/export`) can refer to only one file (the xlsx.axlsx template), you do not need to specify `handlers`, provided the `formats` includes `:xlsx`.
 
 ##Troubleshooting
 
