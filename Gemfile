@@ -22,7 +22,7 @@ gem "thin"
 # your gem to rubygems.org.
 gem 'axlsx', '~> 2.0'
 gem 'acts_as_xlsx', git: 'git://github.com/straydogstudio/acts_as_xlsx.git'
-gem 'capybara', '~> 2.1.0'
+gem 'capybara', '~> 2.1'
 
 # To use debugger
 # gem 'pry-debugger'
