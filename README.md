@@ -167,6 +167,13 @@ end
 * If the route specifies or suggests the `:xlsx` format you do not need to specify `formats` or `handlers`. 
 * If the template (`users/export`) can refer to only one file (the xlsx.axlsx template), you do not need to specify `handlers`, provided the `formats` includes `:xlsx`.
 
+###Scripts
+
+To generate a template within a script, you need to instantiate an ActionView context. Here are two gists showing how to perform this:
+
+* [Using rails runner](https://gist.github.com/straydogstudio/323139591f2cc5d48fbc)
+* [Without rails runner](https://gist.github.com/straydogstudio/dceb775ead81470cea70)
+
 ##Troubleshooting
 
 ###Mispellings
