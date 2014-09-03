@@ -53,12 +53,14 @@ ActionController::Renderers.add :xlsx do |filename, options|
 end
 
 # For respond_to default
-class ActionController::Responder
-  def to_xlsx
-    if @default_response
-      @default_response.call(options)
-    else
-      controller.render({:xlsx => controller.action_name}.merge(options))
+if ActionController.const_defined? 'Responder' # in Rails 4.2, you have to require this explicitly
+  class ActionController::Responder
+    def to_xlsx
+      if @default_response
+        @default_response.call(options)
+      else
+        controller.render({:xlsx => controller.action_name}.merge(options))
+      end
     end
   end
 end
