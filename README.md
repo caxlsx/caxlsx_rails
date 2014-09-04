@@ -18,7 +18,7 @@ gem 'axlsx_rails'
 
 ##Requirements
 
-* Rails 3.1, tested on 3.1, 3.2, and 4.1
+* Rails 3.1, tested on 3.1, 3.2, 4.1, and 4.2.0.beta1
 * **As of 0.2.0 requires Axlsx 2.0.1, which requires rubyzip 1.0.0**
 * As of Rails 4.1 you must use `render_to_string` to render a mail attachment.
 
@@ -183,12 +183,37 @@ To generate a template within a script, you need to instantiate an ActionView co
 * If it says your template is missing, check that its extension is `.xlsx.axlsx`.
 * If you get the error `uninitialized constant Mime::XSLX` you have used `format.xslx` instead of `format.xlsx`, or something similar.
 
+### Rails 4.2
+
+In Rails 4.2, if you have a controller action that sometimes calls `render xlsx:` with a view from another controller, and at other times a view from the calling controller, you may have to specify full paths for each. 
+
+For example, suppose you have the following code:
+
+```ruby
+class HomeController < ApplicationController
+  def index
+    if params[:some_condition]
+      render xlsx: "users/index"
+    else
+      render xlsx: "index"
+    end
+  end
+end
+```
+
+In this case, for 4.2 you would need to change the second call to "home/index"
+
+Rails uses an array of strings, called `prefixes`, which contains the names of subdirectories to look inside when resolving a template. E.g. an action inside a Users controller would typically have `["users","application"]` as its prefix array. `axlsx_rails` adds to the prefixes array when you pass in a string with a slash so Rails  can find your template. Rails 4.2.0.beta1 appears to cache the prefixes array between requests, so in the above example the `index` render is found inside the `users` folder instead of the `home` folder. To solve this, use absolute paths for each render call.
+
+When Rails 4.2 is released I will address this issue and come up with a solution.
+
 ###What to do
 
 If you are having problems, try to isolate the issue. Use the console or a script to make sure your data is good. Then create the spreadsheet line by line without Axlsx-Rails to see if you are having Axlsx problems. If you can manually create the spreadsheet, create an issue and we will work it out.
 
 ##Dependencies
 
+- [Rails](https://github.com/rails/rails)
 - [Axlsx](https://github.com/randym/axlsx)
 
 ##Authors
