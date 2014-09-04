@@ -1,5 +1,10 @@
 # Change log
 
+**September 4, 2014**: 0.2.1 release
+
+- Rails 4.2.beta1 no longer includes responder. This release checks for the existence of responder before configuring a default responder.
+- Rails 4.2 testing, though not yet on Travis CI
+
 **April 9, 2014**: 0.2.0 release
 
 - Require Axlsx 2.0.1, which requires rubyzip 1.0.0

@@ -197,13 +197,22 @@ If you are having problems, try to isolate the issue. Use the console or a scrip
 
 ##Contributors
 
+Many thanks to [contributors](https://github.com/straydogstudio/axlsx_rails/graphs/contributors):
+
 * [randym](https://github.com/randym)
 * [sugi](https://github.com/sugi)
 * [envek](https://github.com/envek)
 * [engwan](https://github.com/engwan)
 * [maxd](https://github.com/maxd)
+* [firien](https://github.com/firien)
+
 
 ##Change log
+
+**September 4, 2014**: 0.2.1 release
+
+- Rails 4.2.beta1 no longer includes responder. This release checks for the existence of responder before configuring a default responder.
+- Rails 4.2 testing, though not yet on Travis CI
 
 **April 9, 2014**: 0.2.0 release
 
