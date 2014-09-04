@@ -4,6 +4,7 @@
 
 - Rails 4.2.beta1 no longer includes responder. This release checks for the existence of responder before configuring a default responder.
 - Rails 4.2 testing, though not yet on Travis CI
+- Author, created_at, and use_shared_strings parameters for Axlsx::Package.new
 
 **April 9, 2014**: 0.2.0 release
 

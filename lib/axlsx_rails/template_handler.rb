@@ -7,16 +7,18 @@ module ActionView
       end
 
       def self.call(template)
-        "xlsx_package = Axlsx::Package.new(:author => #{axlsx_author.inspect});\n" +
-          template.source +
-          ";\nxlsx_package.to_stream.string;"
+        "xlsx_author = defined?(xlsx_author).nil? ? nil : xlsx_author;\n" +
+        "xlsx_created_at = defined?(xlsx_created_at).nil? ? nil : xlsx_created_at;\n" +
+        "xlsx_use_shared_strings = defined?(xlsx_use_shared_strings).nil? ? nil : xlsx_use_shared_strings;\n" +
+        "xlsx_package = Axlsx::Package.new(\n" +
+          ":author => xlsx_author,\n" +
+          ":created_at => xlsx_created_at,\n" +
+          ":use_shared_strings => xlsx_use_shared_strings\n" +
+          ");\n" +
+        template.source +
+        ";\nxlsx_package.to_stream.string;"
       end
 
-      private
-
-      def self.axlsx_author
-        Rails.application.config.respond_to?(:axlsx_author) ? Rails.application.config.axlsx_author : nil
-      end
     end
   end
 end

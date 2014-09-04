@@ -42,11 +42,20 @@ ActionController::Renderers.add :xlsx do |filename, options|
     end
   end
 
+  # disposition / filename
   disposition   = options.delete(:disposition) || 'attachment'
   if file_name = options.delete(:filename)
     file_name += ".xlsx" unless file_name =~ /\.xlsx$/
   else
     file_name = "#{filename.gsub(/^.*\//,'')}.xlsx"
+  end
+
+  # alternate settings
+  options[:locals] ||= {}
+  options[:locals][:xlsx_author] ||= options.delete(:xlsx_author)
+  options[:locals][:xlsx_created_at] ||= options.delete(:xlsx_created_at)
+  if options[:locals][:xlsx_use_shared_strings].nil?
+    options[:locals][:xlsx_use_shared_strings] = options.delete(:xlsx_use_shared_strings)
   end
 
   send_data render_to_string(options), :filename => file_name, :type => Mime::XLSX, :disposition => disposition

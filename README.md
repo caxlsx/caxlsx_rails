@@ -120,15 +120,29 @@ User.to_xlsx package: xlsx_package, (other options)
 
 **Note:** As of 4/1/2014 Acts As Xlsx is not compatible with Rails 4.1, and generates a warning on 4.0. You may use [my patched fork](https://github.com/straydogstudio/acts_as_xlsx) until it is remedied.
 
-###Author
+###Axlsx Package Options
 
-To set the author attribute upon Axlsx::Package.new, insert the following in application.rb:
+Axlsx provides three options for initializing a spreadsheet:
+
+- **:author** (String) - The author of the document
+- **:created_at** (Time) - Timestamp in the document properties (defaults to current time)
+- **:use_shared_strings** (Boolean) - This is passed to the workbook to specify that shared strings should be used when serializing the package.
+
+To pass these to the new package, prefix them with `xlsx_` and pass them to `render :xlsx` _or_ pass them as local variables.
+
+For example, to set the author name, pass the `:xlsx_author` parameter to `render :xlsx` _or_ as a local variable:
 
 ```ruby
-config.axlsx_author = "Elmer Fudd"
+render xlsx: "index", xlsx_author: "Elmer Fudd"
+render "index", locals: {xlsx_author: "Elmer Fudd"}
 ```
 
-> NOTE: We really ought to allow the author to be set in each call
+Other examples:
+
+```ruby
+render xlsx: "index", xlsx_created_at: 3.days.ago
+render "index", locals: {xlsx_use_shared_strings: true}
+```
 
 ###Partials
 
@@ -238,6 +252,7 @@ Many thanks to [contributors](https://github.com/straydogstudio/axlsx_rails/grap
 
 - Rails 4.2.beta1 no longer includes responder. This release checks for the existence of responder before configuring a default responder.
 - Rails 4.2 testing, though not yet on Travis CI
+- Author, created_at, and use_shared_strings parameters for Axlsx::Package.new
 
 **April 9, 2014**: 0.2.0 release
 
