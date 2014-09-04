@@ -8,6 +8,7 @@ describe 'Axlsx request', :type => :request do
   end
 
   it "has a working dummy app" do
+    @user1 = User.create name: 'Elmer', last_name: 'Fudd', address: '1234 Somewhere, Over NY 11111', email: 'elmer@fudd.com'
     visit '/'
     page.should have_content "Hey, you"
   end
