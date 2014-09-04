@@ -1,6 +1,12 @@
 require 'spec_helper'
 describe 'Axlsx request', :type => :request do
 
+  after(:each) do
+    if File.exists? '/tmp/axlsx_temp.xlsx'
+      File.unlink '/tmp/axlsx_temp.xlsx'
+    end
+  end
+
   it "has a working dummy app" do
     visit '/'
     page.should have_content "Hey, you"
@@ -93,7 +99,7 @@ describe 'Axlsx request', :type => :request do
     @user = User.create name: 'Bugs', last_name: 'Bunny', address: '1234 Left Turn, Albuquerque NM 22222', email: 'bugs@bunny.com'
     visit "/users/#{@user.id}/render_elsewhere.xlsx"
     page.response_headers['Content-Type'].should == Mime::XLSX.to_s
-    [[1,false],[2,false],[3,true],[4,true],[5,false]].each do |s|
+    [[1,false],[2,false],[3,true],[4,true],[5,false]].reverse.each do |s|
       visit "/home/render_elsewhere.xlsx?type=#{s[0]}"
       page.response_headers['Content-Type'].should == Mime::XLSX.to_s +
         (s[1] ? "; charset=utf-8" : '')

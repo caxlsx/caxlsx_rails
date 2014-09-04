@@ -53,7 +53,10 @@ ActionController::Renderers.add :xlsx do |filename, options|
 end
 
 # For respond_to default
-if ActionController.const_defined? 'Responder' # in Rails 4.2, you have to require this explicitly
+begin
+  ActionController::Responder
+rescue LoadError
+else
   class ActionController::Responder
     def to_xlsx
       if @default_response
