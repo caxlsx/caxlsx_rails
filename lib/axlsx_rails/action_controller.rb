@@ -64,7 +64,7 @@ end
 # For respond_to default
 begin
   ActionController::Responder
-rescue LoadError
+rescue
 else
   class ActionController::Responder
     def to_xlsx

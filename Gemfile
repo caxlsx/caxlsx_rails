@@ -13,7 +13,7 @@ when '4.0'
 when '4.1'
   gem 'rails', "~> 4.1.0"
 when '4.2'
-  gem 'rails', "4.2.0.beta1"
+  gem 'rails', "4.2.0.beta4"
   gem 'responders', '~> 2.0'
 end
 
