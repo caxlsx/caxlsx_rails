@@ -5,6 +5,8 @@ source "http://rubygems.org"
 # development dependencies will be added by default to the :development group.
 gemspec
 
+ENV["RAILS_VERSION"] ||= '4.1'
+
 case ENV['RAILS_VERSION']
 when '3.1', '3.2'
   gem 'rails', "~> #{ENV['RAILS_VERSION']}.0"
