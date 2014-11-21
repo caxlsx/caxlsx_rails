@@ -1,5 +1,10 @@
 # Change log
 
+**November 20th, 2014**: 0.3.0 release
+
+- Support for Rails 4.2.beta4.
+- **Removal of shorthand template syntax** (`render xlsx: 'another/directory'`)
+
 **September 4, 2014**: 0.2.1 release
 
 - Rails 4.2.beta1 no longer includes responder. This release checks for the existence of responder before configuring a default responder.

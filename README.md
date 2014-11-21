@@ -18,7 +18,7 @@ gem 'axlsx_rails'
 
 ##Requirements
 
-* Rails 3.1, tested on 3.1, 3.2, 4.1, and 4.2.0.beta1
+* Rails 3.1, tested on 3.1, 3.2, 4.1, and 4.2.0.beta4
 * **As of 0.2.0 requires Axlsx 2.0.1, which requires rubyzip 1.0.0**
 * As of Rails 4.1 you must use `render_to_string` to render a mail attachment.
 
@@ -69,8 +69,6 @@ render 'buttons'
 render 'featured/latest'
 # template and filename of 'buttons'
 render xlsx: 'buttons'
-# template from featured controller, filename of 'latest'
-render xlsx: 'featured/latest'
 # template from another controller, filename of 'latest_buttons'
 render xlsx: 'latest_buttons', template: 'featured/latest'
 ```
@@ -124,11 +122,11 @@ User.to_xlsx package: xlsx_package, (other options)
 
 Axlsx provides three options for initializing a spreadsheet:
 
-- **:author** (String) - The author of the document
-- **:created_at** (Time) - Timestamp in the document properties (defaults to current time)
-- **:use_shared_strings** (Boolean) - This is passed to the workbook to specify that shared strings should be used when serializing the package.
+- **:xlsx_author** (String) - The author of the document
+- **:xlsx_created_at** (Time) - Timestamp in the document properties (defaults to current time)
+- **:xlsx_use_shared_strings** (Boolean) - This is passed to the workbook to specify that shared strings should be used when serializing the package.
 
-To pass these to the new package, prefix them with `xlsx_` and pass them to `render :xlsx` _or_ pass them as local variables.
+To pass these to the new package, pass them to `render :xlsx` _or_ pass them as local variables.
 
 For example, to set the author name, pass the `:xlsx_author` parameter to `render :xlsx` _or_ as a local variable:
 
@@ -197,29 +195,27 @@ To generate a template within a script, you need to instantiate an ActionView co
 * If it says your template is missing, check that its extension is `.xlsx.axlsx`.
 * If you get the error `uninitialized constant Mime::XSLX` you have used `format.xslx` instead of `format.xlsx`, or something similar.
 
-### Rails 4.2
+### Rails 4.2 changes
 
-In Rails 4.2, if you have a controller action that sometimes calls `render xlsx:` with a view from another controller, and at other times a view from the calling controller, you may have to specify full paths for each. 
-
-For example, suppose you have the following code:
+Before Rails 4.2 you could call:
 
 ```ruby
-class HomeController < ApplicationController
-  def index
-    if params[:some_condition]
-      render xlsx: "users/index"
-    else
-      render xlsx: "index"
-    end
-  end
-end
+  render xlsx: "users/index"
 ```
 
-In this case, for 4.2 you would need to change the second call to "home/index"
+And axlsx_rails could adjust the paths and make sure the template was loaded from the right directory. This is no longer possible because the paths are cached between requests for a given controller. As a result, to display a template in another directory you must use the `:template` parameter (which is normal Rails behavior anyway):
 
-Rails uses an array of strings, called `prefixes`, which contains the names of subdirectories to look inside when resolving a template. E.g. an action inside a Users controller would typically have `["users","application"]` as its prefix array. `axlsx_rails` adds to the prefixes array when you pass in a string with a slash so Rails  can find your template. Rails 4.2.0.beta1 appears to cache the prefixes array between requests, so in the above example the `index` render is found inside the `users` folder instead of the `home` folder. To solve this, use absolute paths for each render call.
+```ruby
+  render xlsx: "index", template: "users/index"
+```
 
-When Rails 4.2 is released I will address this issue and come up with a solution.
+If the request format matches you should be able to call:
+
+```ruby
+  render "users/index"
+```
+
+This is a breaking change if you have the old syntax!
 
 ###What to do
 
@@ -244,9 +240,15 @@ Many thanks to [contributors](https://github.com/straydogstudio/axlsx_rails/grap
 * [engwan](https://github.com/engwan)
 * [maxd](https://github.com/maxd)
 * [firien](https://github.com/firien)
+* [kaluzny](https://github.com/kaluznyo)
 
 
 ##Change log
+
+**November 20th, 2014**: 0.3.0 release
+
+- Support for Rails 4.2.beta4.
+- **Removal of shorthand template syntax** (`render xlsx: 'another/directory'`)
 
 **September 4, 2014**: 0.2.1 release
 
