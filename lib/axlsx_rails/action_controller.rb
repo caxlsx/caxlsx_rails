@@ -9,19 +9,10 @@ ActionController::Renderers.add :xlsx do |filename, options|
   end
 
   #
-  # The following code lets you call a separate view without
-  # specifying a template:  
-  #
-  #  def called_action
-  #    render pdf: 'diff_action'
-  #    # or
-  #    render pdf: 'controller/diff_action'
-  #  end
-  #
   # You can always specify a template:
   #
   #  def called_action
-  #    render pdf: 'filename', template: 'controller/diff_action'
+  #    render xlsx: 'filename', template: 'controller/diff_action'
   #  end
   # 
   # And the normal use case works:
@@ -33,13 +24,7 @@ ActionController::Renderers.add :xlsx do |filename, options|
   #  end
   #
   if options[:template] == action_name
-    if filename =~ /^([^\/]+)\/(.+)$/
-      options[:prefixes] ||= []
-      options[:prefixes].unshift $1
-      options[:template] = $2
-    else
-      options[:template] = filename
-    end
+    options[:template] = filename.gsub(/^.*\//,'')
   end
 
   # disposition / filename

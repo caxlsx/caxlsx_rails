@@ -23,7 +23,7 @@ class HomeController < ApplicationController
     when '1'
       render :xlsx => "home/index", :template => 'users/index'
     when '2'
-      render :xlsx => "users/index"
+      render :xlsx => "users/index", :template => 'users/index'
     when '3'
       render template: "users/index"
     when '4'
