@@ -7,6 +7,8 @@ Version](https://badge.fury.io/rb/axlsx_rails.png)](http://badge.fury.io/rb/axls
 [![Dependency Status](https://gemnasium.com/straydogstudio/axlsx_rails.png?branch=master)](https://gemnasium.com/straydogstudio/axlsx_rails)
 [![Coverage
 Status](https://coveralls.io/repos/straydogstudio/axlsx_rails/badge.png)](https://coveralls.io/r/straydogstudio/axlsx_rails)
+[![Click here to lend your support to: Axlsx-Rails!](http://www.pledgie.com/campaigns/27737.png?skin_name=chrome)](http://www.pledgie.com/campaigns/27737)
+
 
 ##Installation
 
@@ -245,21 +247,10 @@ Many thanks to [contributors](https://github.com/straydogstudio/axlsx_rails/grap
 
 ##Donations
 
-Say thanks for AxlsxRails by donating! It makes it easier for me to provide to open
+Say thanks for Axlsx-Rails by donating! It makes it easier for me to provide to open
 source:
 
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post"
-target="_top">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="LCWWCJPEAKK6A">
-<input type="image"
-src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif"
-border="0" name="submit" alt="PayPal - The safer, easier way to pay
-online!">
-<img alt="" border="0"
-src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1"
-height="1">
-</form>
+[![Click here to lend your support to: Axlsx-Rails!](http://www.pledgie.com/campaigns/27737.png?skin_name=chrome)](http://www.pledgie.com/campaigns/27737)
 
 ##Change log
 
