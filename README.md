@@ -23,6 +23,11 @@ gem 'axlsx_rails'
 * **As of 0.2.0 requires Axlsx 2.0.1, which requires rubyzip 1.0.0**
 * As of Rails 4.1 you must use `render_to_string` to render a mail attachment.
 
+##FYI
+
+* This gem depends on [Axlsx](https://github.com/randym/axlsx). See [the blog](http://axlsx.blog.randym.net/) or the [examples page](https://github.com/randym/axlsx/blob/master/examples/example.rb) for usage.
+* Check out [axlsx_styler](https://github.com/sakovias/axlsx_styler) by [sakovias](https://github.com/sakovias) for easier styles and borders
+
 ##Usage
 
 Axlsx-Rails provides a renderer and a template handler. It adds the `:xlsx` format and parses `.xlsx.axlsx` templates. This lets you take all the [Axlsx](https://github.com/randym/axlsx) code out of your controller or model and place it inside the template, where view code belongs! **See [this blog post](http://axlsx.blog.randym.net/2012/08/excel-on-rails-like-pro-with-axlsxrails.html) for a more complete walkthrough.**
