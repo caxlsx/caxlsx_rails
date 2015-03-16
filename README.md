@@ -26,7 +26,7 @@ gem 'axlsx_rails'
 ##FYI
 
 * This gem depends on [Axlsx](https://github.com/randym/axlsx). See [the blog](http://axlsx.blog.randym.net/) or the [examples page](https://github.com/randym/axlsx/blob/master/examples/example.rb) for usage.
-* Check out [axlsx_styler](https://github.com/sakovias/axlsx_styler) by [sakovias](https://github.com/sakovias) for easier styles and borders
+* Check out [axlsx_styler](https://github.com/sakovias/axlsx_styler) by [sakovias](https://github.com/sakovias) for easier styles and borders!
 
 ##Usage
 
