@@ -62,6 +62,8 @@ end
 
 This is where you place all your [Axlsx](https://github.com/randym/axlsx) specific markup. Add worksheets, fill content, merge cells, add styles. See the [Axlsx examples](https://github.com/randym/axlsx/tree/master/examples/example.rb) page to see what you can do.
 
+Like in `erb` templates, view helpers are available to use the `.xlsx.axlsx` template.
+
 That's it. Call your action and your spreadsheet will be delivered.
 
 ###Rendering Options
