@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :likes
   end
   get "/home(.:format)", :to => "home#index", :as => :home
+  get "/home/only_html", :to => "home#only_html", :as => :only_html
   get "/another(.:format)", :to => "home#another", :as => :another
   get "/useheader(.:format)", :to => "home#useheader", :as => :useheader
   get "/withpartial(.:format)", :to => "home#withpartial", :as => :withpartial

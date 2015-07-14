@@ -14,6 +14,8 @@ class HomeController < ApplicationController
     end
   end
 
+  def only_html; end
+
   def another
     render :xlsx => "index", :filename => "filename_test.xlsx"
   end

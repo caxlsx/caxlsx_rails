@@ -139,5 +139,32 @@ describe 'Axlsx request', :type => :request do
       expect{ wb = Roo::Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
       wb.cell(2,1).should == 'Untie!'
     end
+
+    Capybara.register_driver :mime_all do |app|
+      Capybara::RackTest::Driver.new(app, headers: { 'HTTP_ACCEPT' => '*/*' })
+    end
+
+    def puts_def_formats(title)
+      puts "default formats #{title.ljust(30)}: #{ActionView::Base.default_formats}"
+    end
+
+    it "mime all with render :xlsx and then :html" do
+      puts_def_formats 'before'
+      ActionView::Base.default_formats.delete :xlsx # see notes
+      puts_def_formats 'in my project'
+      Capybara.current_driver = :mime_all
+      visit '/another'
+      puts_def_formats 'after render xlsx with */*'
+      visit '/home/only_html'
+
+      # Output:
+      # default formats before                        : [:html, :text, :js, :css, :ics, :csv, :vcf, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip, :xlsx]
+      # default formats in my project                 : [:html, :text, :js, :css, :ics, :csv, :vcf, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip]
+      # default formats after render xlsx with */*    : [:xlsx, :text, :js, :css, :ics, :csv, :vcf, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip]
+
+      # Failure/Error: visit '/home/only_html'
+      # ActionView::MissingTemplate:
+      #   Missing template home/only_html, application/only_html with {:locale=>[:en], :formats=>[:xlsx, :text, :js, :css, :ics, :csv, :vcf, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :axlsx]}.
+    end
   end
 end
