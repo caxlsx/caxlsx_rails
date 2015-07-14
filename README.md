@@ -250,7 +250,8 @@ Many thanks to [contributors](https://github.com/straydogstudio/axlsx_rails/grap
 * [maxd](https://github.com/maxd)
 * [firien](https://github.com/firien)
 * [kaluzny](https://github.com/kaluznyo)
-
+* [sly7-7](https://github.com/sly7-7)
+* [kodram](https://github.com/kodram)
 
 ##Donations
 
