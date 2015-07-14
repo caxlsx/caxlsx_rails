@@ -19,7 +19,8 @@ gem 'axlsx_rails'
 
 ##Requirements
 
-* Rails 3.1, tested on 3.1, 3.2, 4.1, and 4.2.0.beta4
+* Rails 4.1 or 4.2 (tested on both)
+* For Rails 3.1 or 3.2 use version 3.0
 * **As of 0.2.0 requires Axlsx 2.0.1, which requires rubyzip 1.0.0**
 * As of Rails 4.1 you must use `render_to_string` to render a mail attachment.
 
@@ -62,7 +63,7 @@ end
 
 This is where you place all your [Axlsx](https://github.com/randym/axlsx) specific markup. Add worksheets, fill content, merge cells, add styles. See the [Axlsx examples](https://github.com/randym/axlsx/tree/master/examples/example.rb) page to see what you can do.
 
-Like in `erb` templates, view helpers are available to use the `.xlsx.axlsx` template.
+Remember, like in `erb` templates, view helpers are available to use the `.xlsx.axlsx` template.
 
 That's it. Call your action and your spreadsheet will be delivered.
 
@@ -259,6 +260,13 @@ source:
 [![Click here to lend your support to: Axlsx-Rails!](http://www.pledgie.com/campaigns/27737.png?skin_name=chrome)](http://www.pledgie.com/campaigns/27737)
 
 ##Change log
+
+**July 13th, 2015**: 0.4.0 release
+
+- Support for Rails 4.2
+- **Removal of forced default_formats** (url format must match)
+- **Tested only on Rails 4.1 and 4.2**
+- **For Rails 3.2 or below, use 0.3.0**
 
 **November 20th, 2014**: 0.3.0 release
 

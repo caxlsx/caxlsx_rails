@@ -1,5 +1,12 @@
 # Change log
 
+**July 13th, 2015**: 0.4.0 release
+
+- Support for Rails 4.2
+- **Removal of forced default_formats** (url format must match)
+- **Tested only on Rails 4.1 and 4.2**
+- **For Rails 3.2 or below, use 0.3.0**
+
 **November 20th, 2014**: 0.3.0 release
 
 - Support for Rails 4.2.beta4.
