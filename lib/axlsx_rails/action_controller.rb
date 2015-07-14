@@ -5,7 +5,10 @@ end
 
 ActionController::Renderers.add :xlsx do |filename, options|
   unless formats.include?(:xlsx) || Rails.version < '3.2'
-    formats.unshift(:xlsx)
+    formats[0] = :xlsx
+    # formats.unshift(:xlsx) # all test passed
+    # formats << :xlsx
+    # formats = [:xlsx]
   end
 
   #
