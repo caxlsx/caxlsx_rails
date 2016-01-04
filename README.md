@@ -22,6 +22,7 @@ gem 'axlsx_rails'
 * Rails 4.1 or 4.2 (tested on both)
 * For Rails 3.1 or 3.2 use version 3.0
 * **As of 0.2.0 requires Axlsx 2.0.1, which requires rubyzip 1.0.0**
+* **As of 0.4.0, and if you use `roo` in your Gemfile, you will want to use either Axlsx 2.1.0.pre or the github repo, which requires rubyzip 1.1.0**
 * As of Rails 4.1 you must use `render_to_string` to render a mail attachment.
 
 ##FYI
