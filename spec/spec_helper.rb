@@ -3,7 +3,10 @@ Coveralls.wear!
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] = 'test'
-if ENV['RAILS_VERSION'] =~ /^4/
+if ENV['RAILS_VERSION'] =~ /^5/
+  puts "Testing Rails 5"
+  require File.expand_path("../dummy_5/config/environment", __FILE__)
+elsif ENV['RAILS_VERSION'] =~ /^4/
   puts "Testing Rails 4"
   require File.expand_path("../dummy_4/config/environment", __FILE__)
 else
@@ -13,7 +16,6 @@ end
 require 'bundler'
 require 'bundler/setup'
 require 'rspec/rails'
-require 'rspec/autorun'
 require 'capybara/rspec'
 require 'axlsx_rails'
 require 'acts_as_xlsx'
@@ -35,4 +37,8 @@ module ::RSpec::Core
     include Capybara::DSL
     include Capybara::RSpecMatchers
   end
+end
+
+def mime_type
+  Rails.version.to_f >= 5 ? Mime[:xlsx] : Mime::XLSX
 end

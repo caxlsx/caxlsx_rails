@@ -205,6 +205,13 @@ To generate a template within a script, you need to instantiate an ActionView co
 * If it says your template is missing, check that its extension is `.xlsx.axlsx`.
 * If you get the error `uninitialized constant Mime::XSLX` you have used `format.xslx` instead of `format.xlsx`, or something similar.
 
+### Generated Files Can't Be Opened
+### Invalid Byte Sequence in UTF-8
+
+Both these errors appear to be caused by Rails applying a layout to the template. Passing `layout: false` to `render :xlsx` should fix this issue. Version 0.5.0 attempts to fix this issue.
+
+So far this error has not been reproducible by me. If you get this error, please consider creating a shared repo so the bug can be found.
+
 ### Rails 4.2 changes
 
 Before Rails 4.2 you could call:

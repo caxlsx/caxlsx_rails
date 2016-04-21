@@ -17,7 +17,7 @@ describe 'Axlsx template handler' do
     # end
 
     it "has xlsx format" do
-      handler.default_format.should == Mime::XLSX
+      expect(handler.default_format).to eq(mime_type)
     end
 
     it "compiles to an excel spreadsheet" do
@@ -25,7 +25,7 @@ describe 'Axlsx template handler' do
       eval( AB.call template )
       xlsx_package.serialize('/tmp/axlsx_temp.xlsx')
       expect{ wb = Roo::Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
-      wb.cell(2,3).should == 'c'
+      expect(wb.cell(2,3)).to eq('c')
     end
 
     #TODO:

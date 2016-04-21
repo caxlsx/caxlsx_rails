@@ -23,6 +23,9 @@ ActionController::Renderers.add :xlsx do |filename, options|
     options[:template] = filename.gsub(/^.*\//,'')
   end
 
+  # force layout fase
+  options[:layout] = false
+
   # disposition / filename
   disposition   = options.delete(:disposition) || 'attachment'
   if file_name = options.delete(:filename)
@@ -39,7 +42,8 @@ ActionController::Renderers.add :xlsx do |filename, options|
     options[:locals][:xlsx_use_shared_strings] = options.delete(:xlsx_use_shared_strings)
   end
 
-  send_data render_to_string(options), :filename => file_name, :type => Mime::XLSX, :disposition => disposition
+  mime = (Rails.version.to_f >= 5) ? Mime[:xlsx] : Mime::XLSX
+  send_data render_to_string(options), :filename => file_name, :type => mime, :disposition => disposition
 end
 
 # For respond_to default

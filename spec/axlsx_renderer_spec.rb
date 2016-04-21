@@ -6,9 +6,10 @@ describe 'Axlsx renderer' do
   end
 
   it "has mime type" do
-  	Mime::XLSX.should be
-  	Mime::XLSX.to_sym.should == :xlsx
-  	Mime::XLSX.to_s.should == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    mime = mime_type
+  	expect(mime).to be
+  	expect(mime.to_sym).to eq(:xlsx)
+  	expect(mime.to_s).to eq("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
   end
 
 end
