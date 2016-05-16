@@ -1,4 +1,5 @@
 bundler_args: --binstubs
+sudo: false
 language: ruby
 notifications:
   irc: "irc.freenode.org#axlsx"
@@ -16,8 +17,7 @@ rvm:
   - 2.1
   - 2.2.2
 before_install:
-  - gem update --system
-  - gem update bundler
-  - gem install bundler -v 1.9.3
+  - gem install bundler
+  - bundle
 script:
   spec/ci.rb
