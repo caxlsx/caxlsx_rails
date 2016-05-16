@@ -18,5 +18,6 @@ rvm:
 before_install:
   - gem update --system
   - gem update bundler
+  - gem install bundler -v 1.9.3
 script:
   spec/ci.rb
