@@ -14,6 +14,16 @@ Status](https://coveralls.io/repos/straydogstudio/axlsx_rails/badge.png)](https:
 In your Gemfile:
 
 ```ruby
+gem 'rubyzip', '= 1.0.0'
+gem 'axlsx', '= 2.0.1'
+gem 'axlsx_rails'
+```
+
+If you are using Roo to read xlsx files, please use this:
+
+```ruby
+gem 'rubyzip', '~> 1.1.0'
+gem 'axlsx', '2.1.0.pre'
 gem 'axlsx_rails'
 ```
 
@@ -182,6 +192,7 @@ class UserMailer < ActionMailer::Base
   def export(users)
     xlsx = render_to_string handlers: [:axlsx], formats: [:xlsx], template: "users/export", locals: {users: users}
     attachments["Users.xlsx"] = {mime_type: Mime::XLSX, content: xlsx}
+    # self.instance_variable_set(:@_lookup_context, nil) # If attachments are rendered as content, try this and open an issue
     ...
   end
 end
@@ -205,6 +216,13 @@ To generate a template within a script, you need to instantiate an ActionView co
 
 * If it says your template is missing, check that its extension is `.xlsx.axlsx`.
 * If you get the error `uninitialized constant Mime::XSLX` you have used `format.xslx` instead of `format.xlsx`, or something similar.
+
+### Mailer Attachments: No content, cannot read
+
+If you are having problems with rendering a template and attaching it to a template, try a few options:
+
+* Make sure the attachment template does not have the same name as the mailer.
+* After you have rendered the template to string, and before you call the mailer, execute `self.instance_variable_set(:@_lookup_context, nil)`. If you must do this, please open an issue.
 
 ### Generated Files Can't Be Opened
 ### Invalid Byte Sequence in UTF-8
