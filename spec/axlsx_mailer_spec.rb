@@ -10,10 +10,6 @@ describe "Mailer", type: :request do
     last_email = ActionMailer::Base.deliveries.last
     expect(last_email.to).to eq([@user.email])
     expect(last_email.attachments.first).to be
-    if Rails.version.to_f >= 5
-      expect(last_email.attachments.first.content_type).to eq(mime_type.to_s)
-    else
-      expect(last_email.attachments.first.content_type).to eq(mime_type.to_s + "; charset=UTF-8")
-    end
+    expect(last_email.attachments.first.content_type).to eq(mime_type.to_s)
   end
 end
