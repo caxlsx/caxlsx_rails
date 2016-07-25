@@ -11,6 +11,10 @@ spec/dummy_4/db/*.sqlite3
 spec/dummy_4/log/*.log
 spec/dummy_4/tmp/
 spec/dummy_4/.sass-cache
+spec/dummy_5/db/*.sqlite3
+spec/dummy_5/log/*.log
+spec/dummy_5/tmp/
+spec/dummy_5/.sass-cache
 oo_*/
 tags
 .DS_Store
