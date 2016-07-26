@@ -163,7 +163,7 @@ render "index", locals: {xlsx_use_shared_strings: true}
 
 ###Partials
 
-Partials work as expected:
+Partials work as expected, but you must pass in relevant spreadsheet variables:
 
 ```ruby
 wb = xlsx_package.workbook
