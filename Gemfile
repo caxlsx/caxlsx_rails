@@ -9,7 +9,7 @@ ENV["RAILS_VERSION"] ||= '4.2'
 
 case ENV['RAILS_VERSION']
 when '5.0'
-  gem 'rails', "~> 5.0.0.rc1"
+  gem 'rails', "~> 5.0.0"
   gem 'responders', '~> 2.0'
 when '4.2'
   gem 'rails', "~> 4.2.0"
