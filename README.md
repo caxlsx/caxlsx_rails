@@ -14,27 +14,25 @@ Status](https://coveralls.io/repos/straydogstudio/axlsx_rails/badge.png)](https:
 In your Gemfile:
 
 ```ruby
-gem 'rubyzip', '= 1.0.0'
-gem 'axlsx', '= 2.0.1'
-gem 'axlsx_rails'
-```
-
-If you are using Roo to read xlsx files, please use this:
-
-```ruby
 gem 'rubyzip', '~> 1.1.0'
 gem 'axlsx', '2.1.0.pre'
 gem 'axlsx_rails'
 ```
 
+If `rubyzip 1.0.0` is needed:
+
+```ruby
+gem 'rubyzip', '= 1.0.0'
+gem 'axlsx', '= 2.0.1'
+gem 'axlsx_rails'
+```
+
 ##Requirements
 
-* Rails 4.1 or 4.2 (tested on both)
+* Rails 4.1, 4.2, or 5 (tested)
 * For Rails 3.1 or 3.2 use version 3.0
-* **As of 0.2.0 requires Axlsx 2.0.1, which requires rubyzip 1.0.0**
-* **As of 0.4.0, and if you use `roo` in your Gemfile, you will want to use either Axlsx 2.1.0.pre or the github repo, which requires rubyzip 1.1.0**
+* **As of 0.5.0 requires Axlsx 2.0.1.pre, which requires rubyzip 1.1.0**
 * As of Rails 4.1 you must use `render_to_string` to render a mail attachment.
-* If you are using Rails 5, using the git repo will prevent deprecation warnings.
 
 ##FYI
 
@@ -224,12 +222,13 @@ If you are having problems with rendering a template and attaching it to a templ
 * Make sure the attachment template does not have the same name as the mailer.
 * After you have rendered the template to string, and before you call the mailer, execute `self.instance_variable_set(:@_lookup_context, nil)`. If you must do this, please open an issue.
 
-### Generated Files Can't Be Opened
-### Invalid Byte Sequence in UTF-8
+If you get this error, please open an issue and share code so the bug can be isolated.
 
-Both these errors appear to be caused by Rails applying a layout to the template. Passing `layout: false` to `render :xlsx` should fix this issue. Version 0.5.0 attempts to fix this issue.
+### Generated Files Can't Be Opened or Invalid Byte Sequence in UTF-8
 
-So far this error has not been reproducible by me. If you get this error, please consider creating a shared repo so the bug can be found.
+Both these errors *appear* to be caused by Rails applying a layout to the template. Passing `layout: false` to `render :xlsx` should fix this issue. Version 0.5.0 attempts to fix this issue.
+
+If you get this error, please open an issue and share code so the bug can be isolated.
 
 ### Rails 4.2 changes
 
@@ -288,6 +287,12 @@ source:
 [![Click here to lend your support to: Axlsx-Rails!](http://www.pledgie.com/campaigns/27737.png?skin_name=chrome)](http://www.pledgie.com/campaigns/27737)
 
 ##Change log
+
+**July 26st, 2016**: 0.5.0 release
+
+- Support for Rails 5
+- **Tested on on Rails 4.0, 4.1, 4.2, and 5.0**
+- Bug fixes for unreadable files and UTF-8 errors
 
 **July 13th, 2015**: 0.4.0 release
 
@@ -349,7 +354,7 @@ source:
 **July 17, 2012**: 0.1.0 release
 
 - Tests completed
-- Acts_as_xlsx tested, example in docs		
+- Acts_as_xlsx tested, example in docs
 
 **July 12, 2012**: 0.0.1 release
 
