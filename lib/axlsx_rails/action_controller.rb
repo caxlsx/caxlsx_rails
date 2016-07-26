@@ -23,7 +23,7 @@ ActionController::Renderers.add :xlsx do |filename, options|
     options[:template] = filename.gsub(/^.*\//,'')
   end
 
-  # force layout fase
+  # force layout false
   options[:layout] = false
 
   # disposition / filename

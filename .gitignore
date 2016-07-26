@@ -22,3 +22,7 @@ tmp/
 
 coverage/*
 /.project
+
+*.sqlite3
+
+*.log
