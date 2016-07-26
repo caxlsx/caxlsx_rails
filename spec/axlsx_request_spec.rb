@@ -160,6 +160,7 @@ describe 'Axlsx request', :type => :request do
       expect{
         visit '/home/only_html'
       }.to_not raise_error
+      ActionView::Base.default_formats.push :xlsx # see notes
 
       # Output:
       # default formats before                        : [:html, :text, :js, :css, :ics, :csv, :vcf, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip, :xlsx]
@@ -170,5 +171,17 @@ describe 'Axlsx request', :type => :request do
       # ActionView::MissingTemplate:
       #   Missing template home/only_html, application/only_html with {:locale=>[:en], :formats=>[:xlsx, :text, :js, :css, :ics, :csv, :vcf, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :axlsx]}.
     end
+  end
+
+  it "downloads an excel file when there is no action" do
+    User.destroy_all
+    @user1 = User.create name: 'Elmer', last_name: 'Fudd', address: '1234 Somewhere, Over NY 11111', email: 'elmer@fudd.com'
+    @user2 = User.create name: 'Bugs', last_name: 'Bunny', address: '1234 Left Turn, Albuquerque NM 22222', email: 'bugs@bunny.com'
+    visit '/users/noaction.xlsx'
+    expect(page.response_headers['Content-Type']).to eq(mime_type.to_s + "; charset=utf-8")
+    File.open('/tmp/axlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
+    wb = nil
+    expect{ wb = Roo::Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
+    expect(wb.cell(3,2)).to eq('Bugs')
   end
 end
