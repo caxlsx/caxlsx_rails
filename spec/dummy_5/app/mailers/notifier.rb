@@ -5,7 +5,7 @@ class Notifier < ActionMailer::Base
     @user = user
 
     # normal syntax
-    xlsx = render_to_string handlers: [:axlsx], template: 'users/mailers/instructions', layout: false, formats: [:xlsx]
+    xlsx = render_to_string handlers: [:axlsx], template: 'users/send_instructions', layout: false, formats: [:xlsx]
     attachments["user_#{user.id}.xlsx"] = {mime_type: Mime[:xlsx], content: xlsx}
 
     mail :to => user.email, :subject => 'Instructions'
