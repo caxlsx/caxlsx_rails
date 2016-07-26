@@ -1,5 +1,11 @@
 # Change log
 
+**July 26st, 2016**: 0.5.0 release
+
+- Support for Rails 5
+- **Tested on on Rails 4.0, 4.1, 4.2, and 5.0**
+- Bug fixes for unreadable files and UTF-8 errors
+
 **July 13th, 2015**: 0.4.0 release
 
 - Support for Rails 4.2
