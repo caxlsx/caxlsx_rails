@@ -8,7 +8,7 @@ Version](https://badge.fury.io/rb/axlsx_rails.png)](http://badge.fury.io/rb/axls
 [![Coverage
 Status](https://coveralls.io/repos/straydogstudio/axlsx_rails/badge.png)](https://coveralls.io/r/straydogstudio/axlsx_rails)
 ![Downloads for latest release](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails)
-![](http://ruby-gem-downloads-badge.herokuapp.com/rails?type=total)
+![](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails?type=total)
 
 ##Installation
 
