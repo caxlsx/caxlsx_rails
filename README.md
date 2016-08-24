@@ -1,4 +1,4 @@
-Axlsx-Rails &mdash; Axlsx templates for Rails views
+Axlsx-Rails &mdash; Spreadsheet templates for Rails views
 ===================================================
 
 [![Build Status](https://secure.travis-ci.org/straydogstudio/axlsx_rails.png?branch=master)](http://travis-ci.org/straydogstudio/axlsx_rails)
