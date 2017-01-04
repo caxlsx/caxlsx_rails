@@ -190,7 +190,7 @@ To use an xlsx template to render a mail attachment, use the following syntax:
 class UserMailer < ActionMailer::Base
   def export(users)
     xlsx = render_to_string handlers: [:axlsx], formats: [:xlsx], template: "users/export", locals: {users: users}
-    attachments["Users.xlsx"] = {mime_type: Mime::XLSX, content: xlsx}
+    attachments["Users.xlsx"] = {mime_type: Mime::XLSX, content: xlsx, encoding: 'base64'}
     # self.instance_variable_set(:@_lookup_context, nil) # If attachments are rendered as content, try this and open an issue
     ...
   end
@@ -199,6 +199,7 @@ end
 
 * If the route specifies or suggests the `:xlsx` format you do not need to specify `formats` or `handlers`. 
 * If the template (`users/export`) can refer to only one file (the xlsx.axlsx template), you do not need to specify `handlers`, provided the `formats` includes `:xlsx`.
+* Specifying the encoding as 'base64' can avoid UTF-8 errors.
 
 ###Scripts
 
@@ -216,14 +217,26 @@ To generate a template within a script, you need to instantiate an ActionView co
 * If it says your template is missing, check that its extension is `.xlsx.axlsx`.
 * If you get the error `uninitialized constant Mime::XSLX` you have used `format.xslx` instead of `format.xlsx`, or something similar.
 
-### Mailer Attachments: No content, cannot read
+### Mailer Attachments: No content, cannot read, Invalid Byte Sequence in UTF-8
 
 If you are having problems with rendering a template and attaching it to a template, try a few options:
 
 * Make sure the attachment template does not have the same name as the mailer.
 * After you have rendered the template to string, and before you call the mailer, execute `self.instance_variable_set(:@_lookup_context, nil)`. If you must do this, please open an issue.
+* If you get Invalid Byte Sequence in UTF-8, pass `encoding: 'base64'` with the attachment:
 
-If you get this error, please open an issue and share code so the bug can be isolated.
+```ruby
+class UserMailer < ActionMailer::Base
+  def export(users)
+    xlsx = render_to_string handlers: [:axlsx], formats: [:xlsx], template: "users/export", locals: {users: users}
+    attachments["Users.xlsx"] = {mime_type: Mime::XLSX, content: xlsx, encoding: 'base64'}
+    # self.instance_variable_set(:@_lookup_context, nil) # If attachments are rendered as content, try this and open an issue
+    ...
+  end
+end
+```
+
+If you get these errors, please open an issue and share code so the bug can be isolated. Or comment on issue [#29](https://github.com/straydogstudio/axlsx_rails/issues/29) or [#25](https://github.com/straydogstudio/axlsx_rails/issues/25).
 
 ### Generated Files Can't Be Opened or Invalid Byte Sequence in UTF-8
 
