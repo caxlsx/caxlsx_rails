@@ -190,7 +190,8 @@ To use an xlsx template to render a mail attachment, use the following syntax:
 class UserMailer < ActionMailer::Base
   def export(users)
     xlsx = render_to_string layout: false, handlers: [:axlsx], formats: [:xlsx], template: "users/export", locals: {users: users}
-    attachments["Users.xlsx"] = {mime_type: Mime::XLSX, content: xlsx, encoding: 'base64'}
+    attachment = Base64.encode64(xlsx)
+    attachments["Users.xlsx"] = {mime_type: Mime::XLSX, content: attachment, encoding: 'base64'}
     # self.instance_variable_set(:@_lookup_context, nil) # If attachments are rendered as content, try this and open an issue
     ...
   end
