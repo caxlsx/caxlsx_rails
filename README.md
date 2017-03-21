@@ -10,7 +10,7 @@ Status](https://coveralls.io/repos/straydogstudio/axlsx_rails/badge.png)](https:
 ![](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails?type=total)
 ![Downloads for latest release](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails?label=downloads-0.5.0)
 
-##Installation
+## Installation
 
 In your Gemfile:
 
@@ -28,23 +28,23 @@ gem 'axlsx', '= 2.0.1'
 gem 'axlsx_rails'
 ```
 
-##Requirements
+## Requirements
 
 * Rails 4.1, 4.2, or 5 (tested)
 * For Rails 3.1 or 3.2 use version 3.0
 * **As of 0.5.0 requires Axlsx 2.0.1, but strongly suggests 2.1.0.pre, which requires rubyzip 1.1.0**
 * As of Rails 4.1 you must use `render_to_string` to render a mail attachment.
 
-##FYI
+## FYI
 
 * This gem depends on [Axlsx](https://github.com/randym/axlsx). See [the blog](http://axlsx.blog.randym.net/) or the [examples page](https://github.com/randym/axlsx/blob/master/examples/example.rb) for usage.
 * Check out [axlsx_styler](https://github.com/sakovias/axlsx_styler) by [sakovias](https://github.com/sakovias) for easier styles and borders!
 
-##Usage
+## Usage
 
 Axlsx-Rails provides a renderer and a template handler. It adds the `:xlsx` format and parses `.xlsx.axlsx` templates. This lets you take all the [Axlsx](https://github.com/randym/axlsx) code out of your controller or model and place it inside the template, where view code belongs! **See [this blog post](http://axlsx.blog.randym.net/2012/08/excel-on-rails-like-pro-with-axlsxrails.html) for a more complete walkthrough.**
 
-###Controller
+### Controller
 
 To use Axlsx-Rails set your instance variables in your controller and configure the response if needed:
 
@@ -59,7 +59,7 @@ class ButtonController < ApplicationController
 end
 ```
 
-###Template
+### Template
 
 Create the template with the `.xlsx.axlsx` extension (`action_name.xlsx.axlsx` for example.) [**Watch out for typos!**](#troubleshooting) In the template, use xlsx_package variable to create your spreadsheet:
 
@@ -78,7 +78,7 @@ Remember, like in `erb` templates, view helpers are available to use the `.xlsx.
 
 That's it. Call your action and your spreadsheet will be delivered.
 
-###Rendering Options
+### Rendering Options
 
 You can call render in any of the following ways:
 
@@ -93,7 +93,7 @@ render xlsx: 'buttons'
 render xlsx: 'latest_buttons', template: 'featured/latest'
 ```
 
-###Disposition
+### Disposition
 
 To specify a disposition (such as `inline` so the spreadsheet is opened inside the browser), use the `disposition` option:
 
@@ -103,7 +103,7 @@ render xlsx: "buttons", disposition: 'inline'
 
 If `render xlsx:` is called, the disposition defaults to `attachment`.
 
-###File name
+### File name
 
 If Rails calls Axlsx through default channels (because you use `format.xlsx {}` for example) you must set the filename using the response header:
 
@@ -128,7 +128,7 @@ If that fails, pass the `:filename` parameter:
 render xlsx: "action_or_template", filename: "my_new_filename.xlsx"
 ```
 
-###Acts As Xlsx
+### Acts As Xlsx
 
 If you use [acts_as_xlsx](https://github.com/randym/acts_as_xlsx), configure the active record normally, but specify the package in the template:
 
@@ -138,7 +138,7 @@ User.to_xlsx package: xlsx_package, (other options)
 
 **Note:** As of 4/1/2014 Acts As Xlsx is not compatible with Rails 4.1, and generates a warning on 4.0. You may use [my patched fork](https://github.com/straydogstudio/acts_as_xlsx) until it is remedied.
 
-###Axlsx Package Options
+### Axlsx Package Options
 
 Axlsx provides three options for initializing a spreadsheet:
 
@@ -162,7 +162,7 @@ render xlsx: "index", xlsx_created_at: 3.days.ago
 render "index", locals: {xlsx_use_shared_strings: true}
 ```
 
-###Partials
+### Partials
 
 Partials work as expected, but you must pass in relevant spreadsheet variables:
 
@@ -182,7 +182,7 @@ wb.add_worksheet(name: "Cover Sheet") do |sheet|
 end
 ```
 
-###Mailers
+### Mailers
 
 To use an xlsx template to render a mail attachment, use the following syntax:
 
@@ -202,16 +202,16 @@ end
 * If the template (`users/export`) can refer to only one file (the xlsx.axlsx template), you do not need to specify `handlers`, provided the `formats` includes `:xlsx`.
 * Specifying the encoding as 'base64' can avoid UTF-8 errors.
 
-###Scripts
+### Scripts
 
 To generate a template within a script, you need to instantiate an ActionView context. Here are two gists showing how to perform this:
 
 * [Using rails runner](https://gist.github.com/straydogstudio/323139591f2cc5d48fbc)
 * [Without rails runner](https://gist.github.com/straydogstudio/dceb775ead81470cea70)
 
-##Troubleshooting
+## Troubleshooting
 
-###Mispellings
+### Mispellings
 
 **It is easy to get the spelling wrong in the extension name, the format.xlsx statement, or in a render call.** Here are some possibilities:
 
@@ -267,20 +267,29 @@ If the request format matches you should be able to call:
 
 This is a breaking change if you have the old syntax!
 
-###What to do
+### Turbolinks
+
+If you are using turbolinks, you may need to disable turbolinks when you link to your spreadsheet:
+
+```ruby
+# turbolinks 5:
+link_to 'Download spreadsheet', path_to_sheet, data: {turbolinks: false}
+```
+
+### What to do
 
 If you are having problems, try to isolate the issue. Use the console or a script to make sure your data is good. Then create the spreadsheet line by line without Axlsx-Rails to see if you are having Axlsx problems. If you can manually create the spreadsheet, create an issue and we will work it out.
 
-##Dependencies
+## Dependencies
 
 - [Rails](https://github.com/rails/rails)
 - [Axlsx](https://github.com/randym/axlsx)
 
-##Authors
+## Authors
 
 * [Noel Peden](https://github.com/straydogstudio)
 
-##Contributors
+## Contributors
 
 Many thanks to [contributors](https://github.com/straydogstudio/axlsx_rails/graphs/contributors):
 
@@ -294,14 +303,14 @@ Many thanks to [contributors](https://github.com/straydogstudio/axlsx_rails/grap
 * [sly7-7](https://github.com/sly7-7)
 * [kodram](https://github.com/kodram)
 
-##Donations
+## Donations
 
 Say thanks for Axlsx-Rails by donating! It makes it easier for me to provide to open
 source:
 
 [![Click here to lend your support to: Axlsx-Rails!](http://www.pledgie.com/campaigns/27737.png?skin_name=chrome)](http://www.pledgie.com/campaigns/27737)
 
-##Change log
+## Change log
 
 **July 26st, 2016**: 0.5.0 release
 
