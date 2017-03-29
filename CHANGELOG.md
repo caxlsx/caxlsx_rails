@@ -1,5 +1,10 @@
 # Change log
 
+**March 29th, 2017**: 0.5.1 release
+
+- Fix stack trace line numbers
+- Thanks to [BenoitHiller](https://github.com/BenoitHiller)
+
 **July 26st, 2016**: 0.5.0 release
 
 - Support for Rails 5

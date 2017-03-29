@@ -302,6 +302,8 @@ Many thanks to [contributors](https://github.com/straydogstudio/axlsx_rails/grap
 * [kaluzny](https://github.com/kaluznyo)
 * [sly7-7](https://github.com/sly7-7)
 * [kodram](https://github.com/kodram)
+* [JohnSmall](https://github.com/JohnSmall)
+* [BenoitHiller](https://github.com/BenoitHiller)
 
 ## Donations
 
@@ -311,6 +313,11 @@ source:
 [![Click here to lend your support to: Axlsx-Rails!](http://www.pledgie.com/campaigns/27737.png?skin_name=chrome)](http://www.pledgie.com/campaigns/27737)
 
 ## Change log
+
+**March 29th, 2017**: 0.5.1 release
+
+- Fix stack trace line numbers
+- Thanks to [BenoitHiller](https://github.com/BenoitHiller)
 
 **July 26st, 2016**: 0.5.0 release
 
