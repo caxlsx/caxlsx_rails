@@ -27,3 +27,5 @@ coverage/*
 *.sqlite3
 
 *.log
+
+*.sqlite3
