@@ -10,6 +10,6 @@ describe "Mailer", type: :request do
     last_email = ActionMailer::Base.deliveries.last
     expect(last_email.to).to eq([@user.email])
     expect(last_email.attachments.first).to be
-    expect(last_email.attachments.first.content_type).to eq(mime_type.to_s)
+    expect(last_email.attachments.first.content_type).to match(/#{mime_type}/)
   end
 end
