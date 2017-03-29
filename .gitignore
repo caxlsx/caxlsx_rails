@@ -19,6 +19,7 @@ oo_*/
 tags
 .DS_Store
 tmp/
+log/.keep
 
 coverage/*
 /.project
