@@ -1,12 +1,12 @@
 Axlsx-Rails &mdash; Spreadsheet templates for Rails
 ===================================================
 
-[![Build Status](https://secure.travis-ci.org/straydogstudio/axlsx_rails.png?branch=master)](http://travis-ci.org/straydogstudio/axlsx_rails)
+[![Build Status](https://secure.travis-ci.org/straydogstudio/axlsx_rails.svg?branch=master)](http://travis-ci.org/straydogstudio/axlsx_rails)
 [![Gem
-Version](https://badge.fury.io/rb/axlsx_rails.png)](http://badge.fury.io/rb/axlsx_rails)
-[![Dependency Status](https://gemnasium.com/straydogstudio/axlsx_rails.png?branch=master)](https://gemnasium.com/straydogstudio/axlsx_rails)
+Version](https://badge.fury.io/rb/axlsx_rails.svg)](http://badge.fury.io/rb/axlsx_rails)
+[![Dependency Status](https://gemnasium.com/straydogstudio/axlsx_rails.svg?branch=master)](https://gemnasium.com/straydogstudio/axlsx_rails)
 [![Coverage
-Status](https://coveralls.io/repos/straydogstudio/axlsx_rails/badge.png)](https://coveralls.io/r/straydogstudio/axlsx_rails)
+Status](https://coveralls.io/repos/straydogstudio/axlsx_rails/badge.svg)](https://coveralls.io/r/straydogstudio/axlsx_rails)
 ![](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails?type=total)
 ![Downloads for latest release](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails?label=downloads-0.5.0)
 
