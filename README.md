@@ -7,8 +7,11 @@ Version](https://badge.fury.io/rb/axlsx_rails.svg)](http://badge.fury.io/rb/axls
 [![Dependency Status](https://gemnasium.com/straydogstudio/axlsx_rails.svg?branch=master)](https://gemnasium.com/straydogstudio/axlsx_rails)
 [![Coverage
 Status](https://coveralls.io/repos/straydogstudio/axlsx_rails/badge.svg)](https://coveralls.io/r/straydogstudio/axlsx_rails)
-![](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails?type=total)
-![Downloads for latest release](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails?label=downloads-0.5.0)
+
+![Total downloads](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails?type=total)
+![Downloads for 0.4.0](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails/0.4.0?label=0.4.0)
+![Downloads for 0.5.0](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails/0.5.0?label=0.5.0)
+![Downloads for latest release](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails/0.5.1?label=0.5.1)
 
 ## Installation
 
