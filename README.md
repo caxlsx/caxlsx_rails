@@ -28,6 +28,14 @@ gem 'axlsx', '= 2.0.1'
 gem 'axlsx_rails'
 ```
 
+If `rubyzip >= 1.2.1` is needed:
+
+```ruby
+gem 'rubyzip', '>= 1.2.1'
+gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: '776037c0fc799bb09da8c9ea47980bd3bf296874'
+gem 'axlsx_rails'
+```
+
 ## Requirements
 
 * Rails 4.1, 4.2, or 5 (tested)
