@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get "/users/:user_id/render_elsewhere(.:format)", :to => "likes#render_elsewhere"
   get "/users/:user_id/send_instructions", :to => "users#send_instructions"
   get "/users/noaction", :to => "users#noaction"
+  get "/users/export/:id", :to => "users#export"
   resources :users do
     resources :likes
   end

@@ -126,6 +126,18 @@ describe 'Axlsx request', :type => :request do
     expect(wb.cell(2,1)).to eq('Untie!')
   end
 
+  it "ignores layout" do
+    User.destroy_all
+    @user = User.create name: 'Responder', last_name: 'Bunny', address: '1234 Right Turn, Albuquerque NM 22222', email: 'bugs@bunny.com'
+    expect {
+      visit "/users/export/#{@user.id}.xlsx"
+    }.to_not raise_error
+    File.open('/tmp/axlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
+    wb = nil
+    expect{ wb = Roo::Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
+    expect(wb.cell(2,1)).to eq('Untie!')
+  end
+
   unless Rails.version < '3.2'
     it "handles missing format with render :xlsx" do
       visit '/another'

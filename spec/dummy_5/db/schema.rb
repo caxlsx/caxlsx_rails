@@ -13,17 +13,17 @@
 ActiveRecord::Schema.define(version: 20121206210955) do
 
   create_table "likes", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "user_id"
+    t.string "name"
+    t.integer "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "last_name"
-    t.string   "address"
-    t.string   "email"
+    t.string "name"
+    t.string "last_name"
+    t.string "address"
+    t.string "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

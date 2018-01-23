@@ -18,8 +18,8 @@ Status](https://coveralls.io/repos/straydogstudio/axlsx_rails/badge.svg)](https:
 In your Gemfile:
 
 ```ruby
-gem 'rubyzip', '~> 1.1.0'
-gem 'axlsx', '2.1.0.pre'
+gem 'rubyzip', '>= 1.2.1'
+gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
 gem 'axlsx_rails'
 ```
 
@@ -31,11 +31,11 @@ gem 'axlsx', '= 2.0.1'
 gem 'axlsx_rails'
 ```
 
-If `rubyzip >= 1.2.1` is needed:
+If `rubyzip >= 1.1.0` is needed:
 
 ```ruby
-gem 'rubyzip', '>= 1.2.1'
-gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: '776037c0fc799bb09da8c9ea47980bd3bf296874'
+gem 'rubyzip', '~> 1.1.0'
+gem 'axlsx', '2.1.0.pre'
 gem 'axlsx_rails'
 ```
 
@@ -202,7 +202,7 @@ class UserMailer < ActionMailer::Base
   def export(users)
     xlsx = render_to_string layout: false, handlers: [:axlsx], formats: [:xlsx], template: "users/export", locals: {users: users}
     attachment = Base64.encode64(xlsx)
-    attachments["Users.xlsx"] = {mime_type: Mime::XLSX, content: attachment, encoding: 'base64'}
+    attachments["Users.xlsx"] = {mime_type: Mime[:xlsx], content: attachment, encoding: 'base64'}
     # self.instance_variable_set(:@_lookup_context, nil) # If attachments are rendered as content, try this and open an issue
     ...
   end
@@ -241,7 +241,7 @@ If you are having problems with rendering a template and attaching it to a templ
 class UserMailer < ActionMailer::Base
   def export(users)
     xlsx = render_to_string handlers: [:axlsx], formats: [:xlsx], template: "users/export", locals: {users: users}
-    attachments["Users.xlsx"] = {mime_type: Mime::XLSX, content: xlsx, encoding: 'base64'}
+    attachments["Users.xlsx"] = {mime_type: Mime[:xlsx], content: xlsx, encoding: 'base64'}
     # self.instance_variable_set(:@_lookup_context, nil) # If attachments are rendered as content, try this and open an issue
     ...
   end

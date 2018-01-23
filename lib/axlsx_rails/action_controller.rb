@@ -1,5 +1,5 @@
 require 'action_controller'
-unless defined? Mime::XLSX
+unless defined? Mime[:xlsx]
 	Mime::Type.register "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", :xlsx
 end
 
@@ -42,7 +42,7 @@ ActionController::Renderers.add :xlsx do |filename, options|
     options[:locals][:xlsx_use_shared_strings] = options.delete(:xlsx_use_shared_strings)
   end
 
-  mime = (Rails.version.to_f >= 5) ? Mime[:xlsx] : Mime::XLSX
+  mime = Mime[:xlsx]
   send_data render_to_string(options), :filename => file_name, :type => mime, :disposition => disposition
 end
 
@@ -53,6 +53,7 @@ rescue
 else
   class ActionController::Responder
     def to_xlsx
+      @_action_has_layout = false
       if @default_response
         @default_response.call(options)
       else
