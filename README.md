@@ -23,6 +23,8 @@ gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
 gem 'axlsx_rails'
 ```
 
+**NOTE:** Axlsx has been pending release for a long time. You must specify the master on github to support Rubyzip 1.2.1.
+
 If `rubyzip 1.0.0` is needed:
 
 ```ruby
@@ -41,7 +43,7 @@ gem 'axlsx_rails'
 
 ## Requirements
 
-* Rails 4.1, 4.2, 5.0 or 5.1 (tested)
+* Rails 4.2, 5.0 or 5.1 (tested)
 * For Rails 3.1 or 3.2 use version 3.0
 * **As of 0.5.0 requires Axlsx 2.0.1, but strongly suggests 2.1.0.pre, which requires rubyzip 1.1.0**
 * As of Rails 4.1 you must use `render_to_string` to render a mail attachment.
