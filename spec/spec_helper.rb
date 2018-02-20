@@ -40,5 +40,5 @@ module ::RSpec::Core
 end
 
 def mime_type
-  Mime[:xlsx]
+  Rails.version.to_f >= 5 ? Mime[:xlsx] : Mime::XLSX
 end

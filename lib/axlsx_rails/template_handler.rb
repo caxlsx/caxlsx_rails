@@ -3,7 +3,7 @@ module ActionView
   module Template::Handlers
     class AxlsxBuilder
       def default_format
-        Mime[:xlsx]
+        Rails.version.to_f >= 5 ? Mime[:xlsx] : Mime::XLSX
       end
 
       def self.call(template)

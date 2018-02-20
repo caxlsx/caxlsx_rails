@@ -205,6 +205,8 @@ class UserMailer < ActionMailer::Base
     xlsx = render_to_string layout: false, handlers: [:axlsx], formats: [:xlsx], template: "users/export", locals: {users: users}
     attachment = Base64.encode64(xlsx)
     attachments["Users.xlsx"] = {mime_type: Mime[:xlsx], content: attachment, encoding: 'base64'}
+    # For rails 4 use Mime::XLSX
+    # attachments["Users.xlsx"] = {mime_type: Mime::XLSX, content: attachment, encoding: 'base64'}
     # self.instance_variable_set(:@_lookup_context, nil) # If attachments are rendered as content, try this and open an issue
     ...
   end
@@ -244,6 +246,8 @@ class UserMailer < ActionMailer::Base
   def export(users)
     xlsx = render_to_string handlers: [:axlsx], formats: [:xlsx], template: "users/export", locals: {users: users}
     attachments["Users.xlsx"] = {mime_type: Mime[:xlsx], content: xlsx, encoding: 'base64'}
+    # For Rails 4 use Mime::XLSX
+    # attachments["Users.xlsx"] = {mime_type: Mime::XLSX, content: xlsx, encoding: 'base64'}
     # self.instance_variable_set(:@_lookup_context, nil) # If attachments are rendered as content, try this and open an issue
     ...
   end
