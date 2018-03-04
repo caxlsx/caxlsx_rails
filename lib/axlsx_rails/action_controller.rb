@@ -28,32 +28,26 @@ ActionController::Renderers.add :xlsx do |filename, options|
   #    render 'controller/diff_action'
   #  end
   #
-  if options[:template] == action_name
-    options[:template] = filename.gsub(/^.*\//,'')
-  end
+  options[:template] = filename.gsub(/^.*\//,'') if options[:template] == action_name
 
   # force layout false
   options[:layout] = false
 
   # disposition / filename
   disposition = options.delete(:disposition) || 'attachment'
-  file_name = options.delete(:filename)
-  if file_name
-    file_name += ".xlsx" unless file_name =~ /\.xlsx$/
-  else
-    file_name = "#{filename.gsub(/^.*\//,'')}.xlsx"
-  end
+  file_name = options.delete(:filename) || "#{filename.gsub(/^.*\//,'')}.xlsx"
+  file_name = "#{file_name}.xlsx" unless file_name =~ /\.xlsx$/
 
   # alternate settings
   options[:locals] ||= {}
   options[:locals][:xlsx_author] ||= options.delete(:xlsx_author)
   options[:locals][:xlsx_created_at] ||= options.delete(:xlsx_created_at)
-  if options[:locals][:xlsx_use_shared_strings].nil?
+  unless options[:locals][:xlsx_use_shared_strings]
     options[:locals][:xlsx_use_shared_strings] = options.delete(:xlsx_use_shared_strings)
   end
 
   mime = Rails.version.to_f >= 5 ? Mime[:xlsx] : Mime::XLSX
-  send_data render_to_string(options), :filename => file_name, :type => mime, :disposition => disposition
+  send_data render_to_string(options), filename: file_name, type: mime, disposition: disposition
 end
 
 # For respond_to default
