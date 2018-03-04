@@ -1,4 +1,6 @@
-require'spec_helper'
+require 'spec_helper'
+require 'axlsx_rails/template_handler'
+
 describe 'Axlsx template handler' do
 
   AB = ActionView::Template::Handlers::AxlsxBuilder

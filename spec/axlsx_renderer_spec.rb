@@ -1,4 +1,6 @@
 require'spec_helper'
+require 'axlsx_rails/action_controller'
+
 describe 'Axlsx renderer' do
 
   it "is registered" do
