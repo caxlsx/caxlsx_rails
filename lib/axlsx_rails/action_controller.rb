@@ -1,12 +1,12 @@
-require 'action_controller'
+# frozen_string_literal: true
 
 if Rails.version.to_f >= 5
   unless Mime[:xlsx]
-  	Mime::Type.register "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", :xlsx
+  	Mime::Type.register 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', :xlsx
   end
 else
   unless defined? Mime::XLSX
-    Mime::Type.register "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", :xlsx
+    Mime::Type.register 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', :xlsx
   end
 end
 
@@ -34,8 +34,9 @@ ActionController::Renderers.add :xlsx do |filename, options|
   options[:layout] = false
 
   # disposition / filename
-  disposition   = options.delete(:disposition) || 'attachment'
-  if file_name = options.delete(:filename)
+  disposition = options.delete(:disposition) || 'attachment'
+  file_name = options.delete(:filename)
+  if file_name
     file_name += ".xlsx" unless file_name =~ /\.xlsx$/
   else
     file_name = "#{filename.gsub(/^.*\//,'')}.xlsx"
