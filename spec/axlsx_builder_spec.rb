@@ -1,4 +1,5 @@
-require'spec_helper'
+require 'spec_helper'
+
 describe 'Axlsx template handler' do
 
   AB = ActionView::Template::Handlers::AxlsxBuilder
@@ -22,7 +23,7 @@ describe 'Axlsx template handler' do
 
     it "compiles to an excel spreadsheet" do
       xlsx_package, wb = nil
-      eval( AB.call template )
+      eval( AB.new.call template )
       xlsx_package.serialize('/tmp/axlsx_temp.xlsx')
       expect{ wb = Roo::Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
       expect(wb.cell(2,3)).to eq('c')

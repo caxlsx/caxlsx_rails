@@ -1,4 +1,5 @@
 require'spec_helper'
+
 describe 'Axlsx renderer' do
 
   it "is registered" do
