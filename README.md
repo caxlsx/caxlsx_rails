@@ -224,6 +224,112 @@ To generate a template within a script, you need to instantiate an ActionView co
 * [Using rails runner](https://gist.github.com/straydogstudio/323139591f2cc5d48fbc)
 * [Without rails runner](https://gist.github.com/straydogstudio/dceb775ead81470cea70)
 
+### Testing
+
+There is no built-in way to test your resulting workbooks / templates. But here is a piece of code that may help you to find a way.
+
+#### First, create a shared context
+
+```ruby
+RSpec.shared_context 'axlsx' do
+
+  # all xlsx specs describe must be normalized
+  # "folder/view_name.xlsx.axlsx"
+  # allow to infer the template path
+  template_name = description
+
+  let(:template_path) do
+    ['app', 'views', template_name]
+  end
+  
+  # This helper will be used in tests
+  def render_template(locals = {})
+    axlsx_binding = Kernel.binding
+    locals.each do |key, value|
+      axlsx_binding.local_variable_set key, value
+    end
+    # define a default workbook and a default sheet useful when testing partial in isolation
+    wb = Axlsx::Package.new.workbook
+    axlsx_binding.local_variable_set(:wb, wb)
+    axlsx_binding.local_variable_set(:sheet, wb.add_worksheet)
+
+    # mimics an ActionView::Template class, presenting a 'source' method
+    # to retrieve the content of the template
+    axlsx_binding.eval(ActionView::Template::Handlers::AxlsxBuilder.call(Struct.new(:source).new(File.read(Rails.root.join(*template_path)))))
+    axlsx_binding.local_variable_get(:wb)
+  end
+end
+```
+
+#### Include it in your spec files:
+
+```ruby
+require 'spec_helper'
+require 'helpers/axlsx_context'
+
+describe 'shared/_total_request.xlsx.axlsx' do
+  include_context 'axlsx'
+
+  before :each do
+    # all the instance variables here are the one used in 'shared/_total_request.xlsx.axlsx'
+    @widget = mock_model(Widget, name: 'My widget')
+    @message_counts = Struct.new(:count_all, :positives, :negatives, :neutrals).new(42, 23, 15, 25)
+  end
+
+  it 'has a title line mentioning the widget' do
+    wb = render_template
+    sheet = wb.sheet_by_name('Réf. Requête')
+    expect(sheet).to have_header_cells ['My widget : Messages de la requête']
+  end
+
+  it 'exports the message counts' do
+    wb = render_template
+    sheet = wb.sheet_by_name('Réf. Requête')
+    expect(sheet).to have_cells(['Toutes tonalités', 'Tonalité positive', 'Tonalité négative', 'Tonalité neutre']).in_row(2)
+    expect(sheet).to have_cells([42, 23, 15, 25]).in_row(3)
+  end
+
+end
+```
+
+#### Matchers used
+
+```ruby
+
+# encoding: UTF-8
+
+require 'rspec/expectations'
+
+module XslsMatchers
+
+  RSpec::Matchers.define :have_header_cells do |cell_values|
+    match do |worksheet|
+      worksheet.rows[0].cells.map(&:value) == cell_values
+    end
+
+    failure_message do |actual|
+      "Expected #{actual.rows[0].cells.map(&:value)} to be #{expected}"
+    end
+  end
+
+  RSpec::Matchers.define :have_cells do |expected|
+    match do |worksheet|
+      worksheet.rows[@index].cells.map(&:value) == expected
+    end
+
+    chain :in_row do |index|
+      @index = index
+    end
+
+    failure_message do |actual|
+      "Expected #{actual.rows[@index].cells.map(&:value)} to include #{expected} at row #{@index}."
+    end
+  end
+end
+
+```
+
+
 ## Troubleshooting
 
 ### Mispellings
