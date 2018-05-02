@@ -1,5 +1,9 @@
 # Change log
 
+**May 1st, 2018**: 0.5.2 release
+
+- Improved Rails 5 compatibility re MIME type
+
 **March 29th, 2017**: 0.5.1 release
 
 - Fix stack trace line numbers
