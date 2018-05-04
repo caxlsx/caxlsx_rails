@@ -29,3 +29,5 @@ coverage/*
 *.log
 
 *.sqlite3
+
+.ruby-version
