@@ -1,6 +1,6 @@
 export RAILS_ENV=test
 
-for version in 5.0
+for version in 5.2
 do
   echo "Testing Rails version " $version
   rm Gemfile.lock
