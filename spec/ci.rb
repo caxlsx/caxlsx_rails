@@ -1,6 +1,12 @@
 #!/usr/bin/env ruby
 
-if ENV['RAILS_VERSION'] =~ /^5/
+if ENV['RAILS_VERSION'] =~ /^5.2/
+  puts "Testing Rails 5.2"
+  exit system('cd spec/dummy_5.2 && bundle install --without debug && bundle exec rake db:create && bundle exec rake db:migrate && cd ../../ && bundle exec rspec spec')
+elsif ENV['RAILS_VERSION'] =~ /^5.1/
+  puts "Testing Rails 5.1"
+  exit system('cd spec/dummy_5.1 && bundle install --without debug && bundle exec rake db:create && bundle exec rake db:migrate && cd ../../ && bundle exec rspec spec')
+elsif ENV['RAILS_VERSION'] =~ /^5/
   puts "Testing Rails 5"
   exit system('cd spec/dummy_5 && bundle install --without debug && bundle exec rake db:create && bundle exec rake db:migrate && cd ../../ && bundle exec rspec spec')
 elsif ENV['RAILS_VERSION'] =~ /^4/

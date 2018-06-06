@@ -1,0 +1,17 @@
+<h1>Listing likes for <%= @user.name %></h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+<% @likes.each do |like| %>
+  <tr>
+    <td><%= like.name %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Like', new_like_path %>

@@ -1,0 +1,8 @@
+wb = xlsx_package.workbook
+style_shout = wb.styles.add_style sz: 16, b: true, alignment: { horizontal: :center }
+wb.add_worksheet(name: "Foobar") do |sheet|
+  sheet.add_row ['Bad', 'spellers', 'of', 'the', 'world', '...']
+  sheet.add_row ['Untie!']
+  sheet.merge_cells("A2:E2")
+  sheet["A2"].style = style_shout
+end
