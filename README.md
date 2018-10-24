@@ -125,7 +125,7 @@ format.xlsx {
 }
 ```
 
-If you use `render xlsx:` the gem will try to guess the file name: 
+If you use `render xlsx:` the gem will try to guess the file name:
 
 ```ruby
 # filename of 'buttons'
@@ -212,7 +212,7 @@ class UserMailer < ActionMailer::Base
 end
 ```
 
-* If the route specifies or suggests the `:xlsx` format you do not need to specify `formats` or `handlers`. 
+* If the route specifies or suggests the `:xlsx` format you do not need to specify `formats` or `handlers`.
 * If the template (`users/export`) can refer to only one file (the xlsx.axlsx template), you do not need to specify `handlers`, provided the `formats` includes `:xlsx`.
 * Specifying the encoding as 'base64' can avoid UTF-8 errors.
 
@@ -240,7 +240,7 @@ RSpec.shared_context 'axlsx' do
   let(:template_path) do
     ['app', 'views', template_name]
   end
-  
+
   # This helper will be used in tests
   def render_template(locals = {})
     axlsx_binding = Kernel.binding
@@ -254,7 +254,7 @@ RSpec.shared_context 'axlsx' do
 
     # mimics an ActionView::Template class, presenting a 'source' method
     # to retrieve the content of the template
-    axlsx_binding.eval(ActionView::Template::Handlers::AxlsxBuilder.call(Struct.new(:source).new(File.read(Rails.root.join(*template_path)))))
+    axlsx_binding.eval(ActionView::Template::Handlers::AxlsxBuilder.new.call(Struct.new(:source).new(File.read(Rails.root.join(*template_path)))))
     axlsx_binding.local_variable_get(:wb)
   end
 end
