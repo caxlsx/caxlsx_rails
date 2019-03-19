@@ -11,7 +11,7 @@ module ActionView
         Rails.version.to_f >= 5 ? Mime[:xlsx] : Mime::XLSX
       end
 
-      def call(template)
+      def call(template, source = nil)
         builder = StringIO.new
         builder << "require 'axlsx';"
         builder << "xlsx_author = defined?(xlsx_author).nil? ? nil : xlsx_author;"
@@ -21,7 +21,7 @@ module ActionView
         builder << ":author => xlsx_author,"
         builder << ":created_at => xlsx_created_at,"
         builder << ":use_shared_strings => xlsx_use_shared_strings);"
-        builder << template.source
+        builder << source || template.source
         builder << ";xlsx_package.to_stream.string;"
         builder.string
       end
