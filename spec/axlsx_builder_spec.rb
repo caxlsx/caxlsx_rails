@@ -21,7 +21,16 @@ describe 'Axlsx template handler' do
       expect(handler.default_format).to eq(mime_type)
     end
 
-    it "compiles to an excel spreadsheet" do
+    it "compiles to an excel spreadsheet when passing in a source" do
+      xlsx_package, wb = nil
+      source = "wb = xlsx_package.workbook;\nwb.add_worksheet(name: 'Test') do |sheet|\n\tsheet.add_row ['four', 'five', 'six']\n\tsheet.add_row ['d', 'e', 'f']\nend\n"
+      eval( AB.new.call template, source )
+      xlsx_package.serialize('/tmp/axlsx_temp.xlsx')
+      expect{ wb = Roo::Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
+      expect(wb.cell(2,3)).to eq('c')
+    end
+
+    it "compiles to an excel spreadsheet when inferring source from template " do
       xlsx_package, wb = nil
       eval( AB.new.call template )
       xlsx_package.serialize('/tmp/axlsx_temp.xlsx')
