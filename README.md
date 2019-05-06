@@ -254,7 +254,7 @@ RSpec.shared_context 'axlsx' do
 
     # mimics an ActionView::Template class, presenting a 'source' method
     # to retrieve the content of the template
-    axlsx_binding.eval(ActionView::Template::Handlers::AxlsxBuilder.new.call(Struct.new(:source).new(File.read(Rails.root.join(*template_path)))))
+    axlsx_binding.eval(ActionView::Template::Handlers::AxlsxBuilder.call(Struct.new(:source).new(File.read(Rails.root.join(*template_path)))))
     axlsx_binding.local_variable_get(:wb)
   end
 end
