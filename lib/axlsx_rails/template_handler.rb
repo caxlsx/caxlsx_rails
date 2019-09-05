@@ -8,12 +8,12 @@ module ActionView
     class AxlsxBuilder
 
       def default_format
-        case 
-        when Rails.version.to_f >= 6 
+        case
+        when Rails.version.to_f >= 6
           Mime[:xlsx].symbol
-        when Rails.version.to_f >= 5 
-          Mime[:xlsx] 
-        else 
+        when Rails.version.to_f >= 5
+          Mime[:xlsx]
+        else
           Mime::XLSX
         end
       end
@@ -28,7 +28,7 @@ module ActionView
         builder << ":author => xlsx_author,"
         builder << ":created_at => xlsx_created_at,"
         builder << ":use_shared_strings => xlsx_use_shared_strings);"
-        builder << source || template.source
+        builder << (source || template.source)
         builder << ";xlsx_package.to_stream.string;"
         builder.string
       end

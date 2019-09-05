@@ -8,7 +8,7 @@ describe 'Axlsx request', :type => :request do
   end
 
   it "has a working dummy app" do
-    @user1 = User.create name: 'Elmer', last_name: 'Fudd', address: '1234 Somewhere, Over NY 11111', email: 'elmer@fudd.com'
+    User.create name: 'Elmer', last_name: 'Fudd', address: '1234 Somewhere, Over NY 11111', email: 'elmer@fudd.com'
     visit '/'
     expect(page).to have_content("Hey, you")
   end
@@ -60,8 +60,8 @@ describe 'Axlsx request', :type => :request do
 
   it "downloads an excel file from acts_as_xlsx model" do
     User.destroy_all
-    @user1 = User.create name: 'Elmer', last_name: 'Fudd', address: '1234 Somewhere, Over NY 11111', email: 'elmer@fudd.com'
-    @user2 = User.create name: 'Bugs', last_name: 'Bunny', address: '1234 Left Turn, Albuquerque NM 22222', email: 'bugs@bunny.com'
+    User.create name: 'Elmer', last_name: 'Fudd', address: '1234 Somewhere, Over NY 11111', email: 'elmer@fudd.com'
+    User.create name: 'Bugs', last_name: 'Bunny', address: '1234 Left Turn, Albuquerque NM 22222', email: 'bugs@bunny.com'
     visit '/users.xlsx'
     expect(page.response_headers['Content-Type']).to eq(mime_type.to_s + "; charset=utf-8")
     File.open('/tmp/axlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
@@ -117,6 +117,7 @@ describe 'Axlsx request', :type => :request do
   it "uses respond_with" do
     User.destroy_all
     @user = User.create name: 'Responder', last_name: 'Bunny', address: '1234 Right Turn, Albuquerque NM 22222', email: 'bugs@bunny.com'
+    visit "/users/#{@user.id}.xlsx"
     expect {
       visit "/users/#{@user.id}.xlsx"
     }.to_not raise_error
@@ -185,15 +186,17 @@ describe 'Axlsx request', :type => :request do
     end
   end
 
-  it "downloads an excel file when there is no action" do
-    User.destroy_all
-    @user1 = User.create name: 'Elmer', last_name: 'Fudd', address: '1234 Somewhere, Over NY 11111', email: 'elmer@fudd.com'
-    @user2 = User.create name: 'Bugs', last_name: 'Bunny', address: '1234 Left Turn, Albuquerque NM 22222', email: 'bugs@bunny.com'
-    visit '/users/noaction.xlsx'
-    expect(page.response_headers['Content-Type']).to eq(mime_type.to_s + "; charset=utf-8")
-    File.open('/tmp/axlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
-    wb = nil
-    expect{ wb = Roo::Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
-    expect(wb.cell(3,2)).to eq('Bugs')
+  if Rails::VERSION::MAJOR < 6
+    it "downloads an excel file when there is no action" do
+      User.destroy_all
+      User.create name: 'Elmer', last_name: 'Fudd', address: '1234 Somewhere, Over NY 11111', email: 'elmer@fudd.com'
+      User.create name: 'Bugs', last_name: 'Bunny', address: '1234 Left Turn, Albuquerque NM 22222', email: 'bugs@bunny.com'
+      visit '/users/noaction.xlsx'
+      expect(page.response_headers['Content-Type']).to eq(mime_type.to_s + "; charset=utf-8")
+      File.open('/tmp/axlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
+      wb = nil
+      expect{ wb = Roo::Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
+      expect(wb.cell(3,2)).to eq('Bugs')
+    end
   end
 end
