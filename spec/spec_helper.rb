@@ -3,7 +3,10 @@ Coveralls.wear!
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] = 'test'
-if ENV['RAILS_VERSION'] =~ /^5.2/
+if ENV['RAILS_VERSION'] =~ /^6.0/
+  puts "Testing Rails 6.0"
+  require File.expand_path("../dummy_6.0/config/environment", __FILE__)
+elsif ENV['RAILS_VERSION'] =~ /^5.2/
   puts "Testing Rails 5.2"
   require File.expand_path("../dummy_5.2/config/environment", __FILE__)
 elsif ENV['RAILS_VERSION'] =~ /^5.1/

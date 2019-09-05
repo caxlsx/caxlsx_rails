@@ -5,9 +5,12 @@ source "http://rubygems.org"
 # development dependencies will be added by default to the :development group.
 gemspec
 
-ENV["RAILS_VERSION"] ||= '4.2'
+ENV["RAILS_VERSION"] ||= '6.0'
 
 case ENV['RAILS_VERSION']
+when '6.0'
+  gem 'rails', "~> 6"
+  gem 'responders', '~> 2.0'
 when '5.1'
   gem 'rails', "~> 5.1.0"
   gem 'responders', '~> 2.0'
