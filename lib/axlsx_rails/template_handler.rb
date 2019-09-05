@@ -8,7 +8,14 @@ module ActionView
     class AxlsxBuilder
 
       def default_format
-        Rails.version.to_f >= 5 ? Mime[:xlsx] : Mime::XLSX
+        case 
+        when Rails.version.to_f >= 6 
+          Mime[:xlsx].symbol
+        when Rails.version.to_f >= 5 
+          Mime[:xlsx] 
+        else 
+          Mime::XLSX
+        end
       end
 
       def call(template, source = nil)
