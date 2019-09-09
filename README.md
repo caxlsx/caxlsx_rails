@@ -1,3 +1,12 @@
+Notice: Community Axlsx organization
+===================================================
+All Axlsx related gems have been forked or moved to a community organization: http://github.com/caxlsx
+* Axlsx
+* acts_as_axlsx
+* axlsx_rails
+
+Please consider helping develop and test these gems.
+
 Axlsx-Rails &mdash; Spreadsheet templates for Rails
 ===================================================
 
