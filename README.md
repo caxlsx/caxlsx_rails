@@ -13,12 +13,11 @@ Please consider helping develop and test these gems.
 Axlsx-Rails &mdash; Spreadsheet templates for Rails
 ===================================================
 
-[![Build Status](https://secure.travis-ci.org/straydogstudio/axlsx_rails.svg?branch=master)](http://travis-ci.org/straydogstudio/axlsx_rails)
+[![Build Status](https://secure.travis-ci.org/caxlsx/axlsx_rails.svg?branch=master)](http://travis-ci.org/caxlsx/axlsx_rails)
 [![Gem
 Version](https://badge.fury.io/rb/axlsx_rails.svg)](http://badge.fury.io/rb/axlsx_rails)
-[![Dependency Status](https://gemnasium.com/straydogstudio/axlsx_rails.svg?branch=master)](https://gemnasium.com/straydogstudio/axlsx_rails)
 [![Coverage
-Status](https://coveralls.io/repos/straydogstudio/axlsx_rails/badge.svg)](https://coveralls.io/r/straydogstudio/axlsx_rails)
+Status](https://coveralls.io/repos/caxlsx/axlsx_rails/badge.svg)](https://coveralls.io/r/caxlsx/axlsx_rails)
 
 ![Total downloads](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails?type=total)
 ![Downloads for 0.5.1](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails/0.5.1?label=0.5.1)
@@ -160,7 +159,7 @@ If you use [acts_as_xlsx](https://github.com/caxlsx/acts_as_xlsx), configure the
 User.to_xlsx package: xlsx_package, (other options)
 ```
 
-**Note:** As of 4/1/2014 Acts As Xlsx is not compatible with Rails 4.1, and generates a warning on 4.0. You may use [my patched fork](https://github.com/straydogstudio/acts_as_xlsx) until it is remedied.
+**Note:** As of 4/1/2014 Acts As Xlsx is not compatible with Rails 4.1, and generates a warning on 4.0. You may use [my patched fork](https://github.com/caxlsx/acts_as_caxlsx) until it is remedied.
 
 ### Axlsx Package Options
 
@@ -371,7 +370,7 @@ class UserMailer < ActionMailer::Base
 end
 ```
 
-If you get these errors, please open an issue and share code so the bug can be isolated. Or comment on issue [#29](https://github.com/straydogstudio/axlsx_rails/issues/29) or [#25](https://github.com/straydogstudio/axlsx_rails/issues/25).
+If you get these errors, please open an issue and share code so the bug can be isolated. Or comment on issue [#29](https://github.com/caxlsx/axlsx_rails/issues/29) or [#25](https://github.com/caxlsx/axlsx_rails/issues/25).
 
 ### Generated Files Can't Be Opened or Invalid Byte Sequence in UTF-8
 
@@ -425,7 +424,7 @@ If you are having problems, try to isolate the issue. Use the console or a scrip
 
 ## Contributors
 
-Many thanks to [contributors](https://github.com/straydogstudio/axlsx_rails/graphs/contributors):
+Many thanks to [contributors](https://github.com/caxlsx/axlsx_rails/graphs/contributors):
 
 * [randym](https://github.com/randym)
 * [sugi](https://github.com/sugi)

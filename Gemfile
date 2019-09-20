@@ -27,13 +27,14 @@ when '4.2'
   # gem 'rails', "~> 4.1.0"
 # when '4.0'
   # gem 'rails', "~> 4.0.0"
-when '3.1', '3.2'
-  gem 'rails', "~> #{ENV['RAILS_VERSION']}.0"
-end
+# when '3.1', '3.2'
+  # gem 'rails', "~> #{ENV['RAILS_VERSION']}.0"
+# end
 
 # jquery-rails is used by the dummy application
 gem "jquery-rails"
 gem "thin"
+gem "sqlite3"
 
 # Declare any dependencies that are still in development here instead of in
 # your gemspec. These might include edge Rails or gems from your path or
