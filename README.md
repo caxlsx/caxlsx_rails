@@ -22,7 +22,7 @@ Status](https://coveralls.io/repos/caxlsx/axlsx_rails/badge.svg)](https://covera
 ![Total downloads](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails?type=total)
 ![Downloads for 0.5.1](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails/0.5.1?label=0.5.1)
 ![Downloads for 0.5.2](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails/0.5.2?label=0.5.2)
-![Downloads for 0.6.0 (latest)](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails/0.5.2?label=0.6.0)
+![Downloads for 0.6.0 (latest)](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails/0.6.0?label=0.6.0)
 
 ## Installation
 
