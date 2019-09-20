@@ -1,10 +1,10 @@
 Notice: Community Axlsx organization
 ===================================================
 All Axlsx related gems have been forked or moved to a community organization: http://github.com/caxlsx
-* Axlsx
-* acts_as_axlsx
-* axlsx_rails
-* activeadmin-axlsx
+* [Axlsx](http://github.com/caxlsx/caxlsx)
+* [acts_as_caxlsx](http://github.com/caxlsx/acts_as_caxlsx)
+* [axlsx_rails](http://github.com/caxlsx/axlsx_rails)
+* [activeadmin-caxlsx](http://github.com/caxlsx/activeadmin-caxlsx)
 
 The gems will be released as is as a starting point to allow releases of other gems that depend on these gems. Submit issues as usual. 
 
@@ -21,7 +21,8 @@ Status](https://coveralls.io/repos/caxlsx/axlsx_rails/badge.svg)](https://covera
 
 ![Total downloads](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails?type=total)
 ![Downloads for 0.5.1](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails/0.5.1?label=0.5.1)
-![Downloads for latest release](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails/0.5.2?label=0.5.2)
+![Downloads for 0.5.2](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails/0.5.2?label=0.5.2)
+![Downloads for 0.6.0 (latest)](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails/0.5.2?label=0.6.0)
 
 ## Installation
 
