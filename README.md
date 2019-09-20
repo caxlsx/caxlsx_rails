@@ -1,3 +1,15 @@
+Notice: Community Axlsx organization
+===================================================
+All Axlsx related gems have been forked or moved to a community organization: http://github.com/caxlsx
+* Axlsx
+* acts_as_axlsx
+* axlsx_rails
+* activeadmin-axlsx
+
+The gems will be released as is as a starting point to allow releases of other gems that depend on these gems. Submit issues as usual. 
+
+Please consider helping develop and test these gems.
+
 Axlsx-Rails &mdash; Spreadsheet templates for Rails
 ===================================================
 
@@ -49,12 +61,12 @@ gem 'axlsx_rails'
 
 ## FYI
 
-* This gem depends on [Axlsx](https://github.com/randym/axlsx). See [the blog](http://axlsx.blog.randym.net/) or the [examples page](https://github.com/randym/axlsx/blob/master/examples/example.rb) for usage.
+* This gem depends on [Axlsx](https://github.com/caxlsx/axlsx). See [the blog](http://axlsx.blog.randym.net/) or the [examples page](https://github.com/randym/axlsx/blob/master/examples/example.rb) for usage.
 * Check out [axlsx_styler](https://github.com/sakovias/axlsx_styler) by [sakovias](https://github.com/sakovias) for easier styles and borders!
 
 ## Usage
 
-Axlsx-Rails provides a renderer and a template handler. It adds the `:xlsx` format and parses `.xlsx.axlsx` templates. This lets you take all the [Axlsx](https://github.com/randym/axlsx) code out of your controller or model and place it inside the template, where view code belongs! **See [this blog post](http://axlsx.blog.randym.net/2012/08/excel-on-rails-like-pro-with-axlsxrails.html) for a more complete walkthrough.**
+Axlsx-Rails provides a renderer and a template handler. It adds the `:xlsx` format and parses `.xlsx.axlsx` templates. This lets you take all the [Axlsx](https://github.com/caxlsx/axlsx) code out of your controller or model and place it inside the template, where view code belongs! **See [this blog post](http://axlsx.blog.randym.net/2012/08/excel-on-rails-like-pro-with-axlsxrails.html) for a more complete walkthrough.**
 
 ### Controller
 
@@ -84,7 +96,7 @@ wb.add_worksheet(name: "Buttons") do |sheet|
 end
 ```
 
-This is where you place all your [Axlsx](https://github.com/randym/axlsx) specific markup. Add worksheets, fill content, merge cells, add styles. See the [Axlsx examples](https://github.com/randym/axlsx/tree/master/examples/example.rb) page to see what you can do.
+This is where you place all your [Axlsx](https://github.com/caxlsx/axlsx) specific markup. Add worksheets, fill content, merge cells, add styles. See the [Axlsx examples](https://github.com/caxlsx/axlsx/tree/master/examples/example.rb) page to see what you can do.
 
 Remember, like in `erb` templates, view helpers are available to use the `.xlsx.axlsx` template.
 
@@ -142,7 +154,7 @@ render xlsx: "action_or_template", filename: "my_new_filename.xlsx"
 
 ### Acts As Xlsx
 
-If you use [acts_as_xlsx](https://github.com/randym/acts_as_xlsx), configure the active record normally, but specify the package in the template:
+If you use [acts_as_xlsx](https://github.com/caxlsx/acts_as_xlsx), configure the active record normally, but specify the package in the template:
 
 ```ruby
 User.to_xlsx package: xlsx_package, (other options)
@@ -405,7 +417,7 @@ If you are having problems, try to isolate the issue. Use the console or a scrip
 ## Dependencies
 
 - [Rails](https://github.com/rails/rails)
-- [Axlsx](https://github.com/randym/axlsx)
+- [Axlsx](https://github.com/caxlsx/axlsx)
 
 ## Authors
 

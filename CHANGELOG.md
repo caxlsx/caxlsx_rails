@@ -1,5 +1,9 @@
 # Change log
 
+**Unreleased**
+
+- Switch to using caxlsx 3.0 gem
+
 **September 5, 2019**: 0.5.3 release
 
 - Improved Rails 6.0 compatibility re MIME type
