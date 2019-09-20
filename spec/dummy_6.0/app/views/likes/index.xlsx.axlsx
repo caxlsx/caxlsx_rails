@@ -1,0 +1,7 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Foobar") do |sheet|
+  sheet.add_row [@user.name]
+  @likes.each do |like|
+    sheet.add_row [like.name]
+  end
+end

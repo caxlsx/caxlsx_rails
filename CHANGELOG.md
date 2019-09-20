@@ -4,6 +4,10 @@
 
 - Switch to using caxlsx 3.0 gem
 
+**September 5, 2019**: 0.5.3 release
+
+- Improved Rails 6.0 compatibility re MIME type
+
 **May 1st, 2018**: 0.5.2 release
 
 - Improved Rails 5 compatibility re MIME type
@@ -79,7 +83,7 @@
 **July 17, 2012**: 0.1.0 release
 
 - Tests completed
-- Acts_as_xlsx tested, example in docs		
+- Acts_as_xlsx tested, example in docs
 
 **July 12, 2012**: 0.0.1 release
 

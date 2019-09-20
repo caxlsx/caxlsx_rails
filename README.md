@@ -448,6 +448,10 @@ source:
 
 ## Change log
 
+**September 5, 2019**: 0.5.3 release
+
+- Improved Rails 6.0 compatibility re MIME type
+
 **May 1st, 2018**: 0.5.2 release
 
 - Improved Rails 5 compatibility re MIME type

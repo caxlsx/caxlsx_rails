@@ -18,7 +18,11 @@ describe 'Axlsx template handler' do
     # end
 
     it "has xlsx format" do
-      expect(handler.default_format).to eq(mime_type)
+      if Rails::VERSION::MAJOR >= 6
+        expect(handler.default_format).to eq(mime_type.symbol)
+      else
+        expect(handler.default_format).to eq(mime_type)
+      end
     end
 
     it "compiles to an excel spreadsheet when passing in a source" do
@@ -27,7 +31,7 @@ describe 'Axlsx template handler' do
       eval( AB.new.call template, source )
       xlsx_package.serialize('/tmp/axlsx_temp.xlsx')
       expect{ wb = Roo::Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
-      expect(wb.cell(2,3)).to eq('c')
+      expect(wb.cell(2,3)).to eq('f')
     end
 
     it "compiles to an excel spreadsheet when inferring source from template " do
