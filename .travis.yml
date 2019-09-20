@@ -9,13 +9,11 @@ notifications:
       - noel@peden.biz
     on_success: always
 env:
-  - RAILS_VERSION=4.2
   - RAILS_VERSION=5.0
   - RAILS_VERSION=5.1
   - RAILS_VERSION=5.2
   - RAILS_VERSION=6.0
 rvm:
-  - 2.3.8
   - 2.4.7
   - 2.5.6
   - 2.6.4
@@ -23,3 +21,7 @@ before_install:
   - gem update bundler
 script:
   spec/ci.rb
+matrix:
+  exclude:
+  - rvm: 2.4.7
+    env: RAILS_VERSION=6.0
