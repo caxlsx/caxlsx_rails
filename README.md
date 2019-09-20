@@ -29,27 +29,11 @@ In your Gemfile:
 
 ```ruby
 gem 'rubyzip', '>= 1.2.1'
-gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
+gem 'caxlsx'
 gem 'axlsx_rails'
 ```
 
-**NOTE:** Axlsx has been pending release for a long time. You must specify the master on github to support Rubyzip 1.2.1.
-
-If `rubyzip 1.0.0` is needed:
-
-```ruby
-gem 'rubyzip', '= 1.0.0'
-gem 'axlsx', '= 2.0.1'
-gem 'axlsx_rails'
-```
-
-If `rubyzip >= 1.1.0` is needed:
-
-```ruby
-gem 'rubyzip', '~> 1.1.0'
-gem 'axlsx', '2.1.0.pre'
-gem 'axlsx_rails'
-```
+See [previous installations](#previous-installations) if needed.
 
 ## Requirements
 
@@ -412,6 +396,32 @@ link_to 'Download spreadsheet', path_to_sheet, data: {turbolinks: false}
 ### What to do
 
 If you are having problems, try to isolate the issue. Use the console or a script to make sure your data is good. Then create the spreadsheet line by line without Axlsx-Rails to see if you are having Axlsx problems. If you can manually create the spreadsheet, create an issue and we will work it out.
+
+## Previous Installations
+
+In your Gemfile:
+
+```ruby
+gem 'rubyzip', '>= 1.2.1'
+gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
+gem 'axlsx_rails'
+```
+
+If `rubyzip 1.0.0` is needed:
+
+```ruby
+gem 'rubyzip', '= 1.0.0'
+gem 'axlsx', '= 2.0.1'
+gem 'axlsx_rails'
+```
+
+If `rubyzip >= 1.1.0` is needed:
+
+```ruby
+gem 'rubyzip', '~> 1.1.0'
+gem 'axlsx', '2.1.0.pre'
+gem 'axlsx_rails'
+```
 
 ## Dependencies
 
