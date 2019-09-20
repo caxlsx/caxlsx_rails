@@ -13,8 +13,8 @@ elsif ENV['RAILS_VERSION'] =~ /^5.1/
   puts "Testing Rails 5.1"
   require File.expand_path("../dummy_5.1/config/environment", __FILE__)
 elsif ENV['RAILS_VERSION'] =~ /^5/
-  puts "Testing Rails 5"
-  require File.expand_path("../dummy_5/config/environment", __FILE__)
+  puts "Testing Rails 5.0"
+  require File.expand_path("../dummy_5.0/config/environment", __FILE__)
 elsif ENV['RAILS_VERSION'] =~ /^4/
   puts "Testing Rails 4"
   require File.expand_path("../dummy_4/config/environment", __FILE__)
