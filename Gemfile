@@ -29,7 +29,7 @@ when '4.2'
   # gem 'rails', "~> 4.0.0"
 # when '3.1', '3.2'
   # gem 'rails', "~> #{ENV['RAILS_VERSION']}.0"
-# end
+end
 
 # jquery-rails is used by the dummy application
 gem "jquery-rails"
