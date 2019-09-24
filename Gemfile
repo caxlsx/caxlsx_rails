@@ -41,6 +41,6 @@ gem "sqlite3", '~> 1.4', :platform => [:ruby, :mswin, :mingw]
 # Git. Remember to move these dependencies to your gemspec before releasing
 # your gem to rubygems.org.
 gem 'capybara', '~> 2.1'
-gem 'acts_as_xlsx', git: 'https://github.com/straydogstudio/acts_as_xlsx.git'
+gem 'acts_as_xlsx', git: 'https://github.com/caxlsx/acts_as_caxlsx.git'
 # To use debugger
 # gem 'pry-debugger'

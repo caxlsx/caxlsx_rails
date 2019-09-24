@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = AxlsxRails::VERSION
   s.authors     = ["Noel Peden"]
   s.email       = ["noel@peden.biz"]
-  s.homepage    = "https://github.com/straydogstudio/axlsx_rails"
+  s.homepage    = "https://github.com/caxlsx/axlsx_rails"
   s.summary     = "A simple rails plugin to provide an xlsx renderer using the caxlsx gem."
   s.description = "Axlsx_Rails provides an Axlsx renderer so you can move all your spreadsheet code from your controller into view files. Partials are supported so you can organize any code into reusable chunks (e.g. cover sheets, common styling, etc.) You can use it with acts_as_xlsx, placing the to_xlsx call in a view and adding ':package => xlsx_package' to the parameter list. Now you can keep your controllers thin!"
 
