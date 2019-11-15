@@ -29,8 +29,6 @@ Status](https://coveralls.io/repos/caxlsx/axlsx_rails/badge.svg)](https://covera
 In your Gemfile:
 
 ```ruby
-gem 'rubyzip', '>= 1.2.1'
-gem 'caxlsx'
 gem 'axlsx_rails'
 ```
 
