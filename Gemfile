@@ -31,6 +31,9 @@ when '4.2'
   # gem 'rails', "~> #{ENV['RAILS_VERSION']}.0"
 end
 
+# the dummy apps are set up for sprockets 3
+gem 'sprockets', '~> 3.0'
+
 # jquery-rails is used by the dummy application
 gem "jquery-rails"
 gem "thin"
