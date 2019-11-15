@@ -31,6 +31,9 @@ when '4.2'
   # gem 'rails', "~> #{ENV['RAILS_VERSION']}.0"
 end
 
+# the dummy apps are set up for sprockets 3
+gem 'sprockets', '~> 3.0'
+
 # jquery-rails is used by the dummy application
 gem "jquery-rails"
 gem "thin"
@@ -41,6 +44,6 @@ gem "sqlite3", '~> 1.4', :platform => [:ruby, :mswin, :mingw]
 # Git. Remember to move these dependencies to your gemspec before releasing
 # your gem to rubygems.org.
 gem 'capybara', '~> 2.1'
-gem 'acts_as_xlsx', git: 'https://github.com/caxlsx/acts_as_caxlsx.git'
+gem 'acts_as_caxlsx', git: 'https://github.com/caxlsx/acts_as_caxlsx.git'
 # To use debugger
 # gem 'pry-debugger'
