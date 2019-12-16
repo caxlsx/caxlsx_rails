@@ -9,6 +9,7 @@ notifications:
       - noel@peden.biz
     on_success: always
 env:
+  - RAILS_VERSION=4.2
   - RAILS_VERSION=5.0
   - RAILS_VERSION=5.1
   - RAILS_VERSION=5.2
@@ -18,7 +19,8 @@ rvm:
   - 2.5
   - 2.6
 before_install:
-  - gem update bundler
+  - gem uninstall -v '>= 2' -i $(rvm gemdir)@global -ax bundler || true
+  - gem install bundler -v '< 2'
 script:
   spec/ci.rb
 matrix:

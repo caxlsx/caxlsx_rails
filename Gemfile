@@ -11,18 +11,23 @@ case ENV['RAILS_VERSION']
 when '6.0'
   gem 'rails', "~> 6"
   gem 'responders', '~> 3.0'
+  gem 'sqlite3'
 when '5.2'
   gem 'rails', "~> 5.2"
   gem 'responders', '~> 3.0'
+  gem 'sqlite3'
 when '5.1'
   gem 'rails', "~> 5.1"
   gem 'responders', '~> 3.0'
+  gem 'sqlite3'
 when '5.0'
   gem 'rails', "~> 5.0"
   gem 'responders', '~> 2.0'
+  gem 'sqlite3'
 when '4.2'
   gem 'rails', "~> 4.2"
   gem 'responders', '~> 2.0'
+  gem 'sqlite3', '1.3.13'
 # when '4.1'
   # gem 'rails', "~> 4.1.0"
 # when '4.0'
@@ -37,7 +42,6 @@ gem 'sprockets', '~> 3.0'
 # jquery-rails is used by the dummy application
 gem "jquery-rails"
 gem "thin"
-gem "sqlite3", '~> 1.4', :platform => [:ruby, :mswin, :mingw]
 
 # Declare any dependencies that are still in development here instead of in
 # your gemspec. These might include edge Rails or gems from your path or
