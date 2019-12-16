@@ -26,7 +26,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "capybara"
   s.add_development_dependency "roo"
   s.add_development_dependency "rubyzip"
-  s.add_development_dependency "sqlite3", '~> 1.4'
   s.add_development_dependency "growl"
   s.add_development_dependency "rb-fsevent"
   s.add_development_dependency "coveralls"
