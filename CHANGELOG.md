@@ -1,10 +1,15 @@
 # Change log
 
-**Unreleased**
+**December 18, 2019**: 0.6.2 release
 
+- Release under caxlsx_rails
+
+**December 18, 2019**: 0.6.1 release
+
+- Deprecate axlsx_rails name, release under caxlsx_rails
 - Switch to using caxlsx 3.0 gem
 
-**September 5, 2019**: 0.5.3 release
+**September 5, 2019**: 0.6.0 release
 
 - Improved Rails 6.0 compatibility re MIME type
 

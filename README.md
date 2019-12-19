@@ -1,35 +1,26 @@
-Notice: Community Axlsx organization
+Notice: axlsx_rails renamed to caxlsx_rails
 ===================================================
-All Axlsx related gems have been forked or moved to a community organization: http://github.com/caxlsx
-* [Axlsx](http://github.com/caxlsx/caxlsx)
-* [acts_as_caxlsx](http://github.com/caxlsx/acts_as_caxlsx)
-* [axlsx_rails](http://github.com/caxlsx/axlsx_rails)
-* [activeadmin-caxlsx](http://github.com/caxlsx/activeadmin-caxlsx)
-
-The gems will be released as is as a starting point to allow releases of other gems that depend on these gems. Submit issues as usual. 
-
-Please consider helping develop and test these gems.
+This gem has been renamed to match other gems in the Axlsx community organization: http://github.com/caxlsx
 
 Axlsx-Rails &mdash; Spreadsheet templates for Rails
 ===================================================
 
-[![Build Status](https://secure.travis-ci.org/caxlsx/axlsx_rails.svg?branch=master)](http://travis-ci.org/caxlsx/axlsx_rails)
+[![Build Status](https://secure.travis-ci.org/caxlsx/caxlsx_rails.svg?branch=master)](http://travis-ci.org/caxlsx/caxlsx_rails)
 [![Gem
-Version](https://badge.fury.io/rb/axlsx_rails.svg)](http://badge.fury.io/rb/axlsx_rails)
+Version](https://badge.fury.io/rb/caxlsx_rails.svg)](http://badge.fury.io/rb/caxlsx_rails)
 [![Coverage
-Status](https://coveralls.io/repos/caxlsx/axlsx_rails/badge.svg)](https://coveralls.io/r/caxlsx/axlsx_rails)
+Status](https://coveralls.io/repos/caxlsx/caxlsx_rails/badge.svg)](https://coveralls.io/r/caxlsx/caxlsx_rails)
 
-![Total downloads](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails?type=total)
-![Downloads for 0.5.1](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails/0.5.1?label=0.5.1)
-![Downloads for 0.5.2](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails/0.5.2?label=0.5.2)
-![Downloads for 0.6.0 (latest)](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails/0.6.0?label=0.6.0)
+![Total downloads](http://ruby-gem-downloads-badge.herokuapp.com/caxlsx_rails?type=total)
+![Total downloads axlsx_rails](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails?type=total)
+![Downloads for 0.6.1 (latest)](http://ruby-gem-downloads-badge.herokuapp.com/caxlsx_rails/0.6.0?label=0.6.1)
 
 ## Installation
 
 In your Gemfile:
 
 ```ruby
-gem 'axlsx_rails'
+gem 'caxlsx_rails'
 ```
 
 See [previous installations](#previous-installations) if needed.
@@ -355,7 +346,7 @@ class UserMailer < ActionMailer::Base
 end
 ```
 
-If you get these errors, please open an issue and share code so the bug can be isolated. Or comment on issue [#29](https://github.com/caxlsx/axlsx_rails/issues/29) or [#25](https://github.com/caxlsx/axlsx_rails/issues/25).
+If you get these errors, please open an issue and share code so the bug can be isolated. Or comment on issue [#29](https://github.com/caxlsx/caxlsx_rails/issues/29) or [#25](https://github.com/caxlsx/caxlsx_rails/issues/25).
 
 ### Generated Files Can't Be Opened or Invalid Byte Sequence in UTF-8
 
@@ -371,7 +362,7 @@ Before Rails 4.2 you could call:
   render xlsx: "users/index"
 ```
 
-And axlsx_rails could adjust the paths and make sure the template was loaded from the right directory. This is no longer possible because the paths are cached between requests for a given controller. As a result, to display a template in another directory you must use the `:template` parameter (which is normal Rails behavior anyway):
+And caxlsx_rails could adjust the paths and make sure the template was loaded from the right directory. This is no longer possible because the paths are cached between requests for a given controller. As a result, to display a template in another directory you must use the `:template` parameter (which is normal Rails behavior anyway):
 
 ```ruby
   render xlsx: "index", template: "users/index"
@@ -435,7 +426,7 @@ gem 'axlsx_rails'
 
 ## Contributors
 
-Many thanks to [contributors](https://github.com/caxlsx/axlsx_rails/graphs/contributors):
+Many thanks to [contributors](https://github.com/caxlsx/caxlsx_rails/graphs/contributors):
 
 * [randym](https://github.com/randym)
 * [sugi](https://github.com/sugi)
@@ -458,7 +449,16 @@ source:
 
 ## Change log
 
-**September 5, 2019**: 0.5.3 release
+**December 18, 2019**: 0.6.2 release
+
+- Release under caxlsx_rails
+
+**December 18, 2019**: 0.6.1 release
+
+- Deprecate axlsx_rails name, release under caxlsx_rails
+- Switch to using caxlsx 3.0 gem
+
+**September 5, 2019**: 0.6.0 release
 
 - Improved Rails 6.0 compatibility re MIME type
 
