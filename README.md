@@ -13,7 +13,7 @@ Status](https://coveralls.io/repos/caxlsx/caxlsx_rails/badge.svg)](https://cover
 
 ![Total downloads](http://ruby-gem-downloads-badge.herokuapp.com/caxlsx_rails?type=total)
 ![Total downloads axlsx_rails](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails?type=total)
-![Downloads for 0.6.1 (latest)](http://ruby-gem-downloads-badge.herokuapp.com/caxlsx_rails/0.6.0?label=0.6.1)
+![Downloads for 0.6.1 (latest)](http://ruby-gem-downloads-badge.herokuapp.com/caxlsx_rails/0.6.1?label=0.6.1)
 
 ## Notice: Community Axlsx Organization
 
