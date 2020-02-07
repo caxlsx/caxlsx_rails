@@ -333,6 +333,30 @@ end
 * If it says your template is missing, check that its extension is `.xlsx.axlsx`.
 * If you get the error `uninitialized constant Mime::XSLX` you have used `format.xslx` instead of `format.xlsx`, or something similar.
 
+### Using axlsx_rails in API mode
+
+In API mode Rails does not include ActionView, so axlsx_rails will not work. To render axlsx_rails templates you must include ActoinView::Rendering in your controller and override render_to_body:
+
+```ruby
+class MyController < ActionController::API
+  include ActionView::Rendering
+
+  def show
+    respond_to do |format|
+      format.xlsx
+    end
+  end
+
+  private
+
+  def render_to_body(options)
+    _render_to_body_with_renderer(options) || super
+  end
+end
+```
+
+See [issue 107](https://github.com/caxlsx/caxlsx_rails/issues/107)
+
 ### Mailer Attachments: No content, cannot read, Invalid Byte Sequence in UTF-8
 
 If you are having problems with rendering a template and attaching it to a template, try a few options:
