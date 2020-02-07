@@ -15,6 +15,14 @@ Status](https://coveralls.io/repos/caxlsx/caxlsx_rails/badge.svg)](https://cover
 ![Total downloads axlsx_rails](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails?type=total)
 ![Downloads for 0.6.1 (latest)](http://ruby-gem-downloads-badge.herokuapp.com/caxlsx_rails/0.6.0?label=0.6.1)
 
+## Notice: Community Axlsx Organization
+
+To better maintain the Axlsx ecosystem, all related gems have been forked or moved to the following community organization: 
+
+http://github.com/caxlsx
+
+[Join the Caxlsx Slack channel](https://join.slack.com/t/caxlsx/shared_invite/enQtOTI5OTM0MzI1Njk5LTBlMDQzNDk2YzkwODMxMmVkODMyYzJiZGU5NTQ3YTg5NTBlN2IwZTlmNTRjNzhiY2E0MDY2OTEyYmFlODI5NjA)
+
 ## Installation
 
 In your Gemfile:
