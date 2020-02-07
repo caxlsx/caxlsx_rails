@@ -42,12 +42,12 @@ See [previous installations](#previous-installations) if needed.
 
 ## FYI
 
-* This gem depends on [Axlsx](https://github.com/caxlsx/axlsx). See [the blog](http://axlsx.blog.randym.net/) or the [examples page](https://github.com/randym/axlsx/blob/master/examples/example.rb) for usage.
+* This gem depends on [caxlsx](https://github.com/caxlsx/caxlsx). See [the blog](http://axlsx.blog.randym.net/) or the [examples page](https://github.com/caxlsx/caxlsx/blob/master/examples/example.rb) for usage.
 * Check out [axlsx_styler](https://github.com/sakovias/axlsx_styler) by [sakovias](https://github.com/sakovias) for easier styles and borders!
 
 ## Usage
 
-Axlsx-Rails provides a renderer and a template handler. It adds the `:xlsx` format and parses `.xlsx.axlsx` templates. This lets you take all the [Axlsx](https://github.com/caxlsx/axlsx) code out of your controller or model and place it inside the template, where view code belongs! **See [this blog post](http://axlsx.blog.randym.net/2012/08/excel-on-rails-like-pro-with-axlsxrails.html) for a more complete walkthrough.**
+Axlsx-Rails provides a renderer and a template handler. It adds the `:xlsx` format and parses `.xlsx.axlsx` templates. This lets you take all the [caxlsx](https://github.com/caxlsx/caxlsx) code out of your controller or model and place it inside the template, where view code belongs! **See [this blog post](http://axlsx.blog.randym.net/2012/08/excel-on-rails-like-pro-with-axlsxrails.html) for a more complete walkthrough.**
 
 ### Controller
 
@@ -77,7 +77,7 @@ wb.add_worksheet(name: "Buttons") do |sheet|
 end
 ```
 
-This is where you place all your [Axlsx](https://github.com/caxlsx/axlsx) specific markup. Add worksheets, fill content, merge cells, add styles. See the [Axlsx examples](https://github.com/caxlsx/axlsx/tree/master/examples/example.rb) page to see what you can do.
+This is where you place all your [caxlsx](https://github.com/caxlsx/caxlsx) specific markup. Add worksheets, fill content, merge cells, add styles. See the [caxlsx examples](https://github.com/caxlsx/caxlsx/tree/master/examples/example.rb) page to see what you can do.
 
 Remember, like in `erb` templates, view helpers are available to use the `.xlsx.axlsx` template.
 
@@ -395,7 +395,7 @@ link_to 'Download spreadsheet', path_to_sheet, data: {turbolinks: false}
 
 ### What to do
 
-If you are having problems, try to isolate the issue. Use the console or a script to make sure your data is good. Then create the spreadsheet line by line without Axlsx-Rails to see if you are having Axlsx problems. If you can manually create the spreadsheet, create an issue and we will work it out.
+If you are having problems, try to isolate the issue. Use the console or a script to make sure your data is good. Then create the spreadsheet line by line without Axlsx-Rails to see if you are having caxlsx problems. If you can manually create the spreadsheet, create an issue and we will work it out.
 
 ## Previous Installations
 
@@ -426,7 +426,7 @@ gem 'axlsx_rails'
 ## Dependencies
 
 - [Rails](https://github.com/rails/rails)
-- [Axlsx](https://github.com/caxlsx/axlsx)
+- [caxlsx](https://github.com/caxlsx/caxlsx)
 
 ## Authors
 
