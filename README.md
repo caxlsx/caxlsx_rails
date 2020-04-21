@@ -28,6 +28,7 @@ http://github.com/caxlsx
 In your Gemfile:
 
 ```ruby
+gem 'caxlsx'
 gem 'caxlsx_rails'
 ```
 
