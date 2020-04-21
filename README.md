@@ -381,6 +381,10 @@ end
 
 If you get these errors, please open an issue and share code so the bug can be isolated. Or comment on issue [#29](https://github.com/caxlsx/caxlsx_rails/issues/29) or [#25](https://github.com/caxlsx/caxlsx_rails/issues/25).
 
+### The unparsed template is returned, or something similar
+
+Have you followed other tutorials for serving Excel from Rails? Have you declared the MIME type already? These may be incompatible with caxlsx_rails (which declares the MIME type for you.) Remove any vestiges of other tutorials from your code and try again. 
+
 ### Generated Files Can't Be Opened or Invalid Byte Sequence in UTF-8
 
 Both these errors *appear* to be caused by Rails applying a layout to the template. Passing `layout: false` to `render :xlsx` should fix this issue. Version 0.5.0 attempts to fix this issue.
