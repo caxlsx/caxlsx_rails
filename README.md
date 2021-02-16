@@ -43,7 +43,7 @@ See [previous installations](#previous-installations) if needed.
 
 ## FYI
 
-* This gem depends on [caxlsx](https://github.com/caxlsx/caxlsx). See [the blog](http://axlsx.blog.randym.net/) or the [examples page](https://github.com/caxlsx/caxlsx/blob/master/examples/example.rb) for usage.
+* This gem depends on [caxlsx](https://github.com/caxlsx/caxlsx). See [the blog](http://axlsx.blog.randym.net/) or the [examples page](https://github.com/caxlsx/caxlsx/tree/master/examples) for usage.
 * Check out [axlsx_styler](https://github.com/sakovias/axlsx_styler) by [sakovias](https://github.com/sakovias) for easier styles and borders!
 
 ## Usage
@@ -78,7 +78,7 @@ wb.add_worksheet(name: "Buttons") do |sheet|
 end
 ```
 
-This is where you place all your [caxlsx](https://github.com/caxlsx/caxlsx) specific markup. Add worksheets, fill content, merge cells, add styles. See the [caxlsx examples](https://github.com/caxlsx/caxlsx/tree/master/examples/example.rb) page to see what you can do.
+This is where you place all your [caxlsx](https://github.com/caxlsx/caxlsx) specific markup. Add worksheets, fill content, merge cells, add styles. See the [caxlsx examples](https://github.com/caxlsx/caxlsx/tree/master/examples) page to see what you can do.
 
 Remember, like in `erb` templates, view helpers are available to use the `.xlsx.axlsx` template.
 
