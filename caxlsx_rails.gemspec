@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "A simple rails plugin to provide an xlsx renderer using the caxlsx gem."
   s.description = "Caxlsx_Rails provides an Caxlsx renderer so you can move all your spreadsheet code from your controller into view files. Partials are supported so you can organize any code into reusable chunks (e.g. cover sheets, common styling, etc.) You can use it with acts_as_caxlsx, placing the to_xlsx call in a view and adding ':package => xlsx_package' to the parameter list. Now you can keep your controllers thin!"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + Dir['[A-Z]*'] - ['Guardfile']
+  s.files = Dir["{app,config,db,lib}/**/*"] + Dir['[A-Z]*'] - Dir["spec/**/*"] - ['Guardfile']
   s.test_files = Dir["spec/**/*"] + ['Guardfile']
 
   s.add_dependency "actionpack", ">= 3.1"
