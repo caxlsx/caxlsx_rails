@@ -336,7 +336,7 @@ end
 
 ### Using axlsx_rails in API mode
 
-In API mode Rails does not include ActionView, so axlsx_rails will not work. To render axlsx_rails templates you must include ActoinView::Rendering in your controller and override render_to_body:
+In API mode Rails does not include ActionView, so axlsx_rails will not work. To render axlsx_rails templates you must include ActionView::Rendering in your controller and override render_to_body:
 
 ```ruby
 class MyController < ActionController::API
