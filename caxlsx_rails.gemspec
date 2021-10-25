@@ -7,6 +7,7 @@ require "axlsx_rails/version"
 Gem::Specification.new do |s|
   s.name        = "caxlsx_rails"
   s.version     = AxlsxRails::VERSION
+  s.licenses    = ['MIT']
   s.authors     = ["Noel Peden"]
   s.email       = ["noel@peden.biz"]
   s.homepage    = "https://github.com/caxlsx/caxlsx_rails"
