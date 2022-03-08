@@ -13,7 +13,7 @@ Status](https://coveralls.io/repos/caxlsx/caxlsx_rails/badge.svg)](https://cover
 
 ![Total downloads](http://ruby-gem-downloads-badge.herokuapp.com/caxlsx_rails?type=total)
 ![Total downloads axlsx_rails](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails?type=total)
-![Downloads for 0.6.1 (latest)](http://ruby-gem-downloads-badge.herokuapp.com/caxlsx_rails/0.6.2?label=0.6.2)
+![Downloads for 0.6.3 (latest)](http://ruby-gem-downloads-badge.herokuapp.com/caxlsx_rails/0.6.3?label=0.6.3)
 
 ## Notice: Community Axlsx Organization
 
@@ -485,6 +485,10 @@ source:
 [![Click here to lend your support to: Axlsx-Rails!](http://www.pledgie.com/campaigns/27737.png?skin_name=chrome)](http://www.pledgie.com/campaigns/27737)
 
 ## Change log
+
+**March 8, 2022**: 0.6.3 release
+
+- Exclude rspec directory (#149)[https://github.com/caxlsx/caxlsx_rails/pull/149]
 
 **December 18, 2019**: 0.6.2 release
 

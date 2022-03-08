@@ -1,5 +1,9 @@
 # Change log
 
+**March 8, 2022**: 0.6.3 release
+
+- Exclude rspec directory (#149)[https://github.com/caxlsx/caxlsx_rails/pull/149]
+
 **December 18, 2019**: 0.6.2 release
 
 - Release under caxlsx_rails
