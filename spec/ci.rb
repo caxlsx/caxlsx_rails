@@ -1,6 +1,12 @@
 #!/usr/bin/env ruby
 
-if ENV['RAILS_VERSION'] =~ /^6.0/
+if ENV['RAILS_VERSION'] =~ /^7.0/
+  puts "Testing Rails 7.0"
+  exit system('cd spec/dummy_7.0 && bundle install --without debug && rails db:reset && cd ../../ && bundle exec rspec spec')
+elsif ENV['RAILS_VERSION'] =~ /^6.1/
+  puts "Testing Rails 6.1"
+  exit system('cd spec/dummy_6.1 && bundle install --without debug && rails db:reset && cd ../../ && bundle exec rspec spec')
+elsif ENV['RAILS_VERSION'] =~ /^6.0/
   puts "Testing Rails 6.0"
   exit system('cd spec/dummy_6.0 && bundle install --without debug && rails db:reset && cd ../../ && bundle exec rspec spec')
 elsif ENV['RAILS_VERSION'] =~ /^5/

@@ -8,24 +8,28 @@ gemspec
 ENV["RAILS_VERSION"] ||= '5.2'
 
 case ENV['RAILS_VERSION']
+when '6.1'
+  gem 'rails', "~> 6.1.0"
+  gem 'responders', '~> 3.0'
+  gem 'sqlite3'
 when '6.0'
-  gem 'rails', "~> 6"
+  gem 'rails', "~> 6.0.0"
   gem 'responders', '~> 3.0'
   gem 'sqlite3'
 when '5.2'
-  gem 'rails', "~> 5.2"
+  gem 'rails', "~> 5.2.0"
   gem 'responders', '~> 3.0'
   gem 'sqlite3'
 when '5.1'
-  gem 'rails', "~> 5.1"
+  gem 'rails', "~> 5.1.0"
   gem 'responders', '~> 3.0'
   gem 'sqlite3'
 when '5.0'
-  gem 'rails', "~> 5.0"
+  gem 'rails', "~> 5.0.0"
   gem 'responders', '~> 2.0'
   gem 'sqlite3'
 when '4.2'
-  gem 'rails', "~> 4.2"
+  gem 'rails', "~> 4.2.0"
   gem 'responders', '~> 2.0'
   gem 'sqlite3', '1.3.13'
 # when '4.1'
