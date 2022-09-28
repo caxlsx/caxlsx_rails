@@ -6,7 +6,7 @@ on:
     branches: ['*']
 
 jobs:
-  test_ruby_versions:
+  test_ruby_and_rails_versions:
     runs-on: ubuntu-20.04
 
     continue-on-error: ${{ matrix.allow_failures || false }}
