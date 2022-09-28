@@ -43,7 +43,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: "${{ matrix.ruby }}"
-          bundler-cache: true
+          bundler-cache: "${{ matrix.RAILS_VERSION != 4.2 }}"
 
       - name: Run tests
         run: |
