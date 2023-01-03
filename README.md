@@ -17,7 +17,7 @@ Status](https://coveralls.io/repos/caxlsx/caxlsx_rails/badge.svg)](https://cover
 
 ## Notice: Community Axlsx Organization
 
-To better maintain the Axlsx ecosystem, all related gems have been forked or moved to the following community organization: 
+To better maintain the Axlsx ecosystem, all related gems have been forked or moved to the following community organization:
 
 http://github.com/caxlsx
 
@@ -383,7 +383,7 @@ If you get these errors, please open an issue and share code so the bug can be i
 
 ### The unparsed template is returned, or something similar
 
-Have you followed other tutorials for serving Excel from Rails? Have you declared the MIME type already? These may be incompatible with caxlsx_rails (which declares the MIME type for you.) Remove any vestiges of other tutorials from your code and try again. 
+Have you followed other tutorials for serving Excel from Rails? Have you declared the MIME type already? These may be incompatible with caxlsx_rails (which declares the MIME type for you.) Remove any vestiges of other tutorials from your code and try again.
 
 ### Generated Files Can't Be Opened or Invalid Byte Sequence in UTF-8
 
