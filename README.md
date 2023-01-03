@@ -1,13 +1,13 @@
 Notice: axlsx_rails renamed to caxlsx_rails
 ===================================================
-This gem has been renamed to match other gems in the Axlsx community organization: http://github.com/caxlsx
+This gem has been renamed to match other gems in the Axlsx community organization: https://github.com/caxlsx
 
 Axlsx-Rails &mdash; Spreadsheet templates for Rails
 ===================================================
 
-[![Build Status](https://secure.travis-ci.org/caxlsx/caxlsx_rails.svg?branch=master)](http://travis-ci.org/caxlsx/caxlsx_rails)
+[![Build Status](https://secure.travis-ci.org/caxlsx/caxlsx_rails.svg?branch=master)](https://travis-ci.org/caxlsx/caxlsx_rails)
 [![Gem
-Version](https://badge.fury.io/rb/caxlsx_rails.svg)](http://badge.fury.io/rb/caxlsx_rails)
+Version](https://badge.fury.io/rb/caxlsx_rails.svg)](https://badge.fury.io/rb/caxlsx_rails)
 [![Coverage
 Status](https://coveralls.io/repos/caxlsx/caxlsx_rails/badge.svg)](https://coveralls.io/r/caxlsx/caxlsx_rails)
 
@@ -17,7 +17,7 @@ Status](https://coveralls.io/repos/caxlsx/caxlsx_rails/badge.svg)](https://cover
 
 To better maintain the Axlsx ecosystem, all related gems have been forked or moved to the following community organization:
 
-http://github.com/caxlsx
+https://github.com/caxlsx
 
 [Join the Caxlsx Slack channel](https://join.slack.com/t/caxlsx/shared_invite/enQtOTI5OTM0MzI1Njk5LTBlMDQzNDk2YzkwODMxMmVkODMyYzJiZGU5NTQ3YTg5NTBlN2IwZTlmNTRjNzhiY2E0MDY2OTEyYmFlODI5NjA)
 
