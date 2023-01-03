@@ -11,9 +11,7 @@ Version](https://badge.fury.io/rb/caxlsx_rails.svg)](http://badge.fury.io/rb/cax
 [![Coverage
 Status](https://coveralls.io/repos/caxlsx/caxlsx_rails/badge.svg)](https://coveralls.io/r/caxlsx/caxlsx_rails)
 
-![Downloads for 0.6.3 (latest)](http://ruby-gem-downloads-badge.herokuapp.com/caxlsx_rails/0.6.3?label=Downloads_for_0.6.3)
-![Total downloads](http://ruby-gem-downloads-badge.herokuapp.com/caxlsx_rails?type=total&label=Total_downloads)
-![Total downloads axlsx_rails](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails?type=total&label=axlsx_rails_downloads)
+![Downloads](https://img.shields.io/gem/dt/caxlsx_rails?label=downloads)
 
 ## Notice: Community Axlsx Organization
 
