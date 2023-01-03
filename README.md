@@ -475,13 +475,6 @@ Many thanks to [contributors](https://github.com/caxlsx/caxlsx_rails/graphs/cont
 * [JohnSmall](https://github.com/JohnSmall)
 * [BenoitHiller](https://github.com/BenoitHiller)
 
-## Donations
-
-Say thanks for Axlsx-Rails by donating! It makes it easier for me to provide to open
-source:
-
-[![Click here to lend your support to: Axlsx-Rails!](http://www.pledgie.com/campaigns/27737.png?skin_name=chrome)](http://www.pledgie.com/campaigns/27737)
-
 ## Change log
 
 **March 8, 2022**: 0.6.3 release
