@@ -1,25 +1,23 @@
 Notice: axlsx_rails renamed to caxlsx_rails
 ===================================================
-This gem has been renamed to match other gems in the Axlsx community organization: http://github.com/caxlsx
+This gem has been renamed to match other gems in the Axlsx community organization: https://github.com/caxlsx
 
 Axlsx-Rails &mdash; Spreadsheet templates for Rails
 ===================================================
 
-[![Build Status](https://secure.travis-ci.org/caxlsx/caxlsx_rails.svg?branch=master)](http://travis-ci.org/caxlsx/caxlsx_rails)
+[![Build Status](https://secure.travis-ci.org/caxlsx/caxlsx_rails.svg?branch=master)](https://travis-ci.org/caxlsx/caxlsx_rails)
 [![Gem
-Version](https://badge.fury.io/rb/caxlsx_rails.svg)](http://badge.fury.io/rb/caxlsx_rails)
+Version](https://badge.fury.io/rb/caxlsx_rails.svg)](https://badge.fury.io/rb/caxlsx_rails)
 [![Coverage
 Status](https://coveralls.io/repos/caxlsx/caxlsx_rails/badge.svg)](https://coveralls.io/r/caxlsx/caxlsx_rails)
 
-![Downloads for 0.6.3 (latest)](http://ruby-gem-downloads-badge.herokuapp.com/caxlsx_rails/0.6.3?label=Downloads_for_0.6.3)
-![Total downloads](http://ruby-gem-downloads-badge.herokuapp.com/caxlsx_rails?type=total&label=Total_downloads)
-![Total downloads axlsx_rails](http://ruby-gem-downloads-badge.herokuapp.com/axlsx_rails?type=total&label=axlsx_rails_downloads)
+![Downloads](https://img.shields.io/gem/dt/caxlsx_rails?label=downloads)
 
 ## Notice: Community Axlsx Organization
 
-To better maintain the Axlsx ecosystem, all related gems have been forked or moved to the following community organization: 
+To better maintain the Axlsx ecosystem, all related gems have been forked or moved to the following community organization:
 
-http://github.com/caxlsx
+https://github.com/caxlsx
 
 [Join the Caxlsx Slack channel](https://join.slack.com/t/caxlsx/shared_invite/enQtOTI5OTM0MzI1Njk5LTBlMDQzNDk2YzkwODMxMmVkODMyYzJiZGU5NTQ3YTg5NTBlN2IwZTlmNTRjNzhiY2E0MDY2OTEyYmFlODI5NjA)
 
@@ -383,7 +381,7 @@ If you get these errors, please open an issue and share code so the bug can be i
 
 ### The unparsed template is returned, or something similar
 
-Have you followed other tutorials for serving Excel from Rails? Have you declared the MIME type already? These may be incompatible with caxlsx_rails (which declares the MIME type for you.) Remove any vestiges of other tutorials from your code and try again. 
+Have you followed other tutorials for serving Excel from Rails? Have you declared the MIME type already? These may be incompatible with caxlsx_rails (which declares the MIME type for you.) Remove any vestiges of other tutorials from your code and try again.
 
 ### Generated Files Can't Be Opened or Invalid Byte Sequence in UTF-8
 
@@ -476,13 +474,6 @@ Many thanks to [contributors](https://github.com/caxlsx/caxlsx_rails/graphs/cont
 * [kodram](https://github.com/kodram)
 * [JohnSmall](https://github.com/JohnSmall)
 * [BenoitHiller](https://github.com/BenoitHiller)
-
-## Donations
-
-Say thanks for Axlsx-Rails by donating! It makes it easier for me to provide to open
-source:
-
-[![Click here to lend your support to: Axlsx-Rails!](http://www.pledgie.com/campaigns/27737.png?skin_name=chrome)](http://www.pledgie.com/campaigns/27737)
 
 ## Change log
 
