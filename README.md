@@ -5,7 +5,6 @@ This gem has been renamed to match other gems in the Axlsx community organizatio
 Axlsx-Rails &mdash; Spreadsheet templates for Rails
 ===================================================
 
-[![Build Status](https://secure.travis-ci.org/caxlsx/caxlsx_rails.svg?branch=master)](https://travis-ci.org/caxlsx/caxlsx_rails)
 [![Gem
 Version](https://badge.fury.io/rb/caxlsx_rails.svg)](https://badge.fury.io/rb/caxlsx_rails)
 [![Coverage

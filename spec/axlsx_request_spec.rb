@@ -16,7 +16,7 @@ describe 'Caxlsx request', :type => :request do
   it "downloads an excel file from default respond_to" do
     visit '/home.xlsx'
     expect(page.response_headers['Content-Type']).to eq(mime_type.to_s + "; charset=utf-8")
-    File.open('/tmp/caxlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
+    File.open('/tmp/caxlsx_temp.xlsx', 'wb') {|f| f.write(page.source) }
     wb = nil
     expect{ wb = Roo::Excelx.new('/tmp/caxlsx_temp.xlsx') }.to_not raise_error
     expect(wb.cell(2,1)).to eq('Untie!')
@@ -28,7 +28,7 @@ describe 'Caxlsx request', :type => :request do
     expect(page.response_headers['Content-Type']).to eq(mime_type.to_s)
     expect(page.response_headers['Content-Disposition']).to include("filename=\"filename_test.xlsx\"")
 
-    File.open('/tmp/caxlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
+    File.open('/tmp/caxlsx_temp.xlsx', 'wb') {|f| f.write(page.source) }
     wb = nil
     expect{ wb = Roo::Excelx.new('/tmp/caxlsx_temp.xlsx') }.to_not raise_error
     expect(wb.cell(2,1)).to eq('Untie!')
@@ -40,7 +40,7 @@ describe 'Caxlsx request', :type => :request do
     expect(page.response_headers['Content-Type']).to eq(mime_type.to_s + "; charset=utf-8")
     expect(page.response_headers['Content-Disposition']).to include("filename=\"filename_test.xlsx\"")
 
-    File.open('/tmp/caxlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
+    File.open('/tmp/caxlsx_temp.xlsx', 'wb') {|f| f.write(page.source) }
     wb = nil
     expect{ wb = Roo::Excelx.new('/tmp/caxlsx_temp.xlsx') }.to_not raise_error
     expect(wb.cell(2,1)).to eq('Untie!')
@@ -52,7 +52,7 @@ describe 'Caxlsx request', :type => :request do
     expect(page.response_headers['Content-Type']).to eq(mime_type)
     expect(page.response_headers['Content-Disposition']).to include("filename=\"filename_test.xlsx\"")
 
-    File.open('/tmp/caxlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
+    File.open('/tmp/caxlsx_temp.xlsx', 'wb') {|f| f.write(page.source) }
     wb = nil
     expect{ wb = Roo::Excelx.new('/tmp/caxlsx_temp.xlsx') }.to_not raise_error
     expect(wb.cell(2,1)).to eq('Untie!')
@@ -64,7 +64,7 @@ describe 'Caxlsx request', :type => :request do
     User.create name: 'Bugs', last_name: 'Bunny', address: '1234 Left Turn, Albuquerque NM 22222', email: 'bugs@bunny.com'
     visit '/users.xlsx'
     expect(page.response_headers['Content-Type']).to eq(mime_type.to_s + "; charset=utf-8")
-    File.open('/tmp/caxlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
+    File.open('/tmp/caxlsx_temp.xlsx', 'wb') {|f| f.write(page.source) }
     wb = nil
     expect{ wb = Roo::Excelx.new('/tmp/caxlsx_temp.xlsx') }.to_not raise_error
     expect(wb.cell(3,2)).to eq('Bugs')
@@ -73,7 +73,7 @@ describe 'Caxlsx request', :type => :request do
   it "downloads an excel file with partial" do
     visit '/withpartial.xlsx'
     expect(page.response_headers['Content-Type']).to eq(mime_type.to_s + "; charset=utf-8")
-    File.open('/tmp/caxlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
+    File.open('/tmp/caxlsx_temp.xlsx', 'wb') {|f| f.write(page.source) }
     wb = nil
     expect{ wb = Roo::Excelx.new('/tmp/caxlsx_temp.xlsx') }.to_not raise_error
     expect(wb.cell(1,1,wb.sheets[0])).to eq('Cover')
@@ -87,7 +87,7 @@ describe 'Caxlsx request', :type => :request do
     @user.likes.create(:name => 'Celery')
     visit "/users/#{@user.id}/likes.xlsx"
     expect(page.response_headers['Content-Type']).to eq(mime_type.to_s + "; charset=utf-8")
-    File.open('/tmp/caxlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
+    File.open('/tmp/caxlsx_temp.xlsx', 'wb') {|f| f.write(page.source) }
     wb = nil
     expect{ wb = Roo::Excelx.new('/tmp/caxlsx_temp.xlsx') }.to_not raise_error
     expect(wb.cell(1,1)).to eq('Bugs')
@@ -103,7 +103,7 @@ describe 'Caxlsx request', :type => :request do
     [[1,false],[3,true],[4,true],[5,false]].reverse.each do |s|
       visit "/home/render_elsewhere.xlsx?type=#{s[0]}"
       expect(page.response_headers['Content-Type']).to eq(mime_type.to_s + (s[1] ? "; charset=utf-8" : ''))
-      File.open('/tmp/caxlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
+      File.open('/tmp/caxlsx_temp.xlsx', 'wb') {|f| f.write(page.source) }
       wb = nil
       expect{ wb = Roo::Excelx.new('/tmp/caxlsx_temp.xlsx') }.to_not raise_error
       if s[0] == 5
@@ -121,7 +121,7 @@ describe 'Caxlsx request', :type => :request do
     expect {
       visit "/users/#{@user.id}.xlsx"
     }.to_not raise_error
-    File.open('/tmp/caxlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
+    File.open('/tmp/caxlsx_temp.xlsx', 'wb') {|f| f.write(page.source) }
     wb = nil
     expect{ wb = Roo::Excelx.new('/tmp/caxlsx_temp.xlsx') }.to_not raise_error
     expect(wb.cell(2,1)).to eq('Untie!')
@@ -133,7 +133,7 @@ describe 'Caxlsx request', :type => :request do
     expect {
       visit "/users/export/#{@user.id}.xlsx"
     }.to_not raise_error
-    File.open('/tmp/caxlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
+    File.open('/tmp/caxlsx_temp.xlsx', 'wb') {|f| f.write(page.source) }
     wb = nil
     expect{ wb = Roo::Excelx.new('/tmp/caxlsx_temp.xlsx') }.to_not raise_error
     expect(wb.cell(2,1)).to eq('Untie!')
@@ -146,7 +146,7 @@ describe 'Caxlsx request', :type => :request do
       expect(page.response_headers['Content-Type']).to eq(mime_type)
       expect(page.response_headers['Content-Disposition']).to include("filename=\"filename_test.xlsx\"")
 
-      File.open('/tmp/caxlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
+      File.open('/tmp/caxlsx_temp.xlsx', 'wb') {|f| f.write(page.source) }
       wb = nil
       # wb = Roo::Excelx.new('/tmp/caxlsx_temp.xlsx')
       expect{ wb = Roo::Excelx.new('/tmp/caxlsx_temp.xlsx') }.to raise_error(Zip::ZipError)
@@ -193,7 +193,7 @@ describe 'Caxlsx request', :type => :request do
       User.create name: 'Bugs', last_name: 'Bunny', address: '1234 Left Turn, Albuquerque NM 22222', email: 'bugs@bunny.com'
       visit '/users/noaction.xlsx'
       expect(page.response_headers['Content-Type']).to eq(mime_type.to_s + "; charset=utf-8")
-      File.open('/tmp/caxlsx_temp.xlsx', 'w') {|f| f.write(page.source) }
+      File.open('/tmp/caxlsx_temp.xlsx', 'wb') {|f| f.write(page.source) }
       wb = nil
       expect{ wb = Roo::Excelx.new('/tmp/caxlsx_temp.xlsx') }.to_not raise_error
       expect(wb.cell(3,2)).to eq('Bugs')
