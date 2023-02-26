@@ -28,12 +28,40 @@ jobs:
           - "2.7"
           - "3.0"
 
+        include:
+          - rails: "4.2"
+            bundler: "1.17.3"
+
         exclude:
           - rails: "4.2"
             ruby: "2.7"
 
           - rails: "4.2"
             ruby: "3.0"
+
+          - rails: "5.0"
+            ruby: "3.0"
+
+          - rails: "5.1"
+            ruby: "3.0"
+
+          - rails: "5.2"
+            ruby: "3.0"
+
+          - rails: "6.0"
+            ruby: "2.4"
+
+          - rails: "6.1"
+            ruby: "2.4"
+
+          - rails: "7.0"
+            ruby: "2.4"
+
+          - rails: "7.0"
+            ruby: "2.5"
+
+          - rails: "7.0"
+            ruby: "2.6"
 
     env:
       BUNDLE_GEMFILE: ${{ github.workspace }}/spec/gemfiles/Gemfile.rails-${{ matrix.rails }}
@@ -44,8 +72,9 @@ jobs:
       - name: Install ruby
         uses: ruby/setup-ruby@v1
         with:
+          bundler: "${{ matrix.bundler }}"
           ruby-version: "${{ matrix.ruby }}"
-          bundler-cache: "${{ matrix.rails != '4.2' }}"
+          bundler-cache: true
 
       - name: Run tests
         run: bundle exec rspec
