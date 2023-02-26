@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'Axlsx template handler' do
 
-  AB = ActionView::Template::Handlers::AxlsxBuilder
+  AB = AxlsxRails::TemplateHandler
   VT = Struct.new(:source)
 
   let( :handler ) { AB.new }
