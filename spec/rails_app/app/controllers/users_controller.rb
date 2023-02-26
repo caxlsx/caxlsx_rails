@@ -19,7 +19,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     respond_with(@user) do |format|
-      format.xlsx { render "respond_with.xlsx.axlsx" }
+      if Gem::Version.new("7.0") <= Rails.gem_version
+        format.xlsx { render "respond_with" }
+      else
+        format.xlsx { render "respond_with.xlsx.axlsx" }
+      end
     end
   end
 

@@ -46,3 +46,4 @@ coverage/*
 .tool-versions
 
 spec/gemfiles/*.lock
+.byebug_history
