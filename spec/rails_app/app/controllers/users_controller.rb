@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   respond_to :xlsx, :html
-  layout Proc.new { |c| return (c.request.format.symbol == :xlsx ? false : :default )}
+
+  if Gem::Version.new("5.0") <= Rails.gem_version
+    layout Proc.new { |c| return (c.request.format.symbol == :xlsx ? false : :default )}
+  end
 
   # GET /users
   # GET /users.json
@@ -23,7 +26,11 @@ class UsersController < ApplicationController
   def send_instructions
     @user = User.find(params[:user_id])
     @user.send_instructions
-    render plain: "Email sent"
+    if Rails.gem_version < Gem::Version.new("5.0")
+      render text: "Email sent"
+    else
+      render plain: "Email sent"
+    end
   end
 
   def export

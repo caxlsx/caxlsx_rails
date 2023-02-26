@@ -6,9 +6,13 @@ class Notifier < ActionMailer::Base
 
     # normal syntax
     xlsx = render_to_string handlers: [:axlsx], template: 'users/send_instructions', layout: false, formats: [:xlsx]
-    attachments["user_#{user.id}.xlsx"] = {mime_type: Mime[:xlsx], content: xlsx}
+    if Rails.gem_version < Gem::Version.new("5.0")
+      attachments["user_#{user.id}.xlsx"] = {mime_type: Mime::XLSX, content: xlsx}
+    else
+      attachments["user_#{user.id}.xlsx"] = {mime_type: Mime[:xlsx], content: xlsx}
+    end
 
-    mail :to => user.email, :subject => 'Instructions'
+      mail :to => user.email, :subject => 'Instructions'
   end
 
 end
