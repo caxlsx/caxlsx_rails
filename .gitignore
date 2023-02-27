@@ -43,3 +43,7 @@ coverage/*
 *.sqlite3
 
 .ruby-version
+.tool-versions
+
+spec/gemfiles/*.lock
+.byebug_history

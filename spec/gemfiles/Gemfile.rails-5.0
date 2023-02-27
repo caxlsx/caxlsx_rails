@@ -1,0 +1,14 @@
+source "http://rubygems.org"
+
+gemspec path: '../../'
+
+gem 'rails', "~> 5.0.0"
+gem 'responders', '~> 2.0'
+gem 'sqlite3', '~> 1.3.6'
+gem 'sprockets', '~> 3.0'
+gem "jquery-rails"
+gem "thin"
+gem 'capybara', '~> 2.1'
+gem 'acts_as_caxlsx', git: 'https://github.com/caxlsx/acts_as_caxlsx.git'
+
+gem 'byebug'

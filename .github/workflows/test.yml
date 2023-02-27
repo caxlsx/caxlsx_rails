@@ -9,32 +9,62 @@ jobs:
   test_ruby_and_rails_versions:
     runs-on: ubuntu-20.04
 
-    continue-on-error: ${{ matrix.allow_failures || false }}
-
-    env:
-      BUNDLE_GEMFILE: "${{ matrix.gemfile }}" ### allows adding gemfile: to the matrix, bundler will automatically pick this up
-
     strategy:
       fail-fast: false
       matrix:
+        rails:
+          - "4.2"
+          - "5.0"
+          - "5.1"
+          - "5.2"
+          - "6.0"
+          - "6.1"
+          - "7.0"
+
+        ruby:
+          - "2.4"
+          - "2.5"
+          - "2.6"
+          - "2.7"
+          - "3.0"
+
         include:
-          - ruby: 2.4
-            RAILS_VERSION: "4.2"
+          - rails: "4.2"
+            bundler: "1.17.3"
 
-          - ruby: 2.5
-            RAILS_VERSION: "5.0"
+        exclude:
+          - rails: "4.2"
+            ruby: "2.7"
 
-          - ruby: 2.5
-            RAILS_VERSION: "5.1"
+          - rails: "4.2"
+            ruby: "3.0"
 
-          - ruby: 2.6
-            RAILS_VERSION: "5.2"
+          - rails: "5.0"
+            ruby: "3.0"
 
-          - ruby: 2.7
-            RAILS_VERSION: "6.0"
+          - rails: "5.1"
+            ruby: "3.0"
 
-#          - ruby: "3.0" ### must be quoted otherwise will be treated as "3" which resolves to latest 3.x version
-#            RAILS_VERSION: "7.0"
+          - rails: "5.2"
+            ruby: "3.0"
+
+          - rails: "6.0"
+            ruby: "2.4"
+
+          - rails: "6.1"
+            ruby: "2.4"
+
+          - rails: "7.0"
+            ruby: "2.4"
+
+          - rails: "7.0"
+            ruby: "2.5"
+
+          - rails: "7.0"
+            ruby: "2.6"
+
+    env:
+      BUNDLE_GEMFILE: ${{ github.workspace }}/spec/gemfiles/Gemfile.rails-${{ matrix.rails }}
 
     steps:
       - uses: actions/checkout@v2
@@ -42,10 +72,10 @@ jobs:
       - name: Install ruby
         uses: ruby/setup-ruby@v1
         with:
+          bundler: "${{ matrix.bundler }}"
           ruby-version: "${{ matrix.ruby }}"
-          bundler-cache: "${{ matrix.RAILS_VERSION != 4.2 }}"
+          bundler-cache: true
 
       - name: Run tests
-        run: |
-          export RAILS_VERSION=${{ matrix.RAILS_VERSION }}
-          spec/ci.rb
+        run: bundle exec rspec
+        continue-on-error: ${{ matrix.allow_failures == 'true' }}
