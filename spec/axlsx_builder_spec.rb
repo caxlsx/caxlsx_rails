@@ -36,21 +36,52 @@ describe AxlsxRails::TemplateHandler do
       RUBY
 
       it "compiles to an excel spreadsheet when passing in a source" do
-        xlsx_package, wb = nil
-        eval(described_class.new.call(template, source_string))
-        xlsx_package.serialize('/tmp/axlsx_temp.xlsx')
-        expect { wb = Roo::Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
+        wb = nil
+
+        file = Tempfile.new(['caxlsx', '.xlsx'])
+        file.binmode
+        file.write(eval(described_class.new.call(template, source_string)))
+        file.close
+
+        expect { wb = Roo::Excelx.new(file.path) }.to_not raise_error
         expect(wb.cell(2,3)).to eq('f')
       end
     end
 
     context 'when not passing in a source' do
-      it "compiles to an excel spreadsheet when inferring source from template " do
-        xlsx_package, wb = nil
-        eval(described_class.new.call(template))
-        xlsx_package.serialize('/tmp/axlsx_temp.xlsx')
-        expect { wb = Roo::Excelx.new('/tmp/axlsx_temp.xlsx') }.to_not raise_error
+      it "compiles to an excel spreadsheet when inferring source from template" do
+        wb = nil
+
+        file = Tempfile.new(['caxlsx', '.xlsx'])
+        file.binmode
+        file.write(eval(described_class.new.call(template)))
+        file.close
+
+        expect { wb = Roo::Excelx.new(file.path) }.to_not raise_error
         expect(wb.cell(2,3)).to eq('c')
+      end
+
+      context 'when template ends with a comment line' do
+        let(:template_string) { <<~RUBY.strip }
+          wb = xlsx_package.workbook
+          wb.add_worksheet(name: 'Test') do |sheet|
+            sheet.add_row ['one', 'two', 'three']
+            sheet.add_row ['a', 'b', 'c']
+          end
+          # Extra comment
+        RUBY
+
+        it "compiles to an excel spreadsheet when inferring source from template" do
+          wb = nil
+
+          file = Tempfile.new(['caxlsx', '.xlsx'])
+          file.binmode
+          file.write(eval(described_class.new.call(template)))
+          file.close
+
+          expect { wb = Roo::Excelx.new(file.path) }.to_not raise_error
+          expect(wb.cell(2,3)).to eq('c')
+        end
       end
     end
   end
