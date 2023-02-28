@@ -139,22 +139,20 @@ describe 'Caxlsx request', :type => :request do
     expect(wb.cell(2,1)).to eq('Untie!')
   end
 
-  unless Rails.version < '3.2'
-    it "handles missing format with render :xlsx" do
-      visit '/another'
+  it "handles missing format with render :xlsx" do
+    visit '/another'
 
-      expect(page.response_headers['Content-Type']).to eq(mime_type)
-      expect(page.response_headers['Content-Disposition']).to include("filename=\"filename_test.xlsx\"")
+    expect(page.response_headers['Content-Type']).to eq(mime_type)
+    expect(page.response_headers['Content-Disposition']).to include("filename=\"filename_test.xlsx\"")
 
-      File.open('/tmp/caxlsx_temp.xlsx', 'wb') {|f| f.write(page.source) }
-      wb = nil
-      # wb = Roo::Excelx.new('/tmp/caxlsx_temp.xlsx')
-      expect{ wb = Roo::Excelx.new('/tmp/caxlsx_temp.xlsx') }.to raise_error(Zip::ZipError)
-      # wb.cell(2,1).should == 'Untie!'
-    end
+    File.open('/tmp/caxlsx_temp.xlsx', 'wb') {|f| f.write(page.source) }
+    wb = nil
+    # wb = Roo::Excelx.new('/tmp/caxlsx_temp.xlsx')
+    expect{ wb = Roo::Excelx.new('/tmp/caxlsx_temp.xlsx') }.to raise_error(Zip::ZipError)
+    # wb.cell(2,1).should == 'Untie!'
   end
 
-  unless Rails.version < '4.0'
+  if Rails.version > '4.0' && Rails.version < '5.0'
     Capybara.register_driver :mime_all do |app|
       Capybara::RackTest::Driver.new(app, headers: { 'HTTP_ACCEPT' => '*/*' })
     end
