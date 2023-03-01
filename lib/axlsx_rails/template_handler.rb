@@ -26,7 +26,7 @@ module AxlsxRails
       builder << ":created_at => xlsx_created_at,"
       builder << ":use_shared_strings => xlsx_use_shared_strings);"
       builder << (source || template.source)
-      builder << ";xlsx_package.to_stream.string;"
+      builder << "\n;xlsx_package.to_stream.string;"
       builder.string
     end
   end
