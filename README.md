@@ -9,8 +9,8 @@ Axlsx-Rails &mdash; Spreadsheet templates for Rails
 Version](https://badge.fury.io/rb/caxlsx_rails.svg)](https://badge.fury.io/rb/caxlsx_rails)
 [![Coverage
 Status](https://coveralls.io/repos/caxlsx/caxlsx_rails/badge.svg)](https://coveralls.io/r/caxlsx/caxlsx_rails)
-[![Test Suite](https://github.com/caxlsx/caxlsx_rails/actions/workflows/test.yml/badge.svg)](https://github.com/caxlsx/caxlsx_rails/actions)
-![Downloads](https://img.shields.io/gem/dt/caxlsx_rails?label=Downloads)
+[![tests](https://github.com/caxlsx/caxlsx_rails/actions/workflows/test.yml/badge.svg)](https://github.com/caxlsx/caxlsx_rails/actions)
+![downloads](https://img.shields.io/gem/dt/caxlsx_rails?label=downloads)
 
 ## Notice: Community Axlsx Organization
 
