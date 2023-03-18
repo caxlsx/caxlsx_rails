@@ -2,7 +2,7 @@ require 'spec_helper'
 describe 'Caxlsx request', :type => :request do
 
   after(:each) do
-    if File.exists? '/tmp/caxlsx_temp.xlsx'
+    if File.exist? '/tmp/caxlsx_temp.xlsx'
       File.unlink '/tmp/caxlsx_temp.xlsx'
     end
   end
