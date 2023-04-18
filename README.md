@@ -292,7 +292,7 @@ end
 
 require 'rspec/expectations'
 
-module XslsMatchers
+module XlsxMatchers
 
   RSpec::Matchers.define :have_header_cells do |cell_values|
     match do |worksheet|
