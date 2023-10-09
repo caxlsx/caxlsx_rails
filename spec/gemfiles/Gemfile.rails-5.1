@@ -12,3 +12,7 @@ gem 'capybara', '~> 2.1'
 gem 'acts_as_caxlsx', git: 'https://github.com/caxlsx/acts_as_caxlsx.git'
 
 gem 'byebug'
+
+if RUBY_VERSION < '2.5'
+  gem 'loofah', '< 2.21.0'
+end
