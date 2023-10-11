@@ -419,6 +419,26 @@ If you are using turbolinks, you may need to disable turbolinks when you link to
 link_to 'Download spreadsheet', path_to_sheet, data: {turbolinks: false}
 ```
 
+### Rails 7 Unknown Format
+
+In Rails 7, if you get an error of "Unknown Format" you may need to add `(format: "xlsx")` to the named route.
+
+A clue to the "format" that Rails is responding with is to look at your log file or console after you click the HTML link or submit your form. You should see `Processing by Controller#action as XLSX`.
+
+#### Code Examples
+
+Scenario 1 - HTML Link within index.html.erb
+
+```ruby
+link_to "Download as Excel", my_named_route_path(format: "xlsx")
+```
+
+Scenario 2 - Using form_with()
+
+```ruby
+form_with method: :post, url: my_named_route_path(format: :xlsx) do |f|
+```
+
 ### What to do
 
 If you are having problems, try to isolate the issue. Use the console or a script to make sure your data is good. Then create the spreadsheet line by line without Axlsx-Rails to see if you are having caxlsx problems. If you can manually create the spreadsheet, create an issue and we will work it out.
