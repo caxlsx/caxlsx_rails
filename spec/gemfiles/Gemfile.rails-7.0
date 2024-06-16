@@ -4,7 +4,7 @@ gemspec path: '../../'
 
 gem 'rails', "~> 7.0.0"
 gem 'responders', '~> 3.0'
-gem 'sqlite3'
+gem 'sqlite3', '~> 1.4'
 gem 'sprockets', '~> 3.0'
 gem "jquery-rails"
 gem "thin"
