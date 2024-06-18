@@ -27,3 +27,4 @@ coverage/*
 
 spec/gemfiles/*.lock
 .byebug_history
+*.gem
