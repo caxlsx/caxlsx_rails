@@ -1,5 +1,11 @@
 # Change log
 
+**June 18, 2024**: 0.6.4 release
+
+- Convert to Github actions
+- Improve tests
+- Fix broken templates with comments as their last line
+
 **March 8, 2022**: 0.6.3 release
 
 - Exclude rspec directory (#149)[https://github.com/caxlsx/caxlsx_rails/pull/149]
