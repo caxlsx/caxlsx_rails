@@ -2,9 +2,7 @@
 
 require 'action_controller'
 
-unless Mime[:xlsx]
-  Mime::Type.register 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', :xlsx
-end
+Mime::Type.register 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', :xlsx unless Mime[:xlsx]
 
 ActionController::Renderers.add :xlsx do |filename, options|
   #
@@ -22,14 +20,21 @@ ActionController::Renderers.add :xlsx do |filename, options|
   #    render 'controller/diff_action'
   #  end
   #
-  options[:template] = filename.gsub(/^.*\//,'') if options[:template] == action_name
+  if options[:template].nil?
+    options[:template] ||= action_name
+    options[:prefixes] ||= self.class.ancestors
+                               .take_while { |a| a.respond_to?(:controller_path) }
+                               .map(&:controller_path)
+  end
+
+  options[:template] = filename.gsub(%r{^.*/}, '') if options[:template] == action_name
 
   # force layout false
   options[:layout] = false
 
   # disposition / filename
   disposition = options.delete(:disposition) || 'attachment'
-  file_name = options.delete(:filename) || "#{filename.gsub(/^.*\//,'')}.xlsx"
+  file_name = options.delete(:filename) || "#{filename.gsub(%r{^.*/}, '')}.xlsx"
   file_name = "#{file_name}.xlsx" unless file_name =~ /\.xlsx$/
 
   # alternate settings
@@ -51,7 +56,7 @@ if defined?(ActionController::Responder)
       if @default_response
         @default_response.call(options)
       else
-        controller.render({xlsx: controller.action_name}.merge(options))
+        controller.render({ xlsx: controller.action_name }.merge(options))
       end
     end
   end

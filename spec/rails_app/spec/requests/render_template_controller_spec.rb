@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe Examples::RespondToController do
+describe Examples::RenderTemplateController do
   let(:path) { "/examples/render_template/#{variant}.xlsx" }
 
   shared_examples_for 'responds properly' do
