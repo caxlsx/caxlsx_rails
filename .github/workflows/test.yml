@@ -7,7 +7,7 @@ on:
 
 jobs:
   test_ruby_and_rails_versions:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     strategy:
       fail-fast: false
