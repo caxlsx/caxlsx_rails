@@ -141,7 +141,7 @@ jobs:
       BUNDLE_GEMFILE: ${{ github.workspace }}/spec/gemfiles/Gemfile.rails-${{ matrix.rails }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Install ruby
         uses: ruby/setup-ruby@v1
