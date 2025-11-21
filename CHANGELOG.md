@@ -1,5 +1,10 @@
 # Change log
 
+**Unreleased**
+
+- Drop support for Ruby < 2.6 and Rails < 6.1
+- Require at least caxlsx 4.0
+
 **June 18, 2024**: 0.6.4 release
 
 - Convert to Github actions
@@ -104,4 +109,3 @@
 
 - Initial posting.
 - It works, but there are no tests! Bad programmer!
-

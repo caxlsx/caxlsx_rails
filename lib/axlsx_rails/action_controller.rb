@@ -2,14 +2,8 @@
 
 require 'action_controller'
 
-if Rails.version.to_f >= 5
-  unless Mime[:xlsx]
-  	Mime::Type.register 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', :xlsx
-  end
-else
-  unless defined? Mime::XLSX
-    Mime::Type.register 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', :xlsx
-  end
+unless Mime[:xlsx]
+  Mime::Type.register 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', :xlsx
 end
 
 ActionController::Renderers.add :xlsx do |filename, options|
@@ -19,7 +13,7 @@ ActionController::Renderers.add :xlsx do |filename, options|
   #  def called_action
   #    render xlsx: 'filename', template: 'controller/diff_action'
   #  end
-  # 
+  #
   # And the normal use case works:
   #
   #  def called_action
@@ -46,15 +40,11 @@ ActionController::Renderers.add :xlsx do |filename, options|
     options[:locals][:xlsx_use_shared_strings] = options.delete(:xlsx_use_shared_strings)
   end
 
-  mime = Rails.version.to_f >= 5 ? Mime[:xlsx] : Mime::XLSX
-  send_data render_to_string(options), filename: file_name, type: mime, disposition: disposition
+  send_data render_to_string(options), filename: file_name, type: Mime[:xlsx], disposition: disposition
 end
 
 # For respond_to default
-begin
-  ActionController::Responder
-rescue
-else
+if defined?(ActionController::Responder)
   class ActionController::Responder
     def to_xlsx
       @_action_has_layout = false

@@ -1,0 +1,4 @@
+wb.add_worksheet(name: "Foobar") do |sheet|
+  render 'row', values: ['one', 'two', 'three'], sheet: sheet
+  render 'row', values: ['a', 'b', 'c'], sheet: sheet
+end
