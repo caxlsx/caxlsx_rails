@@ -19,19 +19,15 @@ Gem::Specification.new do |s|
 
   s.files = Dir['lib/**/*', 'CHANGELOG.md', 'README.md', 'MIT-LICENSE', 'caxlsx_rails.gemspec']
 
-  s.add_dependency 'actionpack', '>= 3.1'
-  s.add_dependency 'caxlsx', '>= 3.0'
+  s.add_dependency 'actionpack', '>= 6.1'
+  s.add_dependency 'caxlsx', '>= 4.0'
 
   s.add_development_dependency 'bundler'
   s.add_development_dependency 'rake'
   s.add_development_dependency 'rspec-rails'
-  s.add_development_dependency 'guard-rspec'
   s.add_development_dependency 'capybara'
   s.add_development_dependency 'roo'
   s.add_development_dependency 'rubyzip'
-  s.add_development_dependency 'growl'
-  s.add_development_dependency 'rb-fsevent'
-  s.add_development_dependency 'coveralls'
-  s.add_development_dependency 'pry'
-  s.add_development_dependency 'pry-nav'
+
+  s.required_ruby_version = '>= 2.6'
 end

@@ -1,0 +1,5 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Details") do |sheet|
+  sheet.add_row @headers
+  sheet.add_row @values
+end

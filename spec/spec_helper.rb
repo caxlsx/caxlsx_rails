@@ -14,9 +14,7 @@ require 'rails_app/config/environment'
 require 'rspec/rails'
 require 'capybara/rspec'
 require 'roo'
-require 'byebug'
-
-ActiveRecord::Migration.maintain_test_schema!
+require 'debug'
 
 Dir[Rails.root.join("../../spec/support/**/*.rb")].each {|f| require f}
 

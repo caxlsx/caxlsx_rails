@@ -5,19 +5,12 @@ require 'stringio'
 module AxlsxRails
   class TemplateHandler
     def default_format
-      case
-      when Rails.version.to_f >= 6
-        Mime[:xlsx].symbol
-      when Rails.version.to_f >= 5
-        Mime[:xlsx]
-      else
-        Mime::XLSX
-      end
+      Mime[:xlsx].symbol
     end
 
     def call(template, source = nil)
       builder = StringIO.new
-      builder << "require 'axlsx';"
+      builder << "require 'caxlsx';"
       builder << "xlsx_author = defined?(xlsx_author).nil? ? nil : xlsx_author;"
       builder << "xlsx_created_at = defined?(xlsx_created_at).nil? ? nil : xlsx_created_at;"
       builder << "xlsx_use_shared_strings = defined?(xlsx_use_shared_strings).nil? ? nil : xlsx_use_shared_strings;"

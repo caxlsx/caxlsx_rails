@@ -1,0 +1,19 @@
+<p>Hey, you can manually test the endpoints used in the integration tests:</p>
+<ul>
+  <li>Respond to:
+    <%= link_to "html", examples_respond_to_path('html') %> |
+    <%= link_to "xlsx", examples_respond_to_path('xlsx') %></li>
+  <li>Respond with:
+    <%= link_to "respond_with.xlsx", examples_respond_with_path('xlsx') %></li>
+  <li>Custom filename:
+    <%= link_to "test_name.xlsx", examples_file_name_path('xlsx') %> |
+    <%= link_to "test_name.xlsx", examples_file_name_path('xlsx', set_content_disposition: true) %></li>
+  <li>Render partials:
+    <%= link_to "render_partial.xlsx", examples_render_partial_path('xlsx') %></li>
+  <li>Render template:
+    <%= link_to "render_template/1.xlsx", examples_render_template_path(1, 'xlsx') %> |
+    <%= link_to "render_template/2.xlsx", examples_render_template_path(2, 'xlsx') %> |
+    <%= link_to "render_template/3.xlsx", examples_render_template_path(3, 'xlsx') %> |
+    <%= link_to "render_template/4.xlsx", examples_render_template_path(4, 'xlsx') %> |
+    <%= link_to "render_template/5.xlsx", examples_render_template_path(5, 'xlsx') %></li>
+</ul>

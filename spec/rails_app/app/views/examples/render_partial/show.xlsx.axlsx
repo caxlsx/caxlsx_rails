@@ -1,0 +1,3 @@
+wb = xlsx_package.workbook
+
+render 'worksheet', wb: wb
