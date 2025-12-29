@@ -24,6 +24,7 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = false
   config.infer_base_class_for_anonymous_controllers = false
   config.order = "random"
+  config.filter_run_when_matching :focus
 end
 
 # TODO: move to the support folder
