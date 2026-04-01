@@ -2,6 +2,9 @@
 
 **Unreleased**
 
+
+**April 1, 2026**: 0.7.0 release
+
 - Drop support for Ruby < 2.6 and Rails < 6.1
 - Require at least caxlsx 4.0
 - Add Rails 8.0 and Ruby 3.4 to the CI matrix
