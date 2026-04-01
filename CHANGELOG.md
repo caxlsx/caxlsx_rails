@@ -3,7 +3,9 @@
 **Unreleased**
 
 
-**April 1, 2026**: 0.7.0 release
+**April 1, 2026**: 0.7.1 release
+
+Note: v0.7.0 failed on the GitHub CI, skipping that version number.
 
 - Drop support for Ruby < 2.6 and Rails < 6.1
 - Require at least caxlsx 4.0
