@@ -14,7 +14,10 @@ Gem::Specification.new do |s|
   s.description = "Caxlsx_Rails provides an Caxlsx renderer so you can move all your spreadsheet code from your controller into view files. Partials are supported so you can organize any code into reusable chunks (e.g. cover sheets, common styling, etc.) You can use it with acts_as_caxlsx, placing the to_xlsx call in a view and adding ':package => xlsx_package' to the parameter list. Now you can keep your controllers thin!"
 
   s.metadata = {
-    "changelog_uri" => "https://github.com/caxlsx/caxlsx_rails/blob/master/CHANGELOG.md"
+    "bug_tracker_uri" => "https://github.com/caxlsx/caxlsx_rails/issues",
+    "changelog_uri" => "https://github.com/caxlsx/caxlsx_rails/blob/master/CHANGELOG.md",
+    "source_code_uri" => "https://github.com/caxlsx/caxlsx_rails",
+    "rubygems_mfa_required" => "true"
   }
 
   s.files = Dir['lib/**/*', 'CHANGELOG.md', 'README.md', 'MIT-LICENSE', 'caxlsx_rails.gemspec']
