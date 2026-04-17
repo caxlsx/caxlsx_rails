@@ -33,8 +33,8 @@ See [previous installations](#previous-installations) if needed.
 
 ## Requirements
 
-* Tested on Rails 6.1, and 7.x.
-* Supported Ruby versions: 2.6, 2.7, 3.x
+* Tested on Rails 6.1, 7.x, and 8.x.
+* Supported Ruby versions: 2.6, 2.7, 3.x, and 4.0
 * Minimum Caxlsx version: 4.0
 
 ## FYI
