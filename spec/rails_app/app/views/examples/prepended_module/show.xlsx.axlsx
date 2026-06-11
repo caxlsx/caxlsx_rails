@@ -1,0 +1,6 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: 'Test') do |sheet|
+  sheet.add_row ['one', 'two', 'three']
+  sheet.add_row ['a', 'b', 'c']
+end

@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :render_template, only: :show
     resource :respond_to, only: :show, controller: :respond_to
     resource :respond_with, only: :show, controller: :respond_with
+    resource :prepended_module, only: :show, controller: :prepended_module
   end
 end
