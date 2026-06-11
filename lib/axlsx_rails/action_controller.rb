@@ -22,9 +22,14 @@ ActionController::Renderers.add :xlsx do |filename, options|
   #
   if options[:template].nil?
     options[:template] ||= action_name
-    options[:prefixes] ||= self.class.ancestors
-                               .take_while { |a| a.respond_to?(:controller_path) }
-                               .map(&:controller_path)
+    # Use the controller's _prefixes (built from the superclass chain) instead of
+    # deriving prefixes from `ancestors`: a module prepended to the controller
+    # (memo_wise, instrumentation gems, ...) is the first ancestor and stops a
+    # take_while immediately, yielding no prefixes at all. Up to Rails 7.2 this
+    # branch was dead code because render option normalization ran before custom
+    # renderers and had already defaulted :template and :prefixes; Rails 8.0
+    # moved that normalization after the renderer, exposing the bug.
+    options[:prefixes] ||= _prefixes
   end
 
   options[:template] = filename.gsub(%r{^.*/}, '') if options[:template] == action_name
