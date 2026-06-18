@@ -2,6 +2,7 @@
 
 **Unreleased**
 
+- Fix `ActionView::MissingTemplate` on Rails >= 8.0 when a module is prepended to the controller: derive template lookup prefixes from the controller's `_prefixes` instead of `ancestors.take_while`
 
 **April 1, 2026**: 0.7.1 release
 
