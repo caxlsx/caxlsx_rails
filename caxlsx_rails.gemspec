@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
     "rubygems_mfa_required" => "true"
   }
 
-  s.files = Dir['lib/**/*', 'CHANGELOG.md', 'README.md', 'MIT-LICENSE', 'caxlsx_rails.gemspec']
+  s.files = Dir['lib/**/*', 'CHANGELOG.md', 'README.md', 'MIT-LICENSE']
 
   s.add_dependency 'actionpack', '>= 6.1'
   s.add_dependency 'caxlsx', '>= 4.0'
