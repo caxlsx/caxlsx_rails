@@ -71,7 +71,7 @@ jobs:
       BUNDLE_GEMFILE: ${{ github.workspace }}/spec/gemfiles/Gemfile.rails-${{ matrix.rails }}
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - name: Install ruby
         uses: ruby/setup-ruby@v1
